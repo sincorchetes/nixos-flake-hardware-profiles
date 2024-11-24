@@ -1,0 +1,94 @@
+{ pkgs, lib, ... }:
+
+let
+  gcloud = pkgs.google-cloud-sdk.withExtraComponents [ pkgs.google-cloud-sdk.components.gke-gcloud-auth-plugin ];
+in
+
+{
+
+  home = {
+    stateVersion = "24.11";
+    packages = with pkgs ; [
+        vim
+        powerline-fonts
+        ubuntu-sans
+        ubuntu-classic
+        roboto
+        google-chrome
+        unrar
+        virt-manager
+        gimp
+        inkscape
+        vlc
+        kubectl
+        lens
+        gcloud
+        desktop-file-utils
+        istioctl
+        warp-terminal
+        jetbrains.pycharm-professional
+        hping
+        lshw
+        nmap
+        aircrack-ng
+        remmina
+        stremio
+        kubernetes-helm
+        jetbrains-mono
+        tree
+        wireshark
+        minikube
+        discord
+        slack
+        btop
+        ffmpeg_7-full
+        gst_all_1.gstreamer
+        gst_all_1.gst-vaapi
+        gst_all_1.gst-plugins-ugly
+        gst_all_1.gst-plugins-good
+        gst_all_1.gst-plugins-bad
+        gst_all_1.gst-libav
+        gpt4all
+        terraform
+        terragrunt
+        binutils
+        ncdu
+        openfortivpn
+        fastfetch
+        libreoffice
+        acpi
+        usbutils
+        borgbackup
+        jetbrains.datagrip
+        dbeaver-bin
+        awscli2
+        gh
+        eza
+        spice-gtk
+        kitty
+        kernelshark
+        unzip
+        telegram-desktop
+        transmission_4-gtk
+        pciutils
+        lm_sensors
+        tmux
+        git
+        bash-completion
+        pavucontrol
+        mpv
+        spotify
+        vdpauinfo
+        geekbench
+        devenv
+        cachix
+        obs-studio
+        gnome-tweaks
+        wl-clipboard
+        flat-remix-gnome
+        flat-remix-gtk
+        flat-remix-icon-theme
+        nodejs
+    ];
+  };
+}
