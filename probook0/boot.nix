@@ -8,7 +8,7 @@
     # RAM Image Kernel Modules
 
     initrd = {
-      luks.devices."nixos-root".device = "/dev/disk/by-uuid/67c0f096-ab39-40b4-9187-8cc6f3cbee24";
+      luks.devices."nixos-root".device = "/dev/disk/by-uuid/da456e40-1bae-4caa-a0cd-5a99c2deebf3";
       availableKernelModules = [ "xhci_pci" "nvme" "usb_storage" "sd_mod" "uas" "ahci" "thunderbolt" "usbhid"];
     };
 
