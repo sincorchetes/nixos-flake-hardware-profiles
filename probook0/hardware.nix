@@ -1,9 +1,6 @@
-{ pkgs, config, ... }:
-
+{ config, lib, pkgs, ... }:
 {
-    environment = {
-        systemPackages = with pkgs; [
-          soft-firmware
-        ]
-    }
+    hardware = {
+        firmware = [ pkgs.soft-firmware ];
+    };
 }
