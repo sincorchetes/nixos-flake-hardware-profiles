@@ -1,6 +1,6 @@
 { config, lib, pkgs, ... }:
 {
     hardware = {
-        firmware = [ pkgs.soft-firmware ];
+        firmware = [ pkgs.sof-firmware ];
     };
 }
