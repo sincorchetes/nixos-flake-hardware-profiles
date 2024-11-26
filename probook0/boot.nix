@@ -3,7 +3,7 @@
 {
   boot = {
 
-   blacklistedKernelModules = [ "amdgpu" "nouveau"];
+   blacklistedKernelModules = [];
 
     # RAM Image Kernel Modules
 
@@ -14,13 +14,11 @@
 
     # Set Kernel Modules
     
-    kernelModules = [ "kvm-amd" "r8169" ];
+    kernelModules = [ "kvm-intel" "r8169" ];
     extraModulePackages = [ pkgs.vmware-workstation ];
     
     # Set Kernel Parameters
     kernelParams = [
-      # Disable AMDGPU 
-      #"nomodeset" 
       "zswap.enabled=1"
       "zswap.compresor=lz4"
       "zswap.max_pool_percent=20"
