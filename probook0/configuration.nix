@@ -20,5 +20,6 @@
       ./partitions.nix
       ./network.nix
       ./hardware.nix
+      ./services.nix
     ];
 }
