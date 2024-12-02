@@ -20,6 +20,7 @@
     kernelParams = [
       # Disable AMDGPU 
       "i915.enable_psr=0"
+      "i915.enable_dc=0"
       "zswap.enabled=1"
       "zswap.compresor=lz4"
       "zswap.max_pool_percent=20"
