@@ -15,11 +15,7 @@
       ohMyZsh = {
         enable = true;
         plugins = [
-          "sudo"
-          "systemd"
           "git"
-          "gcloud"
-          "aws"
           "colorize"
         ];
       };
