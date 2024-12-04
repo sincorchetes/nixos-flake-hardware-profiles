@@ -16,7 +16,7 @@
       };
   # Set your time zone
 
-  time.timeZone = "Europe/Madrid";
+  time.timeZone = "Atlantic/Canary";
 
   # Configure console keymap
   console.keyMap = "es";
