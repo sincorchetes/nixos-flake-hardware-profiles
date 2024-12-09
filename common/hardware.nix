@@ -5,7 +5,7 @@
   hardware = {
     pulseaudio.enable = false;
     bluetooth.enable = true;
-    #xpadneo.enable = true;
+    xpadneo.enable = true;
     firmware = [ pkgs.linux-firmware ];
       
     graphics = {
