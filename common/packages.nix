@@ -25,7 +25,8 @@
        kitty
        qemu_kvm
        waybar
-       OVMF 
+       OVMF
+       xboxdrv
        #unstablePkgs.bluez
        gnome-network-displays
        (pkgs.writeShellScriptBin "qemu-system-x86_64-uefi" ''
