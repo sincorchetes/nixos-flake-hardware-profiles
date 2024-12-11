@@ -39,6 +39,8 @@ in
         wireshark
         minikube
         discord
+        rustscan
+        p0f
         slack
         btop
         ffmpeg_7-full
