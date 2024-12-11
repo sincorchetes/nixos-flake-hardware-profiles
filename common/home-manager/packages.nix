@@ -89,6 +89,7 @@ in
         flat-remix-gtk
         flat-remix-icon-theme
         nodejs
+        typora
     ];
   };
 }
