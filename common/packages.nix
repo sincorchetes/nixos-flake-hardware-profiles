@@ -25,6 +25,7 @@
        kitty
        qemu_kvm
        waybar
+       inetutils
        OVMF
        xboxdrv
        #unstablePkgs.bluez
