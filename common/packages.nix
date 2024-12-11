@@ -28,8 +28,6 @@
        inetutils
        OVMF
        xboxdrv
-       rustscan
-       p0f
        #unstablePkgs.bluez
        gnome-network-displays
        (pkgs.writeShellScriptBin "qemu-system-x86_64-uefi" ''
