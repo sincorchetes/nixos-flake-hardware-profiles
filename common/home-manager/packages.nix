@@ -9,6 +9,7 @@ in
   home = {
     stateVersion = "24.11";
     packages = with pkgs ; [
+        pre-commit
         vim
         powerline-fonts
         ubuntu-sans
