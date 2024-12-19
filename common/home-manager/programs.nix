@@ -2,12 +2,6 @@
 
 {
   programs = {
-    dconf = {
-      enable = true;
-      settings = {
-        "org/gnome/desktop/interface".color-scheme = "prefer-dark";
-      };    
-    };
     zsh = {
       enable = true;
       enableCompletion = true;
