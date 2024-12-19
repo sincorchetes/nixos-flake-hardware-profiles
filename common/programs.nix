@@ -1,11 +1,12 @@
 { config, pkgs, ... }:
 
 {
-  programs.zsh = {
+  program = {
+    zsh = {
     enable = true;
     enableCompletion = true;
 
-    oh-my-zsh = {
+    ohMyZsh = {
       enable = true;
       theme = "agnoster";
       plugins = [
@@ -14,6 +15,7 @@
         (pkgs.zshPlugins.zsh-autosuggestions)
         (pkgs.zshPlugins.zsh-syntax-highlighting)
       ];
+      };
     };
   };
 }
