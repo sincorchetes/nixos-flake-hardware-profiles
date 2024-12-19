@@ -15,6 +15,7 @@
         ll = "eza -l";
         open = "xdg-open";
         gg = "gcloud";
+        uts = "sudo git -C /etc/nixos pull ; sudo nixos-rebuild switch --flake /etc/nixos/#$(hostname)";
       };
       oh-my-zsh = {
         enable = true;
