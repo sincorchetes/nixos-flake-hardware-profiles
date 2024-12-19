@@ -12,8 +12,8 @@
       plugins = [
         "git"
         "colorize"
-        (pkgs.zshPlugins.zsh-autosuggestions)
-        (pkgs.zshPlugins.zsh-syntax-highlighting)
+        "zsh-autosuggestions" 
+        "zsh-syntax-highlighting"
       ];
       };
     };
