@@ -7,7 +7,9 @@
       enableCompletion = true;
       autosuggestion.enable = true;
       syntaxHighlighting.enable = true;
-      plugins = [ "git" "colorize" "zsh-autosuggestions" "zsh-syntax-highlighting" ];
+      plugins = {
+        "git" "colorize" "zsh-autosuggestions" "zsh-syntax-highlighting"
+      };
 
       shellAliases = {
         c = "clear";
