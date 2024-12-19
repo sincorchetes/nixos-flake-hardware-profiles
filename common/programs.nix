@@ -1,20 +1,22 @@
 { config, pkgs, ... }:
-
 {
   programs = {
     zsh = {
-    enable = true;
-    enableCompletion = true;
-
-    ohMyZsh = {
       enable = true;
-      theme = "agnoster";
-      plugins = [
-        "git"
-        "colorize"
-        "zsh-autosuggestions" 
-        "zsh-syntax-highlighting"
-      ];
+      enableCompletion = true;
+      autosuggestions = {
+        enable = true;
+      };
+      syntaxHighlighting = {
+        enable = true;
+      };
+      
+      ohMyZsh = {
+        enable = true;
+        plugins = [
+          "git"
+          "colorize"
+        ];
       };
     };
   };

@@ -4,6 +4,11 @@
   programs = {
     zsh = {
       enable = true;
+      enableCompletion = true;
+      autosuggestion.enable = true;
+      syntaxHighlighting.enable = true;
+      plugins = [ "git" "colorize" "zsh-autosuggestions" "zsh-syntax-highlighting" ];
+
       shellAliases = {
         c = "clear";
         k = "kubectl";
