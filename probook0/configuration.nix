@@ -9,7 +9,7 @@
       ./../common/system.nix
       ./../common/packages.nix
       ./../common/users.nix
-      ./../common/zsh.nix
+      ./../common/programs.nix
       ./../common/network.nix
       ./../common/intel.nix
       ./../common/hardware.nix

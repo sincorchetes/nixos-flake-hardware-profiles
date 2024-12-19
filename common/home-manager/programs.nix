@@ -5,7 +5,8 @@
     zsh = {
       enable = true;
       enableCompletion = true;
-      autosuggestion.enable = true; 
+      autosuggestion.enable = true;
+      syntaxHighlighting.enable = true; 
       shellAliases = {
         c = "clear";
         k = "kubectl";
@@ -20,7 +21,7 @@
       oh-my-zsh = {
         enable = true;
         theme = "agnoster";
-        plugins = [ "git" ];
+        plugins = [ "git" "colorize" "zsh-autosuggestions" "zsh-syntax-highlighting" ];
       };
     };
   };
