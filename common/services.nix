@@ -8,6 +8,7 @@ services = {
   # Avoid TRIM issues in the future
   fstrim.enable = true;
 
+  gnome.gnome-keyring.enable = true;
   # OpenSSH Settings
   # openssh.enable = true;
 
