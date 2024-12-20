@@ -11,6 +11,8 @@
       availableKernelModules = [ "xhci_pci" "nvme" "usb_storage" "sd_mod" "uas" "ahci" "thunderbolt" "usbhid"];
     };
 
+    boot.initrd.luks.devices."nixos-root".device = "/dev/disk/by-uuid/17fdb3ae-62c6-456a-9cca-3be8f6c87e14";
+
     # Set Kernel Modules
     
     kernelModules = [ "kvm-amd" "r8169" ];
