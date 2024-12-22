@@ -6,13 +6,13 @@
     ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/a53dd61d-744a-480f-ac76-07f81a605ed1";
+    { device = "/dev/disk/by-uuid/3c22d709-626b-4706-acaf-8c2b48ce0769";
       fsType = "ext4";
       options = [ "discard" "noatime" ];
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/48F8-6B1C";
+    { device = "/dev/disk/by-uuid/8F44-F4B3";
       fsType = "vfat";
       options = [ "fmask=0022" "dmask=0022" ];
     };
