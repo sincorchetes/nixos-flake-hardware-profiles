@@ -18,7 +18,7 @@
     extraModulePackages = [ ];
     
     kernel.sysctl = {
-      "vm.swappiness=10";
+      "vm.swappiness" = 10;
     };
     # Set Kernel Parameters
     kernelParams = [
