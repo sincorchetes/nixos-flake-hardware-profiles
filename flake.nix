@@ -11,10 +11,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
-  
-  kernel.sysctl = {
-    "vm.swappiness=10";
-  };
 
   outputs = inputs@{ nixpkgs, home-manager, ... }: {
     nixosConfigurations = {
