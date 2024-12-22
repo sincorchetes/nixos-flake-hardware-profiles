@@ -17,6 +17,9 @@
     kernelModules = [ "kvm-amd" "r8169" ];
     extraModulePackages = [ ];
     
+    kernel.sysctl = {
+      "vm.swappiness=10";
+    };
     # Set Kernel Parameters
     kernelParams = [
       # Disable AMDGPU 
