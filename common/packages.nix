@@ -8,6 +8,7 @@
        vmware-workstation
        docker
        xdg-utils
+       glib
        pritunl-client
        pciutils
        linux-firmware
