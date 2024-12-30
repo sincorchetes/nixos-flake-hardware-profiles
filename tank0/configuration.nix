@@ -13,6 +13,7 @@
       ./../common/network.nix
       ./../common/hardware.nix
       ./../common/swap.nix
+      ./../common/wayland.nix
 
       # Custom Platform
       ./boot.nix
