@@ -11,6 +11,9 @@
       dunst
       copyq
       hyprpaper
+      font-awesome
+      noto-fonts-emoji
+      nerd-fonts
     ];
   };
 }
