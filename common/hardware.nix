@@ -3,6 +3,7 @@
 {
  
   hardware = {
+    sensors.enable = true;
     pulseaudio.enable = false;
     bluetooth.enable = true;
     xpadneo.enable = true;
