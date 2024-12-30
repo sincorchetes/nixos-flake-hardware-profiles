@@ -3,7 +3,7 @@
 {
   environment = {
     systemPackages = with pkgs; [
-      wayland
+      hyprland
       waybar
       hyprshot
       hyprpaper
