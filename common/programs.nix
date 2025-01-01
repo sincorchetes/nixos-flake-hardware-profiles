@@ -3,6 +3,10 @@
 {
   programs = {
     hyprland.enable = true;
+    sway = {
+      enable = true;
+      wrapperFeatures.gtk = true;
+    };
     zsh = {
       enable = true;
       enableCompletion = true;
