@@ -14,6 +14,10 @@
       font-awesome
       noto-fonts-emoji
       nerdfonts
+      grim
+      slurp
+      wl-clipboard 
+      mako 
     ];
   };
 }
