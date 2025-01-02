@@ -14,8 +14,7 @@
       noto-fonts-emoji
       nerdfonts
       mako
-      blueman
-      networkmanagerapplet
+      playerctl
     ];
   };
 }
