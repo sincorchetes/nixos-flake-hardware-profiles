@@ -29,6 +29,7 @@
        inetutils
        OVMF
        xboxdrv
+       heroic
        #unstablePkgs.bluez
        gnome-network-displays
        (pkgs.writeShellScriptBin "qemu-system-x86_64-uefi" ''
