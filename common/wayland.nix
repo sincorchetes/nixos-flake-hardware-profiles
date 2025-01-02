@@ -15,6 +15,7 @@
       nerdfonts
       mako
       blueman
+      volumeicon
     ];
   };
 }
