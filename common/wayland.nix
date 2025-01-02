@@ -8,7 +8,6 @@
       hyprshot
       hyprpaper
       wofi
-      dunst
       copyq
       hyprpaper
       font-awesome
