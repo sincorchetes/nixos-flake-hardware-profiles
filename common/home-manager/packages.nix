@@ -93,6 +93,17 @@ in
         flat-remix-icon-theme
         nodejs
         typora
+        hyprshot
+        hyprpaper
+        wofi
+        copyq
+        hyprpaper
+        font-awesome
+        noto-fonts-emoji
+        nerdfonts
+        mako
+        blueman
+        playerctl
     ];
   };
 }
