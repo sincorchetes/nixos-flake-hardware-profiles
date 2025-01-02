@@ -14,6 +14,7 @@
       font-awesome
       noto-fonts-emoji
       nerdfonts
+      mako
     ];
   };
 }
