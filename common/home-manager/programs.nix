@@ -2,11 +2,6 @@
 
 {
   programs = {
-    gnome-keyring = {
-      enable = true;
-      defaultCache = "memory";
-      defaultBackend = "secret-service";
-    };
     zsh = {
       enable = true;
       enableCompletion = true;
