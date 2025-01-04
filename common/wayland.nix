@@ -5,6 +5,7 @@
     systemPackages = with pkgs; [
       hyprland
       waybar
+      frog-protocols
     ];
   };
 }
