@@ -16,6 +16,7 @@
         ll = "eza -l";
         open = "xdg-open";
         gg = "gcloud";
+        code = "code --enable-features=UseOzonePlatform --ozone-platform=wayland";
         uts = "sudo git -C /etc/nixos pull ; sudo nixos-rebuild switch --flake /etc/nixos/#$(hostname)";
       };
 
