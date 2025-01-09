@@ -15,7 +15,8 @@
       EDITOR = "vim";
       LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath [ pkgs.stdenv.cc.cc ];
       XCURSOR_THEME = "Adwaita";
-      XCURSOR_SIZE = "24"; 
+      XCURSOR_SIZE = "24";
+      XDG_CONFIG_HOME = "$HOME/.config";
     };
   };
 }
