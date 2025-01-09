@@ -68,7 +68,6 @@ in
         gh
         eza
         spice-gtk
-        kitty
         kernelshark
         unzip
         telegram-desktop
@@ -87,21 +86,14 @@ in
         cachix
         obs-studio
         gnome-tweaks
-        wl-clipboard
         flat-remix-gnome
         flat-remix-gtk
         flat-remix-icon-theme
         nodejs
         typora
-        hyprshot
-        hyprpaper
-        wofi
-        copyq
-        hyprpaper
         font-awesome
         noto-fonts-emoji
         nerdfonts
-        mako
         blueman
         playerctl
     ];
