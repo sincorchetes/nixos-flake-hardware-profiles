@@ -35,6 +35,7 @@ services = {
 
   # Power Management
   thermald.enable = true;
+  hypridle.enable = true;
 
   # X Server
   xserver = {
