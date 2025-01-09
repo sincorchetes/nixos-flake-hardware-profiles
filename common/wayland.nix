@@ -5,8 +5,15 @@
     systemPackages = with pkgs; [
       hyprland
       waybar
-      frog-protocols
       libglvnd
+      hyprshot
+      hyprpaper
+      wofi
+      copyq
+      hyprpaper
+      wl-clipboard
+      mako
+      kitty
     ];
   };
 }
