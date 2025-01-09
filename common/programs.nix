@@ -3,6 +3,7 @@
 {
   programs = {
     hyprland.enable = true;
+    hyperland.with.withUWSM = true;
     hyprlock.enable = true;
     zsh = {
       enable = true;
