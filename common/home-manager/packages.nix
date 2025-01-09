@@ -95,6 +95,7 @@ in
         typora
         hyprshot
         hyprpaper
+        hyprlock
         wofi
         copyq
         hyprpaper
