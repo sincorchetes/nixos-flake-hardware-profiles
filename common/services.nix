@@ -40,9 +40,11 @@ services = {
   # X Server
   xserver = {
     enable = true;
-    displayManager.gdm.enable = true;
+    windowManager.hyprland.enable = true;
+    windowManager.hyprland.uwsv = true;
+    displayManager.gdm.enable = false;
     desktopManager.gnome.enable = true;
-    displayManager.gdm.wayland = true;
+    displayManager.gdm.wayland = false;
     xkb = {
       layout = "es";
       variant = "";
