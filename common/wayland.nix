@@ -6,6 +6,7 @@
       hyprland
       waybar
       frog-protocols
+      libglvnd
     ];
   };
 }
