@@ -40,8 +40,6 @@ services = {
   # X Server
   xserver = {
     enable = true;
-    windowManager.hyprland.enable = true;
-    windowManager.hyprland.uwsv = true;
     displayManager.gdm.enable = false;
     desktopManager.gnome.enable = true;
     displayManager.gdm.wayland = false;
