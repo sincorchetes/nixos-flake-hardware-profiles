@@ -14,7 +14,6 @@
       wl-clipboard
       mako
       kitty
-      alacritty
     ];
   };
 }
