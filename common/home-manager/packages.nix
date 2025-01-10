@@ -98,6 +98,7 @@ in
         playerctl
         asciinema
         alacritty
+        alacritty-theme
     ];
   };
 }
