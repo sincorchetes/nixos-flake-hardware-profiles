@@ -96,6 +96,8 @@ in
         nerdfonts
         blueman
         playerctl
+        asciinema
+        alacritty
     ];
   };
 }
