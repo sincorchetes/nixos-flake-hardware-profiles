@@ -23,6 +23,7 @@
 
   # RTKit 
   security.rtkit.enable = true;
+  security.pam.sshAgentAuth.enable = true;
 
   # Power Management
   powerManagement.enable = true;  
