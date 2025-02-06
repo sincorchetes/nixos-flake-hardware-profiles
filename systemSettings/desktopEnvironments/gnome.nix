@@ -25,6 +25,10 @@
     };
   };
 
+  environment.systemPackages = with pkgs; [
+    flat-remix-gnome
+    flat-remix-icon-theme
+  ];
   environment.systemPackages = with pkgs.gnomeExtensions; [
     pop-shell
   ];
