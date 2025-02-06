@@ -28,8 +28,7 @@
   environment.systemPackages = with pkgs; [
     flat-remix-gnome
     flat-remix-icon-theme
+    gnomeExtensions.pop-shell
   ];
-  environment.systemPackages = with pkgs.gnomeExtensions; [
-    pop-shell
-  ];
+  
 }
