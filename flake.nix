@@ -33,7 +33,7 @@
     nixosConfigurations = {
 
       # Main system
-      #tank0 = import ./tank0/default.nix { inherit nixpkgs home-manager; };
+      tank0 = import ./hosts/desktops/tank0.nix { inherit nixpkgs home-manager inputs; };
 
       # Lenovo Thinkpad x270 laptop
       thinkpad0 = import ./hosts/laptops/thinkpad0.nix { inherit nixpkgs home-manager inputs; };
