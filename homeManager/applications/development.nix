@@ -31,6 +31,7 @@ in
         gh
         remmina
         azure-cli
+        azure-cli-extensions.azure-devops
     ];
   };
 }
