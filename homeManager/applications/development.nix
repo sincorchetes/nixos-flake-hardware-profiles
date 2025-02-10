@@ -30,6 +30,7 @@ in
         awscli2
         gh
         remmina
+        azure-cli
     ];
   };
 }
