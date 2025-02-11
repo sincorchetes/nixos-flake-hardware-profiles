@@ -6,6 +6,7 @@
       ./../../../systemSettings/containerRuntimes/docker.nix
       ./../../../systemSettings/desktopEnvironments/gnome.nix
       ./../../../systemSettings/development/programmingTools.nix
+      ./../../../systemSettings/gaming/steam.nix
       ./../../../systemSettings/hardware/bluetooth.nix
       ./../../../systemSettings/hardware/graphics.nix
       ./../../../systemSettings/hardware/intel.nix
