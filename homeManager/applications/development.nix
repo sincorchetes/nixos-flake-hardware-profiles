@@ -32,6 +32,7 @@ in
         remmina
         azure-cli
         azure-cli-extensions.azure-devops
+        alacritty
     ];
   };
 }
