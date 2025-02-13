@@ -20,6 +20,7 @@
       spotify
       vlc
       stremio
+      heroic
     ];
   };
 }
