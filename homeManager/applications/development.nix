@@ -33,6 +33,7 @@ in
         azure-cli
         azure-cli-extensions.azure-devops
         alacritty
+        figma
     ];
   };
 }
