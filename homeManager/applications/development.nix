@@ -34,6 +34,8 @@ in
         azure-cli-extensions.azure-devops
         alacritty
         figma-linux
+        gnome-notes
+        endeavour
     ];
   };
 }
