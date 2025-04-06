@@ -2,7 +2,7 @@
 {
     hardware = {
         firmware = {
-            pkgs.sof-firmware;
+            pkgs.sof-firmware
         };
         bluetooth = {
               enable = true;
