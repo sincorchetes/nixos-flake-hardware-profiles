@@ -4,7 +4,7 @@
       firmware = with pkgs; [
         sof-firmware
       ];
-    };
+
         bluetooth = {
               enable = true;
               powerOnBoot = true;
