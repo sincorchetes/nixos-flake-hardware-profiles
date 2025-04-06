@@ -39,5 +39,6 @@
       ./boot.nix
       ./network.nix
       ./partitions.nix
+      ./hardware.nix
     ];
 }
