@@ -1,9 +1,10 @@
 { config, lib, pkgs, ... }:
 {
     hardware = {
-        firmware = {
-            pkgs.sof-firmware
-        };
+      firmware = with pkgs; [
+        sof-firmware
+      ];
+    };
         bluetooth = {
               enable = true;
               powerOnBoot = true;
