@@ -9,9 +9,6 @@
       };
     };
 
-  security.pam.services.gdm.enableGnomeKeyring = true;
-
-
     xserver = {
       enable = true;
       displayManager = {
@@ -33,5 +30,7 @@
     flat-remix-icon-theme
     gnomeExtensions.pop-shell
   ];
+
+  security.pam.services.gdm.enableGnomeKeyring = true;
   
 }
