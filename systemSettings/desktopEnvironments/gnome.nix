@@ -9,6 +9,9 @@
       };
     };
 
+  security.pam.services.gdm.enableGnomeKeyring = true;
+
+
     xserver = {
       enable = true;
       displayManager = {
