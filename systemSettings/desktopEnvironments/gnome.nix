@@ -32,5 +32,13 @@
   ];
 
   security.pam.services.gdm.enableGnomeKeyring = true;
+  systemd.user.services.gnome-keyring-daemon = {
+    Unit.Description = "GNOME Keyring Daemon";
+    Service = {
+      ExecStart = "/run/wrappers/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh";
+      Restart = "on-failure";
+    };
+    Install.WantedBy = [ "default.target" ];
+  };
   
 }
