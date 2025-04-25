@@ -5,6 +5,7 @@
     [
       ./applications/browsers.nix
       ./applications/development.nix
+      ./applications/gnome-keyring.nix
       ./applications/multimedia.nix
       ./applications/office.nix
       ./applications/social.nix
