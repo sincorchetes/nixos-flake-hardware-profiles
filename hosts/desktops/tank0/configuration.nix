@@ -26,6 +26,7 @@
       ./../../../systemSettings/system/bootManager.nix
       ./../../../systemSettings/system/firmwareUpdate.nix
       ./../../../systemSettings/system/fsTune.nix
+      ./../../../systemSettings/system/ntfs.nix
       ./../../../systemSettings/system/graphicServer.nix
       ./../../../systemSettings/system/kernel.nix
       ./../../../systemSettings/system/linuxFirmwares.nix
