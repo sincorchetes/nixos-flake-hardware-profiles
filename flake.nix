@@ -9,14 +9,14 @@
     # Update this to your desired nixpkgs version.
     # For example, to use the latest stable nixpkgs, use:
     nixpkgs = {
-      url = "github:NixOS/nixpkgs/nixos-24.11";
+      url = "github:NixOS/nixpkgs/nixos-25.05-pre";
     };
 
     # Home Manager configuration manager
     # Update this to your desired home-manager version.
     # For example, to use the latest stable home-manager, use:
     home-manager = {
-      url = "github:nix-community/home-manager/release-24.11";
+      url = "github:nix-community/home-manager/master";
     };
 
     # Disabled at the moment. It got a lot of updates and generates to much IOs
