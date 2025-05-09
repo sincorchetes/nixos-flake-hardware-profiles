@@ -9,7 +9,7 @@
     # Update this to your desired nixpkgs version.
     # For example, to use the latest stable nixpkgs, use:
     nixpkgs = {
-      url = "github:NixOS/nixpkgs/nixos-25.05-pre";
+      url = "github:NixOS/nixpkgs/nixos-unstable";
     };
 
     # Home Manager configuration manager
