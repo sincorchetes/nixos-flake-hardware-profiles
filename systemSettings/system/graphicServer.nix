@@ -7,15 +7,21 @@
       xdg-utils
       glib
       powerline-fonts
-      ubuntu-sans
-      ubuntu-classic
       roboto
       font-awesome
-      jetbrains-mono
-      noto-fonts-emoji
-      nerdfonts
+      noto-fonts-emoji-blob-bin
       desktop-file-utils
     ];
+  };
+
+  fonts = {
+    packages = with pkgs; [
+           nerd-fonts._0xproto
+           nerd-fonts.droid-sans-mono
+           nerd-fonts.ubuntu-sans
+           nerd-fonts.ubuntu
+           nerd-fonts.jetbrains-mono
+         ];
   };
   
   services = {
