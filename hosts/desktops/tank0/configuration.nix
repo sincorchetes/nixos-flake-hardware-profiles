@@ -43,8 +43,10 @@
       ./network.nix
       ./partitions.nix
       ./amd.nix
-      ./nix.nix
       ./nvidia.nix
       ./systemd.nix
     ];
 }
+
+# Unset settings
+#./nix.nix -- Disabled because it was allowed to compile COSMIC-Desktop, but it does not make sense here.
