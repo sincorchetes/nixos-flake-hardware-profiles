@@ -9,7 +9,6 @@
       ./../../../systemSettings/gaming/steam.nix
       ./../../../systemSettings/hardware/bluetooth.nix
       ./../../../systemSettings/hardware/graphics.nix
-      ./../../../systemSettings/hardware/intel.nix
       ./../../../systemSettings/hardware/sound.nix
       ./../../../systemSettings/network/disableAvahi.nix
       ./../../../systemSettings/network/firewall.nix
