@@ -29,7 +29,6 @@
       ./../../../systemSettings/system/kernel.nix
       ./../../../systemSettings/system/linuxFirmwares.nix
       ./../../../systemSettings/system/powerManagement.nix
-      ./../../../systemSettings/system/powerManagement.nix
       ./../../../systemSettings/system/printing.nix
       ./../../../systemSettings/system/swap.nix
       ./../../../systemSettings/system/systemInfo.nix
