@@ -15,7 +15,7 @@
     # Set Kernel Modules
     
     kernelModules = [ "kvm-intel" "r8169" ];
-    extraModulePackages = [ pkgs.vmware-workstation ];
+    #extraModulePackages = [ pkgs.vmware-workstation ]; --> Disabled.
     
     # Set Kernel Parameters
     kernelParams = [
