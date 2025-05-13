@@ -1,6 +1,9 @@
 {
   
   services = {
+    pulseaudio = {
+      enable = false;
+    };
 
     pipewire = {
       enable = true;
