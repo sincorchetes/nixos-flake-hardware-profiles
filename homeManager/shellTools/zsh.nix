@@ -11,6 +11,8 @@
       gnupg
       unrar
       btop
+      binutils
+      htop
     ];
     sessionVariables = {
       EDITOR = "vim";
