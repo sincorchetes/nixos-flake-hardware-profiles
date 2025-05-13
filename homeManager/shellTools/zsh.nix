@@ -29,7 +29,7 @@
       enableCompletion = true;
       autosuggestion.enable = true;
 
-      initExtra = ''
+      initContent = ''
         export SSH_AUTH_SOCK=/run/user/1000/ssh-agent
       '';
 

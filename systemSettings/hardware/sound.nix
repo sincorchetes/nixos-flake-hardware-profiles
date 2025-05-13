@@ -3,9 +3,6 @@
 {
  
   hardware = {
-    pulseaudio = {
-      enable = false;
-    };
     #xpadneo.enable = true;
     firmware = [ pkgs.linux-firmware ];
       
