@@ -37,9 +37,7 @@ in
         gnome-notes
         endeavour
         _1password-gui
-        pinentry
         pinentry-curses
-        pinentry-gnome3
     ];
   };
 }
