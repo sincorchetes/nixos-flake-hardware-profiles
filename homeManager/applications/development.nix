@@ -36,6 +36,7 @@ in
         figma-linux
         gnome-notes
         endeavour
+        _1password-gui
     ];
   };
 }
