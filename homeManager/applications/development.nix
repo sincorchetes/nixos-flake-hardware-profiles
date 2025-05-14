@@ -38,7 +38,6 @@ in
         endeavour
         _1password-gui
         pinentry-curses
-        pinentry-gnome3
     ];
   };
 }
