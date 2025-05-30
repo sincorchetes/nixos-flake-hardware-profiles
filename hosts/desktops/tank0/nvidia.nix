@@ -33,7 +33,7 @@
       powerManagement = {
         finegrained = false;
       };
-      open = true;
+      open = false;
     };
   };
 }
