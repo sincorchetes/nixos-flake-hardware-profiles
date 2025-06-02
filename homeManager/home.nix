@@ -10,11 +10,12 @@
       ./applications/office.nix
       ./applications/social.nix
       ./shellTools/backup.nix
+      ./shellTools/veracrypt.nix
       ./shellTools/zsh.nix
     ];
 
   home = {
-    stateVersion = "24.11";
+    stateVersion = "25.05";
     username = "sincorchetes";
     homeDirectory = "/home/sincorchetes";
     
