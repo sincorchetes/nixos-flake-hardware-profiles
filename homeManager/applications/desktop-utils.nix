@@ -5,9 +5,8 @@
   home = {
     
     packages = with pkgs ; [
-      google-chrome
-      brave
-      firefox
+      copyq
+      transmission_4-gtk
     ];
   };
 }
