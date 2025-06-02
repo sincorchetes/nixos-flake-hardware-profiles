@@ -4,6 +4,7 @@
   imports =
     [
       ./applications/browsers.nix
+      ./applications/desktop-utils.nix
       ./applications/development.nix
       #./applications/gnome-keyring.nix
       ./applications/multimedia.nix
