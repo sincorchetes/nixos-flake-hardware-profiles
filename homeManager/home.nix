@@ -7,6 +7,7 @@
       ./applications/desktop-utils.nix
       ./applications/development.nix
       #./applications/gnome-keyring.nix
+      ./applications/xdg-desktop-entries.nix
       ./applications/multimedia.nix
       ./applications/office.nix
       ./applications/social.nix
