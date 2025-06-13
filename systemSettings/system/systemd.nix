@@ -2,6 +2,10 @@
 
 {
   systemd = {
-    packages = [ pkgs.pritunl-client ];  # make services part of the systemd environment
+    packages = [ pkgs.pritunl-client ];
+    services = {
+      NetworkManager-wait-online.enable = false;
+    };
     targets.multi-user.wants = [ "pritunl-client.service" ]; 
+  };
 }
