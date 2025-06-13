@@ -43,7 +43,7 @@
         open = "xdg-open";
         gg = "gcloud";
         #code = "code --enable-features=UseOzonePlatform --ozone-platform=wayland";
-        nxupdate = "sudo git -C /etc/nixos pull ; sudo nix flake update --flake /etc/nixos ; sudo nixos-rebuild switch --flake /etc/nixos/#$(hostname)";
+        nxupdate = "sudo git -C /etc/nixos pull ; sudo nixos-rebuild switch --flake /etc/nixos/#$(hostname)";
         nxcboot = "sudo nixos-rebuild boot --flake /etc/nixos/#$(hostname)";
         nxcsys = "nix-collect-garbage -d ; sudo nix-collect-garbage -d";
       };
