@@ -31,6 +31,7 @@
       ./../../../systemSettings/system/powerManagement.nix
       ./../../../systemSettings/system/printing.nix
       ./../../../systemSettings/system/swap.nix
+      ./../../../systemSettings/system/systemd.nix
       ./../../../systemSettings/system/systemInfo.nix
       ./../../../systemSettings/system/timezone.nix
       ./../../../systemSettings/system/tty.nix
