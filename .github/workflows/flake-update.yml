@@ -1,0 +1,40 @@
+name: Auto-update flake.lock in develop
+
+on:
+  schedule:
+    - cron: '0 3 */3 * *'
+  push:
+    branches:
+      - develop
+
+jobs:
+  update-flake-lock:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Configure Git
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+
+      - name: Install Nix
+        uses: cachix/install-nix-action@v25
+
+      - name: Run flake update
+        run: nix flake update
+
+      - name: Commit and push updated flake.lock
+        run: |
+          if [[ -n "$(git status --porcelain flake.lock)" ]]; then
+            git add flake.lock
+            git commit -m "auto: update flake.lock"
+            git push
+          else
+            echo "flake.lock is up to date"
+          fi

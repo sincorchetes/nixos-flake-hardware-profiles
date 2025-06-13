@@ -1,0 +1,41 @@
+name: Promote to main if develop is valid
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 6 */3 * *'
+jobs:
+  promote-if-valid:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout develop branch
+        uses: actions/checkout@v4
+        with:
+          ref: develop
+
+      - name: Configure Git
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+
+      - name: Install Nix
+        uses: cachix/install-nix-action@v25
+
+      - name: Run nix flake check
+        id: flakecheck
+        run: nix flake check
+
+      - name: Promote to main
+        run: |
+          git fetch origin main
+          git checkout main
+          git merge --ff-only origin/develop || {
+            echo "Merge failed — main may be ahead or not fast-forwardable"
+            exit 1
+          }
+
+          git push origin main
