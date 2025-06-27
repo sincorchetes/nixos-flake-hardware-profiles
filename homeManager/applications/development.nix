@@ -9,6 +9,8 @@ in
   home = {
     packages = with pkgs ; [
         pre-commit
+        argo
+        insomnia
         helix
         vim
         jetbrains.pycharm-professional
