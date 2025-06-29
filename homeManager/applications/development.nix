@@ -10,7 +10,7 @@ in
     packages = with pkgs ; [
         pre-commit
         argo
-        insomnia
+        postman
         helix
         vim
         jetbrains.pycharm-professional
