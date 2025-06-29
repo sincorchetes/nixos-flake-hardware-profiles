@@ -4,9 +4,9 @@
 
   environment = {
     systemPackages = with pkgs; [
-       devenv
+       #devenv
        cachix
-       vscode.fhs
+       #vscode.fhs
     ];
   };
 }
