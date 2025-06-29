@@ -4,8 +4,9 @@
 {
   boot = {
 
-   blacklistedKernelModules = [ "amdgpu" "nouveau" "bluetooth" "btusb" "kvm-amd"];
-
+   blacklistedKernelModules = [ "amdgpu" "nouveau" "kvm-amd"];
+   # Trying USB BT
+   #blacklistedKernelModules = [ "amdgpu" "nouveau" "bluetooth" "btusb" "kvm-amd"];
     # RAM Image Kernel Modules
 
     initrd = {
