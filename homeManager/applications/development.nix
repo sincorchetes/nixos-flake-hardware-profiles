@@ -41,6 +41,7 @@ in
         _1password-gui
         pinentry-curses
         code-cursor
+        vscode-fhs
     ];
   };
 }
