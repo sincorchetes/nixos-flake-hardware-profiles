@@ -10,6 +10,9 @@ in
     packages = with pkgs ; [
         pre-commit
         argo
+        jq
+        stripe-cli
+        openssl
         postman
         helix
         vim
