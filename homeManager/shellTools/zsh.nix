@@ -48,6 +48,7 @@
         nxcsys = "nix-collect-garbage -d ; run0 nix-collect-garbage -d";
         sudo = "run0";
         sudo-graphics = "run0 --setenv=DISPLAY=\\\"$DISPLAY\\\" --setenv=XAUTHORITY=\\\"$XAUTHORITY\\\"";
+
       };
 
       oh-my-zsh = {
