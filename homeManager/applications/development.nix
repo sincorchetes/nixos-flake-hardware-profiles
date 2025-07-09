@@ -17,6 +17,8 @@ in
         helix
         vim
         jetbrains.pycharm-professional
+        jetbrains.webstorm
+        nix-search-cli
         gpt4all
         jetbrains.datagrip
         dbeaver-bin
