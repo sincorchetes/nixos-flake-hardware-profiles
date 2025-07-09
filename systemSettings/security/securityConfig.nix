@@ -1,23 +1,34 @@
-{ pkgs, ... };
+{ pkgs, ... }:
 
 {
+  # Services Section
+  services.dbus.apparmor = "enabled";
+
+  # Security Section
   security = {
+
+    # Disable sudo (replaced by run0)
     sudo.enable = false;
+
+    # Enable AppArmor
     apparmor = {
       enable = true;
       profiles = [];
     };
-    rtkit = {
-      enable = true;
-    };
-    pam = {
-      services.systemd-run0 = {};
-      sshAgentAuth = {
-        enable = true;
-      };
+
+    # Enable RealtimeKit for Pipewire
+    rtkit.enable = true;
+
+    # PAM Settings
+    pam = {      
+      services.systemd-run0 = {};                # Custom PAM service, likely for running systemd commands
+
+      # Allow SSH Agent to use PAM for authentication
+      sshAgentAuth.enable = true;
     };
   };
-  
+
+  # Setup AppArmor utils
   environment.systemPackages = with pkgs; [
     apparmor-utils
     apparmor-profiles
