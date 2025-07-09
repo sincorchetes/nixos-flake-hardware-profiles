@@ -9,6 +9,7 @@ in
   home = {
     packages = with pkgs ; [
         pre-commit
+        devenv
         argo
         jq
         stripe-cli
