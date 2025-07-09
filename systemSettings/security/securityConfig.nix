@@ -13,7 +13,7 @@
     # Enable AppArmor
     apparmor = {
       enable = true;
-      profiles = [];
+      policies = [];
     };
 
     # Enable RealtimeKit for Pipewire
@@ -31,7 +31,6 @@
   # Setup AppArmor utils
   environment.systemPackages = with pkgs; [
     apparmor-utils
-    apparmor-profiles
     apparmor-pam
     apparmor-parser
     apparmor-bin-utils
