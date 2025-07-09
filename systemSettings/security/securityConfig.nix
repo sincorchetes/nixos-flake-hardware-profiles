@@ -13,7 +13,6 @@
     # Enable AppArmor
     apparmor = {
       enable = true;
-      policies = [];
     };
 
     # Enable RealtimeKit for Pipewire
