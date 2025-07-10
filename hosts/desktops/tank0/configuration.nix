@@ -18,7 +18,6 @@
       ./../../../systemSettings/network/vpnClients.nix
       ./../../../systemSettings/packageManagers/nix.nix
       ./../../../systemSettings/security/securityConfig.nix
-      ./../../../systemSettings/security/selinux.nix
       ./../../../systemSettings/security/users.nix
       ./../../../systemSettings/shell/zsh.nix
       ./../../../systemSettings/sound/pipewire.nix
