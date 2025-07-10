@@ -22,4 +22,8 @@
     "enforcing=0"
   ];
 
+  systemd.package = pkgs.systemd.override {
+    withSelinux = true;
+  };
+
 }
