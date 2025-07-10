@@ -14,7 +14,12 @@
     libsemanage
     libsepol
     semodule-utils
-    
-    
   ];
+
+  security.lsm = [ "selinux" "apparmor" ];
+  boot.kernelParams = [
+    "selinux=1"
+    "enforcing=0"
+  ];
+
 }
