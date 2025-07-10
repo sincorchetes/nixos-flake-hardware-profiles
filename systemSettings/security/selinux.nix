@@ -26,4 +26,10 @@
     withSelinux = true;
   };
 
+  services = {
+    audit = {
+      enable = true;
+      journald = true;
+    };
+  };
 }
