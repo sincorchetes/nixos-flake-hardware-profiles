@@ -16,10 +16,10 @@
     semodule-utils
   ];
 
+  security.lsm = [ "selinux" "apparmor" ];
   boot.kernelParams = [
-    "security=selinux"
     "selinux=1"
     "enforcing=0"
-    "lsm=selinux,apparmor,yama,landlock,bpf"
   ];
+
 }
