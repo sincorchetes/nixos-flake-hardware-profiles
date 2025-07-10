@@ -26,4 +26,6 @@
     withSelinux = true;
   };
 
+  services.journald.audit = true;
+
 }
