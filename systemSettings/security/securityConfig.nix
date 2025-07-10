@@ -2,7 +2,7 @@
 
 {
   # Services Section
-  services.dbus.apparmor = "enabled";
+  #services.dbus.apparmor = "enabled";
 
   # Security Section
   security = {
@@ -11,9 +11,9 @@
     sudo.enable = false;
 
     # Enable AppArmor
-    apparmor = {
-      enable = true;
-    };
+    #apparmor = {
+    #  enable = true;
+    #};
 
     # Enable RealtimeKit for Pipewire
     rtkit.enable = true;
@@ -28,10 +28,10 @@
   };
 
   # Setup AppArmor utils
-  environment.systemPackages = with pkgs; [
-    apparmor-utils
-    apparmor-pam
-    apparmor-parser
-    apparmor-bin-utils
-  ];
+  #environment.systemPackages = with pkgs; [
+  #  apparmor-utils
+  #  apparmor-pam
+  #  apparmor-parser
+  #  apparmor-bin-utils
+  #];
 }
