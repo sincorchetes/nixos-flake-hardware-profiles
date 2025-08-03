@@ -24,7 +24,6 @@ in
         jetbrains.datagrip
         dbeaver-bin
         gh
-        git
         typora
         asciinema
         kubectl
