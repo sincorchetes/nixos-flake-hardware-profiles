@@ -45,7 +45,7 @@
         #code = "code --enable-features=UseOzonePlatform --ozone-platform=wayland";
         nxupdate = "run0 git -C /etc/nixos pull ; run0 nixos-rebuild switch --flake /etc/nixos/#$(hostname)";
         nxcboot = "run0 nixos-rebuild boot --flake /etc/nixos/#$(hostname)";
-        nxcsys = "nix-collect-garbage -d ; run0 nix-collect-garbage -d";
+        nxcsys = "nix-collect-garbage -d && run0 nix-collect-garbage -d";
         sudo = "run0";
         sudo-graphics = "run0 --setenv=DISPLAY=\\\"$DISPLAY\\\" --setenv=XAUTHORITY=\\\"$XAUTHORITY\\\"";
 
