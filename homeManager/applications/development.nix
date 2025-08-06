@@ -14,6 +14,7 @@ in
         jq
         stripe-cli
         openssl
+        lmstudio
         postman
         helix
         vim
