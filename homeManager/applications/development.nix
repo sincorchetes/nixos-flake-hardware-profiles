@@ -14,14 +14,13 @@ in
         jq
         stripe-cli
         openssl
-        lmstudio
         postman
         helix
         vim
         jetbrains.pycharm-professional
         jetbrains.webstorm
         nix-search-cli
-        gpt4all-cuda
+        gpt4all
         jetbrains.datagrip
         dbeaver-bin
         gh
