@@ -21,7 +21,7 @@ in
         jetbrains.pycharm-professional
         jetbrains.webstorm
         nix-search-cli
-        gpt4all
+        gpt4all-cuda
         jetbrains.datagrip
         dbeaver-bin
         gh
