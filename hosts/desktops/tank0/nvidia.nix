@@ -6,6 +6,10 @@
     variables = {
       GBM_BACKEND = "nvidia-drm";
     };
+    systemPackages = with pkgs; [
+      nvidia-docker
+      nvidia-container-toolkit
+    ];
   };
   
   services = {
