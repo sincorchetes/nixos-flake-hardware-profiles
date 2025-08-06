@@ -2,6 +2,8 @@
 
 {
 
+  hardware.nvidia-container-toolkit.enable = true;
+
   environment = {
     systemPackages = with pkgs; [
        docker
@@ -12,7 +14,6 @@
   virtualisation = {
     docker = {
       enable = true;
-      enableNvidia = true;
     };
     
   };
