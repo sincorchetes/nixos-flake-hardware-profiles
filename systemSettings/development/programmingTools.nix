@@ -6,6 +6,7 @@
     systemPackages = with pkgs; [
        #devenv
        cachix
+       git
        #vscode.fhs
     ];
   };
