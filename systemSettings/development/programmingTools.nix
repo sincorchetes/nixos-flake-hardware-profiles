@@ -1,13 +1,19 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, pkgsUnstable, ... }:
 
 {
 
   environment = {
-    systemPackages = with pkgs; [
-       #devenv
-       cachix
-       git
-       #vscode.fhs
+    systemPackages = [ 
+      pkgs.git 
+      pkgs.cachix 
     ];
+  };
+
+  services = {
+    ollama = {
+      enable = true;
+      acceleration = "cuda";
+      package = pkgsUnstable.ollama-cuda;
+    };
   };
 }
