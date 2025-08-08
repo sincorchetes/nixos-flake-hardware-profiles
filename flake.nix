@@ -12,6 +12,11 @@
       url = "github:NixOS/nixpkgs/nixos-25.05";
     };
 
+    nixpkgs-unstable = {
+      url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    };
+
+
     # Home Manager configuration manager
     # Update this to your desired home-manager version.
     # For example, to use the latest stable home-manager, use:
@@ -19,27 +24,54 @@
       url = "github:nix-community/home-manager/release-25.05";
     };
 
-    # Disabled at the moment. It got a lot of updates and generates to much IOs
-    #cosmic = {
-    #  url = "github:lilyinstarlight/nixos-cosmic";
-    #};
+    # Uses stable version for home-manager software.
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
   };
 
   # Outputs section
   # For enable cosmic you must set up cosmic it.
-  outputs = inputs@{ nixpkgs, home-manager, ... }: {
+  outputs = inputs@{ nixpkgs, home-manager, ... }:
 
+  let
+    # Declare some shared variables between hosts profiles:
+    system = "x86_64-linux";
+
+    # Declare the pkgs stable section
+    pkgs = import nixpkgs {
+      inherit system;
+      config.allowUnfree = true;
+    };
+
+    # Declare the pkgs stable section
+    pkgsUnstable = import inputs."nixpkgs-unstable" {
+      inherit system;
+      config.allowUnfree = true;
+    };
+
+    # Use the shareable variables declared before into host profiles.
+    mkSystem = path:
+      nixpkgs.lib.nixosSystem {
+        inherit system;
+        specialArgs = { inherit inputs pkgsUnstable; };
+        modules = [
+          path
+          home-manager.nixosModules.home-manager
+          {
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              extraSpecialArgs = { inherit pkgsUnstable; };
+            };
+          }
+        ];
+      };
+  in {
     # Some hardware configurations profiles
     nixosConfigurations = {
-
-      # Main system
-      tank0 = import ./hosts/desktops/tank0.nix { inherit nixpkgs home-manager inputs; };
-
-      # Lenovo Thinkpad x270 laptop
-      thinkpad0 = import ./hosts/laptops/thinkpad0.nix { inherit nixpkgs home-manager inputs; };
-
-      # HP Probook 440 G8 PC/8A74
-      probook0 = import ./hosts/laptops/probook0.nix { inherit nixpkgs home-manager inputs; };
+      tank0     = mkSystem ./hosts/desktops/tank0/configuration.nix;
+      thinkpad0 = mkSystem ./hosts/laptops/thinkpad0/configuration.nix;
+      probook0  = mkSystem ./hosts/laptops/probook0/configuration.nix;
     };
   };
 }
