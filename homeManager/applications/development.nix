@@ -1,4 +1,4 @@
-{ pkgs, pkgsUnstable, lib, ... }:
+{ pkgs, lib, ... }:
 
 let
   gcloud = pkgs.google-cloud-sdk.withExtraComponents [ pkgs.google-cloud-sdk.components.gke-gcloud-auth-plugin ];
@@ -7,7 +7,7 @@ in
 {
 
   home = {
-    packages = ( with pkgs ; [
+    packages = with pkgs ; [
         pre-commit
         devenv
         argo
@@ -20,7 +20,6 @@ in
         jetbrains.pycharm-professional
         jetbrains.webstorm
         nix-search-cli
-        gpt4all
         jetbrains.datagrip
         dbeaver-bin
         gh
@@ -47,9 +46,6 @@ in
         pinentry-curses
         code-cursor
         vscode-fhs
-    ]) ++ 
-    (with pkgsUnstable ; [
-      ollama-cuda
-    ]);
+    ];
   };
 }
