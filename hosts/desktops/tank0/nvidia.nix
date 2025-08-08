@@ -2,11 +2,12 @@
 
 {
   # Nvidia environment variables
-  environment = {
-    variables = {
-      GBM_BACKEND = "nvidia-drm";
-    };
-  };
+  # Only needed for Wayland Windows Manager
+  #environment = {
+  #  variables = {
+  #    GBM_BACKEND = "nvidia-drm";
+  #  };
+  #};
   
   services = {
     xserver = {
@@ -29,11 +30,10 @@
       };
       powerManagement = {
         enable = true;
-      };
-      powerManagement = {
         finegrained = false;
       };
       open = false;
+      nvidiaSettings = true;
     };
   };
 }
