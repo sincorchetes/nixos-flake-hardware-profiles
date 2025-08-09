@@ -18,7 +18,10 @@
         "uas" 
         "ahci" 
       ];
-      luks.devices."nixos-root".device = "/dev/disk/by-uuid/4abffc3b-0780-47cd-8b91-376e068caf4a";
+      luks.devices."nixos-root" = {
+        device = "/dev/disk/by-uuid/4abffc3b-0780-47cd-8b91-376e068caf4a";
+        allowDiscards = true;  # <- clave
+      };
     };
 
     # Set Kernel Modules
