@@ -45,6 +45,8 @@
     };
     # Set Kernel Parameters
     kernelParams = [
+      # Enable full preempt.
+      "preempt=full"
       # Disable AMDGPU 
       #"nomodeset" 
       # Disabling zswap, I don't suspend the host.
