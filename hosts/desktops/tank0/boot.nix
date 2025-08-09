@@ -38,15 +38,16 @@
     extraModulePackages = [ ];
     
     kernel.sysctl = {
-      "vm.swappiness" = 10;
+      "vm.swappiness" = 0;
     };
     # Set Kernel Parameters
     kernelParams = [
       # Disable AMDGPU 
       #"nomodeset" 
-      "zswap.enabled=1"
-      "zswap.compresor=lz4"
-      "zswap.max_pool_percent=20"
+      # Disabling zswap, I don't suspend the host.
+      #"zswap.enabled=1"
+      #"zswap.compresor=lz4"
+      #"zswap.max_pool_percent=20"
     ];
   };
 }
