@@ -1,5 +1,5 @@
 {
-  
+  # Disable hibernate or suspend capabilities.
   systemd = {
     sleep.extraConfig = ''
       AllowSuspend=no

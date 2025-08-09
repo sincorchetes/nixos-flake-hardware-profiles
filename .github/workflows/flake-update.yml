@@ -27,7 +27,7 @@ jobs:
         uses: cachix/install-nix-action@v25
 
       - name: Run flake update
-        run: nix flake update
+        run: nix flake update && nix flake update --update-input nixpkgs-unstable
 
       - name: Commit and push updated flake.lock
         run: |
