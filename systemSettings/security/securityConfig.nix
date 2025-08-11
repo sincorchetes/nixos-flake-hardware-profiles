@@ -7,8 +7,8 @@
   # Security Section
   security = {
 
-    # Disable sudo (replaced by run0)
-    sudo.enable = false;
+    # Disable sudo
+    sudo.enable = true;
 
     # Enable AppArmor
     #apparmor = {
