@@ -10,6 +10,7 @@
     initrd = {
       luks.devices."nixos-root".device = "/dev/disk/by-uuid/da456e40-1bae-4caa-a0cd-5a99c2deebf3";
       availableKernelModules = [ "xhci_pci" "nvme" "usb_storage" "sd_mod" "uas" "ahci" "thunderbolt" "usbhid"];
+      allowDiscards = true;
     };
 
     # Set Kernel Modules
