@@ -27,9 +27,6 @@
     kernelParams = [
       "i915.enable_psr=0"         # Disable PSR, avoid flickering screen issues
       "i915.enable_dc=0"          # Disable DC to improve stability
-      "zswap.enabled=1"           # Enable Zswap
-      "zswap.compresor=lz4"       # Set Zswap compression algorithm
-      "zswap.max_pool_percent=20" # Set Zswap RAM memory usage
     ];
   };
 }
