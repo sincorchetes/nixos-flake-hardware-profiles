@@ -60,5 +60,9 @@
         plugins = [ "git" ];
       };
     };
+    zoxide = {
+      enable = true;
+      enableZshIntegration = true;
+    };
   };
 }
