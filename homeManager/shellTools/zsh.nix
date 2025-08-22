@@ -13,6 +13,7 @@
       btop
       binutils
       htop
+      zoxide
     ];
     sessionVariables = {
       EDITOR = "vim";
