@@ -29,6 +29,7 @@
     flat-remix-gnome
     flat-remix-icon-theme
     gnomeExtensions.pop-shell
+    gnomeExtensions.easyeffects-preset-selector
   ];
 
   security.pam.services.gdm.enableGnomeKeyring = true;
