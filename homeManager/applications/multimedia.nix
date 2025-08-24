@@ -6,6 +6,8 @@
     
     packages = with pkgs ; [
       pavucontrol
+      easyeffects
+      qpwgraph
       ffmpeg_7-full
       gst_all_1.gstreamer
       gst_all_1.gst-vaapi
