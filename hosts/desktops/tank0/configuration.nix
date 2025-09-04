@@ -36,6 +36,7 @@
       ./../../../systemSettings/system/systemd.nix
       ./../../../systemSettings/system/systemInfo.nix
       ./../../../systemSettings/system/timezone.nix
+      ./../../../systemSettings/network/openssh.nix
       ./../../../systemSettings/system/tty.nix
       ./../../../systemSettings/virtualization/virtualbox.nix
       ./../../../systemSettings/virtualization/kvm.nix
