@@ -46,6 +46,7 @@ in
         pinentry-curses
         code-cursor
         vscode-fhs
+        kitty
     ];
   };
 }
