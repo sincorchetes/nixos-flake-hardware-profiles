@@ -9,11 +9,11 @@
     ];
   };
 
-  services = {
-    ollama = {
-      enable = true;
-      acceleration = "cuda";
-      package = pkgsUnstable.ollama-cuda;
-    };
-  };
+  #services = {
+  #  ollama = {
+  #    enable = true;
+  #    acceleration = "cuda";
+  #    package = pkgsUnstable.ollama-cuda;
+  #  };
+  #};
 }
