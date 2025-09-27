@@ -9,6 +9,7 @@
        qemu_kvm
        virt-manager
        spice-gtk
+       virtio-win
        OVMF
        (pkgs.writeShellScriptBin "qemu-system-x86_64-uefi" ''
         qemu-system-x86_64 \
@@ -20,6 +21,9 @@
 
   virtualisation = {
     libvirtd = {
+      enable = true;
+    };
+    swtpm = {
       enable = true;
     };
   };
