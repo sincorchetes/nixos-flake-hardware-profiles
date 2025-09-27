@@ -11,7 +11,7 @@
         isNormalUser = true;
         shell = pkgs.zsh;
         description = "Álvaro Castillo";
-        extraGroups = [ "input" "audio" "video" "users" "networkmanager" "wheel" ];
+        extraGroups = [ "input" "audio" "video" "users" "networkmanager" "wheel" "render" ];
       };
     };
   };
