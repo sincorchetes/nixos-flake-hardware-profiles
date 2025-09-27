@@ -20,10 +20,10 @@
   };
 
   virtualisation = {
-    libvirtd = {
+    tpm = {
       enable = true;
     };
-    swtpm = {
+    libvirtd = {
       enable = true;
     };
   };
