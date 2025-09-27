@@ -30,7 +30,7 @@
   users = {
     users = {
       sincorchetes = {
-        extraGroups = ["libvirtd"];
+        extraGroups = ["libvirtd" "kvm"];
       };
     };
   };
