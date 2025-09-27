@@ -20,11 +20,9 @@
   };
 
   virtualisation = {
-    tpm = {
-      enable = true;
-    };
     libvirtd = {
       enable = true;
+      qemu.swtpm.enable = true;
     };
   };
 
