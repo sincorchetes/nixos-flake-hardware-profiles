@@ -33,7 +33,7 @@
         enable = true;
         finegrained = false;
       };
-      open = true;
+      #open = true;
       nvidiaSettings = true;
     };
   };
