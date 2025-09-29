@@ -18,7 +18,7 @@
 
   hardware= {
     nvidia = {
-      package = pkgs.linuxPackages_zen.nvidia_x11; 
+      package = pkgs.linuxPackages_latest.nvidia_x11_vulkan_beta; 
       #package = config.boot.kernelPackages.nvidiaPackages.mkDriver {
       #    version = "570.86.16"; # use new 570 drivers
       #    sha256_64bit = "sha256-RWPqS7ZUJH9JEAWlfHLGdqrNlavhaR1xMyzs8lJhy9U=";
@@ -33,7 +33,7 @@
         enable = true;
         finegrained = false;
       };
-      open = false;
+      open = true;
       nvidiaSettings = true;
     };
   };
