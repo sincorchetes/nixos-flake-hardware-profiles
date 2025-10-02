@@ -1,10 +1,7 @@
-{ config, pkgs, ... }:
-
-
 {
   boot = {
 
-   blacklistedKernelModules = [ "amdgpu" "nouveau" "kvm-amd"];
+   blacklistedKernelModules = [ "amdgpu" "nouveau"];
    # Trying USB BT
    #blacklistedKernelModules = [ "amdgpu" "nouveau" "bluetooth" "btusb" "kvm-amd"];
     # RAM Image Kernel Modules
@@ -25,20 +22,10 @@
     };
 
     # Set Kernel Modules
-    kernelModules = [ 
-      #"kvm-amd" 
-      "r8169" 
-      "thunderbolt" 
-      "usbhid"
-      #"btusb"
-      #"bluetooth"
-      #"btrtl"
-      #"btintel"
-      #"btbcm"
-      #"btmtk"
-    ];
+    #kernelModules = [
+    #];
 
-    extraModulePackages = [ ];
+    #extraModulePackages = [ ];
     
     kernel.sysctl = {
       "vm.swappiness" = 0;
