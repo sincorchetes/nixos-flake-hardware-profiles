@@ -17,5 +17,10 @@
       options = [ "noauto" ];
       #options = [ "fmask=0022" "dmask=0022" ];
     };
+  fileSystems."/home/sincorchetes/Vault" = {
+    device = "/dev/mapper/vault";
+    fsType = "ext4";
+    options = [ "noatime" ];
+  };
 
 }
