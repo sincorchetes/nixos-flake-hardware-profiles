@@ -20,7 +20,7 @@
   fileSystems."/home/sincorchetes/Vault" = {
     device = "/dev/mapper/vault";
     fsType = "ext4";
-    options = [ "noatime" ];
+    options = [ "defaults" "noatime" "lazytime" "commit=60" "errors=remount-ro" ];
   };
 
 }
