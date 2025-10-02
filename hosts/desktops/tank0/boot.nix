@@ -15,9 +15,17 @@
         "uas" 
         "ahci" 
       ];
-      luks.devices."nixos-root" = {
-        device = "/dev/disk/by-uuid/4abffc3b-0780-47cd-8b91-376e068caf4a";
-        allowDiscards = true;
+      luks.devices = {
+        "nixos-root" = {
+          device = "/dev/disk/by-uuid/4abffc3b-0780-47cd-8b91-376e068caf4a";
+          allowDiscards = true;
+        };
+        "vault" = {
+          device = "/dev/disk/by-uuid/82c3329f-fa66-4c03-a46e-aa37a8e7e80c";
+          keyFile = "/etc/disk-keys/vault.key";
+          dependsOn = [ "nixos-root" ];
+          allowDiscards = true;
+        };
       };
     };
 
