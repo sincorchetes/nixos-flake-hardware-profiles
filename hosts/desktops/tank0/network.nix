@@ -1,6 +1,7 @@
 {
   networking = {
     hostName = "tank0";
+    useNetworkd = true;
     bridges.br0.interfaces = [ "eno1" ];
     networkmanager = {
       enable = true;
