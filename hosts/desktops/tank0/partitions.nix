@@ -8,7 +8,7 @@
   fileSystems."/" =
     { device = "/dev/disk/by-uuid/3c22d709-626b-4706-acaf-8c2b48ce0769";
       fsType = "ext4";
-      options = [ "noatime" ];
+      options = [ "defaults" "noatime" "lazytime" "commit=60" "errors=remount-ro" ];
     };
 
   fileSystems."/boot" =
