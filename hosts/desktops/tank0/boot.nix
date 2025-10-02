@@ -23,7 +23,6 @@
         "vault" = {
           device = "/dev/disk/by-uuid/82c3329f-fa66-4c03-a46e-aa37a8e7e80c";
           keyFile = "/etc/disk-keys/vault.key";
-          dependsOn = [ "nixos-root" ];
           allowDiscards = true;
         };
       };
