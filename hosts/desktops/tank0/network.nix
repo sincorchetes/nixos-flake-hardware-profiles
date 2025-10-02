@@ -1,6 +1,5 @@
 {
   networking.useNetworkd = true;
-  networking.networkmanager.enable = false;
 
   systemd.network.netdevs."10-br0" = {
     netdevConfig = {
