@@ -7,6 +7,11 @@
     # RAM Image Kernel Modules
 
     initrd = {
+      secrets = {
+        "/vault.key" = {
+          source = "/etc/disk-keys/vault.key";
+        };
+      };
       availableKernelModules = [ 
         "xhci_pci" 
         "nvme" 
@@ -22,7 +27,7 @@
         };
         "vault" = {
           device = "/dev/disk/by-uuid/82c3329f-fa66-4c03-a46e-aa37a8e7e80c";
-          keyFile = "/etc/disk-keys/vault.key";
+          keyFile = "/vault.key"; 
           allowDiscards = true;
         };
       };
