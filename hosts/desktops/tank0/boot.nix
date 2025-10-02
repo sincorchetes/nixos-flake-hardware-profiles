@@ -8,9 +8,7 @@
 
     initrd = {
       secrets = {
-        "/vault.key" = {
-          source = "/etc/disk-keys/vault.key";
-        };
+        "/vault.key" = "/etc/disk-keys/vault.key";
       };
       availableKernelModules = [ 
         "xhci_pci" 
