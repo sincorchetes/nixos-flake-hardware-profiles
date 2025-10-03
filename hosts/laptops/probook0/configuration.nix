@@ -37,6 +37,7 @@
       ./../../../systemSettings/system/timezone.nix
       ./../../../systemSettings/system/tty.nix
       ./../../../systemSettings/virtualization/virtualbox.nix
+      ./../../../systemSettings/virtualization/kvm.nix
       ./boot.nix
       ./network.nix
       ./partitions.nix
