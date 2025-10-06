@@ -34,7 +34,7 @@ in
   };
 
   sops = {
-    age.keyFile = keyfile
+    age.keyFile = keyfile;
     defaultSopsFile = ./secrets.yaml;
     secrets = {
       root_password = {};
