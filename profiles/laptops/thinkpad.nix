@@ -1,6 +1,11 @@
 { config, pkgs, ... }:
 
 {
+  imports = [
+    (modulesPath + "/installer/scan/not-detected.nix")
+    "../../system/importer.nix"
+  ];
+  
   hardware = {
     cpu.intel.updateMicrocode = true;
 
