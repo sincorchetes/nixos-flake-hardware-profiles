@@ -57,6 +57,7 @@
     blacklistedKernelModules = [ "amdgpu" "nouveau" ];
     # Trying USB BT
     #blacklistedKernelModules = [ "amdgpu" "nouveau" "bluetooth" "btusb" "kvm-amd"];
+    extraModprobeConfig = "options hid_logitech_hidpp disable_raw_hid=1";
 
     initrd = {
       secrets."/vault.key" = "/etc/disk-keys/vault.key";
