@@ -8,7 +8,7 @@
     };
   };
   users.users = {
-    root.hashedPasswordFile = config.sops.secrets.root_password.path;
+    root.hashedPasswordFile = config.sops.secrets.root_password_hash.path;
 
     sincorchetes = {
       isNormalUser = true;
