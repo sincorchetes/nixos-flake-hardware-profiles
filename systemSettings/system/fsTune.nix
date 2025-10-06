@@ -1,8 +1,0 @@
-{
-  
-  services = {
-    fstrim = {
-      enable = true;
-    };
-  };
-}
