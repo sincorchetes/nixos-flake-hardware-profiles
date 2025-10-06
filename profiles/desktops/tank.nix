@@ -32,7 +32,7 @@
     '';
   };
 
-  services.xserver.videoDrivers = [ "nvidia" ];
+  services.xserver.videoDrivers = [ "amdgpu" "nvidia" ];
 
   programs.steam.enable = true;
 
