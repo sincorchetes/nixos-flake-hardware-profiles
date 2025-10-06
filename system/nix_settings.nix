@@ -23,6 +23,9 @@
 
   sops = {
     age.keyFile = "${builtins.getEnv "HOME"}/.config/sops/age/keys.txt";
+    secrets = {
+      root_password = {};
+    };
   };
 
 
