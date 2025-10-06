@@ -1,6 +1,6 @@
-{ lib, ...}:
+{ lib, ... }:
+
 {
-  
   swapDevices = lib.optionals (builtins.pathExists "/swapfile") [
     {
       file = "/swapfile";
