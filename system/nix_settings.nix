@@ -26,6 +26,7 @@
     defaultSopsFile = ./secrets.yaml;
     secrets = {
       root_password = {};
+      sincorchetes_password = {};
     };
   };
 
