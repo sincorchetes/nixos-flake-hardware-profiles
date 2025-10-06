@@ -1,14 +1,15 @@
 { config, pkgs, ... }:
 
 {
-  sops.defaultSopsFile = ./secrets.yaml
-  sops.secrets = {
-    root_password = {};
-
+  sops = {
+    defaultSopsFile = ./secrets.yaml;
+    secrets = {
+      root_password = {};
+    };
   };
   users.users = {
     root.hashedPasswordFile = config.sops.secrets.root_password.path;
-    
+
     sincorchetes = {
       isNormalUser = true;
       shell = pkgs.zsh;

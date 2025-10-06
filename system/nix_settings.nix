@@ -29,6 +29,8 @@
     };
     useGlobalPkgs = true;
     useUserPackages = true;
-    users.sincorchetes = import ../../homeManager/home.nix;
+    imports = [ ./home_manager_packages.nix ];
+
+  
   };
 }
