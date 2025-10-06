@@ -54,6 +54,7 @@
       XCURSOR_THEME = "Adwaita";
       XCURSOR_SIZE = "24";
       XDG_CONFIG_HOME = "$HOME/.config";
+      SOPS_AGE_KEY_FILE = "/home/sincorchetes/.config/sops/age/keys.txt";
     };
   };
 }
