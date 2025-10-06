@@ -31,4 +31,8 @@
       powerOnBoot = true;
     };
   };
+
+  programs = {
+    zsh.enable = true;
+  };
 }

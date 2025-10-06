@@ -8,10 +8,8 @@
         ./nix_settings.nix
         ./security.nix
         ./services.nix
-        ./storage.nix
         ./users.nix
         ./virtualization.nix
-        ./xdg_desktop_entries.nix
         ./zsh.nix
     ];
 }

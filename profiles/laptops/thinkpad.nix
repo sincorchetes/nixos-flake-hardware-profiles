@@ -1,8 +1,7 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   imports = [
-    (modulesPath + "/installer/scan/not-detected.nix")
     ../../system/importer.nix
   ];
 
@@ -53,6 +52,7 @@
       fsType = "vfat";
       options = [ "noauto" ];
     };
+  };
 
   swapDevices = lib.optionals (builtins.pathExists "/swapfile") [
     {
@@ -62,5 +62,4 @@
     }
   ];
 
-  };
 }

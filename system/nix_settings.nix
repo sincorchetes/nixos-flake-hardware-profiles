@@ -21,16 +21,21 @@
     allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [];
   };
 
+  sops = {
+    age.keyFile = /home/sincorchetes/.config/sops/age/keys.txt;
+  };
+
   home-manager = {
-    home = {
-      stateVersion = "25.05";
-      username = "sincorchetes";
-      homeDirectory = "/home/sincorchetes";
-    };
     useGlobalPkgs = true;
     useUserPackages = true;
-    imports = [ ./home_manager_packages.nix ];
-
-  
+    users.sincorchetes = {
+      home = {
+        stateVersion = "25.05";
+        username = "sincorchetes";
+        homeDirectory = "/home/sincorchetes";
+      };
+      
+      imports = [ ./home_manager_packages.nix ./xdg_desktop_entries.nix ];
+    };
   };
 }

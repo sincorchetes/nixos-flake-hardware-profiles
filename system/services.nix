@@ -7,24 +7,29 @@
     targets.multi-user.wants = [ "pritunl-client.service" ];
   };
 
+  powerManagement = {
+    enable = true;
+    powertop.enable = true;
+  };
+
   services = {
     thermald.enable = true;
     fstrim.enable = true;
     dbus.apparmor = "enabled";
-    powerManagement.enable = true;
 
     printing = {
       enable = true;
       drivers = [ pkgs.brlaser ];
     };
-
-    xserver = {
-      enable = true;
-      xkb.layout = "es";
-      libinput = {
+    libinput = {
         enable = true;
         touchpad.tapping = true;
       };
+      
+    xserver = {
+      enable = true;
+      xkb.layout = "es";
+      
       displayManager.gdm = {
         enable = true;
         wayland = true;
