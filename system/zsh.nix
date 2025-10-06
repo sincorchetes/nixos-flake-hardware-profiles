@@ -27,8 +27,8 @@
           open = "xdg-open";
           gg = "gcloud";
           #code = "code --enable-features=UseOzonePlatform --ozone-platform=wayland --disable-gpu";
-          nxupdate = "sudo nixos-rebuild switch --refresh --flake github:sincorchetes/nixos-flake-hardware-profiles#$(hostname)";
-          nxcboot = "sudo nixos-rebuild boot --flake github:sincorchetes/nixos-flake-hardware-profiles#$(hostname)";
+          nxupdate = "sudo nixos-rebuild switch --refresh --flake github:sincorchetes/nixos-flake-hardware-profiles#$(hostname) --impure";
+          nxcboot = "sudo nixos-rebuild boot --flake github:sincorchetes/nixos-flake-hardware-profiles#$(hostname) --impure";
           nxcsys = "nix-collect-garbage -d && sudo nix-collect-garbage -d";
           nxfull = "nxupdate ; nxcsys ; nxcboot";
           # sudo = "run0";
