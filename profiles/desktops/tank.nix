@@ -46,6 +46,19 @@
   networking.hostName = "tank0";
 
   environment = {
+    etc = {
+      "xdg/steam-nvidia.desktop".text = ''
+        [Desktop Entry]
+        Name=Steam (NVIDIA)
+        Comment=Steam launcher using NVIDIA GPU (prime-run)
+        Exec=prime-run steam %U
+        Icon=steam
+        Terminal=false
+        Type=Application
+        Categories=Game;Entertainment;
+        StartupNotify=true
+    '';
+
     systemPackages = with pkgs; [
       microcodeAmd
       glxinfo
@@ -65,14 +78,6 @@
         export __VK_LAYER_NV_optimus=NVIDIA_only
         exec "$@"
       '')
-
-      (writeDesktopFile {
-        name = "Steam (NVIDIA)";
-        exec = "prime-run steam %U";
-        icon = "steam";
-        categories = "Game;Entertainment;";
-        terminal = false;
-      })
     ];
   };
 
