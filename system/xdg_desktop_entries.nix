@@ -15,9 +15,9 @@
       comment = "Steam launcher using NVIDIA GPU (prime-run)";
       exec = "prime-run steam %U";
       icon = "steam";
-      terminal = "false";
+      terminal = false;
       type= "Application";
-      categories = ["Game" "Entertainment"];
+      categories = [ "Game" "Entertainment" ];
       startupNotify = true;
     };
   };
