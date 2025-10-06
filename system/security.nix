@@ -2,7 +2,13 @@
 
 {
   security = {
-    sudo.enable = true;
+    sudo = {
+      enable = true;
+      extraConfig = ''
+        Defaults env_keep += "SOPS_AGE_KEY_FILE"
+      '';
+    };
+
     apparmor.enable = true;
     rtkit.enable = true;
   };
