@@ -58,6 +58,7 @@
         Categories=Game;Entertainment;
         StartupNotify=true
     '';
+    };
 
     systemPackages = with pkgs; [
       microcodeAmd
