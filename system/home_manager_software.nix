@@ -117,6 +117,8 @@ in
     code-cursor
     vscode-fhs
     kitty
+    sops
+    age
   ];
 
   fonts.packages = with pkgs; [
