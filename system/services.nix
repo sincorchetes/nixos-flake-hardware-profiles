@@ -3,12 +3,10 @@
 {
   systemd = {
     packages = [ pkgs.pritunl-client ];
-    services = {
-      NetworkManager-wait-online.enable = false;
-    };
-    targets.multi-user.wants = [ "pritunl-client.service" ]; 
+    services.NetworkManager-wait-online.enable = false;
+    targets.multi-user.wants = [ "pritunl-client.service" ];
   };
-  
+
   services = {
     thermald.enable = true;
     fstrim.enable = true;
@@ -27,42 +25,32 @@
         enable = true;
         touchpad.tapping = true;
       };
-      displayManager = {
-        gdm = {
-          enable = true;
-          wayland = true;
-        };
-      };
-      desktopManager = {
-        gnome = {
-          enable = true;
-        };
-      };
-    };
-
-      pulseaudio = {
-        enable = false;
-      };
-
-      pipewire = {
+      displayManager.gdm = {
         enable = true;
-        alsa= {
-          enable = true;
-          support32Bit = true;
-        };
-        pulse.enable = true;
-        wireplumber.enable = true;
+        wayland = true;
       };
-
-      avahi = {
-        enable = false;
-        nssmdns4 = false;
-      };
-
-  #    ollama = {
-  #    enable = true;
-  #    acceleration = "cuda";
-  #    package = pkgsUnstable.ollama-cuda;
-  #  };
+      desktopManager.gnome.enable = true;
     };
+
+    pulseaudio.enable = false;
+
+    pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+      wireplumber.enable = true;
+    };
+
+    avahi = {
+      enable = false;
+      nssmdns4 = false;
+    };
+
+    # ollama = {
+    #   enable = true;
+    #   acceleration = "cuda";
+    #   package = pkgsUnstable.ollama-cuda;
+    # };
+  };
 }

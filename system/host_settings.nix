@@ -1,16 +1,12 @@
+{ pkgs, ... }:
+
 {
-  time ={
-      timeZone = "Atlantic/Canary";
-    };
+  time.timeZone = "Atlantic/Canary";
 
-    console = {
-        keyMap = "es";
-    };
+  console.keyMap = "es";
 
-    i18n = {
-
+  i18n = {
     defaultLocale = "en_US.UTF-8";
-
     extraLocaleSettings = {
       LC_ADDRESS = "es_ES.UTF-8";
       LC_IDENTIFICATION = "es_ES.UTF-8";
@@ -26,12 +22,10 @@
 
   hardware = {
     firmware = [ pkgs.linux-firmware ];
-      
     graphics = {
       enable = true;
       enable32Bit = true;
     };
-
     bluetooth = {
       enable = true;
       powerOnBoot = true;
