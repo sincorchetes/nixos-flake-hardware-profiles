@@ -65,6 +65,14 @@
         export __VK_LAYER_NV_optimus=NVIDIA_only
         exec "$@"
       '')
+
+      (writeDesktopFile {
+        name = "Steam (NVIDIA)";
+        exec = "prime-run steam %U";
+        icon = "steam";
+        categories = "Game;Entertainment;";
+        terminal = false;
+      })
     ];
   };
 
