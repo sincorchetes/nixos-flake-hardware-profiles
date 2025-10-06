@@ -17,7 +17,7 @@
       icon = "steam";
       terminal = false;
       type= "Application";
-      categories = [ "Game" "Entertainment" ];
+      categories = [ "Game" ];
       startupNotify = true;
     };
   };
