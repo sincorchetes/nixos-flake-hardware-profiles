@@ -2,7 +2,6 @@
 
 {
   imports = [
-    (modulesPath + "/installer/scan/not-detected.nix")
     ../../system/importer.nix
   ];
 
@@ -35,13 +34,9 @@
     '';
   };
 
-  services.xserver = {
-    videoDrivers = [ "nvidia" ];
-  };
+  services.xserver.videoDrivers = [ "nvidia" ];
 
-  programs.steam = {
-    enable = true;
-  };
+  programs.steam.enable = true;
 
   nix = {
     settings = {
