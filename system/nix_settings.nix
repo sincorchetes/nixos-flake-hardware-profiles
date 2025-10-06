@@ -22,8 +22,9 @@
   };
 
   sops = {
-    age.keyFile = /home/sincorchetes/.config/sops/age/keys.txt;
+    age.keyFile = "${builtins.getEnv "HOME"}/.config/sops/age/keys.txt";
   };
+
 
   home-manager = {
     useGlobalPkgs = true;
