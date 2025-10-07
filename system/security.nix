@@ -10,8 +10,24 @@
       '';
     };
 
-    apparmor.enable = true;
     rtkit.enable = true;
+
+    apparmor = {
+      enable = true;
+      packages = with pkgs; [
+        apparmor-utils
+        apparmor-pam
+        apparmor-parser
+        apparmor-bin-utils
+        apparmor-profiles
+      ];
+
+      system = {
+        path = "${pkgs.apparmor-profiles}/etc/apparmor.d";
+        profile = "system";
+        state = "enforce";
+      };
+    };
   };
 
   boot = {
@@ -19,11 +35,4 @@
       kernelParams = [ "apparmor=1" ];
     };
 
-  environment.systemPackages = with pkgs; [
-    apparmor-utils
-    apparmor-pam
-    apparmor-parser
-    apparmor-bin-utils
-    apparmor-profiles
-  ];
 }
