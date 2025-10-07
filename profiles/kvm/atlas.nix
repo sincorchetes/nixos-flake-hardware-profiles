@@ -19,7 +19,10 @@
     };
   };
 
-  networking.hostName = "atlas0";
+  networking = {
+    hostName = "atlas0";
+    hostId = "F1A234E0";
+  };
 
   environment = {
 
