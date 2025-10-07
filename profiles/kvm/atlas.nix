@@ -3,7 +3,6 @@
 {
   imports = [
     ../../system/importer.nix
-    inputs.disko.nixosModules.disko
   ];
 
   hardware = {
