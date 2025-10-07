@@ -76,11 +76,7 @@
 
   boot = {
     blacklistedKernelModules = [ "nouveau" ];
-    # Trying USB BT
-    #blacklistedKernelModules = [ "amdgpu" "nouveau" "bluetooth" "btusb" "kvm-amd"];
-    extraModprobeConfig = "options hid_logitech_hidpp disable_raw_hid=1";
     kernelModules = [ "hid_logitech_dj" "hid_logitech_hidpp" ];
-    kernelParams = [ "usbcore.autosuspend=-1" ];
 
     initrd = {
       secrets."/vault.key" = "/etc/disk-keys/vault.key";
@@ -111,14 +107,8 @@
     };
 
     kernelParams = [
-      # Enable full preempt.
       "preempt=full"
-      # Disable AMDGPU
-      #"nomodeset"
-      # Disabling zswap, I don't suspend the host.
-      #"zswap.enabled=1"
-      #"zswap.compresor=lz4"
-      #"zswap.max_pool_percent=20"
+      "usbcore.autosuspend=-1"
     ];
   };
 
