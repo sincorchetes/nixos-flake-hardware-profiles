@@ -22,9 +22,11 @@
         apparmor-profiles
       ];
 
-      system = {
-        path = "${pkgs.apparmor-profiles}/etc/apparmor.d";
-        state = "enforce";
+      policies = {
+        system = {
+          path = "${pkgs.apparmor-profiles}/etc/apparmor.d";
+          state = "enforce";
+        };
       };
     };
   };
