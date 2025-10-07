@@ -1,7 +1,7 @@
-{ pkgs, ... }: 
+{ pkgs, pkgsUnstable, ... }: 
 {
 
-  home.packages = with pkgs; [
+  home.packages = with pkgsUnstable; [
     google-chrome brave firefox
     libreoffice typora copyq transmission_4-gtk appimage-run
     figma-linux _1password-gui
