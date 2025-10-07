@@ -32,7 +32,12 @@
     '';
   };
 
-  services.xserver.videoDrivers = [ "amdgpu" "nvidia" ];
+  services = {
+    xserver.videoDrivers = [ "amdgpu" "nvidia" ];
+    udev.extraRules = ''
+      ACTION=="add", SUBSYSTEM=="usb", ATTR{idVendor}=="046d", ATTR{idProduct}=="c52b", TEST=="power/control", ATTR{power/control}="on"
+    '';
+  };
 
   programs.steam.enable = true;
 
@@ -74,6 +79,8 @@
     # Trying USB BT
     #blacklistedKernelModules = [ "amdgpu" "nouveau" "bluetooth" "btusb" "kvm-amd"];
     extraModprobeConfig = "options hid_logitech_hidpp disable_raw_hid=1";
+    kernelModules = [ "hid_logitech_dj" "hid_logitech_hidpp" ];
+    kernelParams = [ "usbcore.autosuspend=-1" ];
 
     initrd = {
       secrets."/vault.key" = "/etc/disk-keys/vault.key";
