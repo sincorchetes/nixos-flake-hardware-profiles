@@ -13,6 +13,11 @@
     rtkit.enable = true;
   };
 
+  boot = {
+      kernelModules = [ "apparmor" ];
+      kernelParams = [ "security=apparmor" "apparmor=1" ];
+    };
+
   environment.systemPackages = with pkgs; [
     apparmor-utils
     apparmor-pam
