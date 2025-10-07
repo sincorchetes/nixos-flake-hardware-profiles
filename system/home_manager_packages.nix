@@ -1,8 +1,7 @@
 { pkgs, pkgsUnstable, ... }: 
 {
-
-  home = {
-    packages = with pkgs; [
+  home.packages =
+    (with pkgs; [
       google-chrome firefox
       libreoffice typora copyq transmission_4-gtk appimage-run
       figma-linux _1password-gui
@@ -13,10 +12,9 @@
       alacritty kitty
       geekbench endeavour remmina
       nix-search-cli asciinema postman
-    ];
-
-    packages = with pkgsUnstable; [
+    ])
+    ++
+    (with pkgsUnstable; [
       brave
-    ];
-  };
+    ]);
 }
