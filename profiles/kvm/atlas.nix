@@ -44,53 +44,57 @@
   };
 
   disko.devices = {
-    disk.main = {
-      type = "disk";
-      device = "/dev/vda";
-      content = {
-        type = "gpt";
-        partitions = {
-          ESP = {
-            size = "512MiB";
-            type = "EF00";
-            content = {
-              type = "filesystem";
-              format = "vfat";
-              mountpoint = "/boot";
+    disk = {
+      main = {
+        type = "disk";
+        device = "/dev/vda";
+        content = {
+          type = "gpt";
+          partitions = {
+            ESP = {
+              size = "512MiB";
+              type = "EF00";
+              content = {
+                type = "filesystem";
+                format = "vfat";
+                mountpoint = "/boot";
+                mountOptions = [ "nofail" ];
+              };
             };
-          };
-          zfs = {
-            size = "100%";
-            content = {
-              type = "zfs";
-              pool = "zroot";
+            zfs = {
+              size = "100%";
+              content = {
+                type = "zfs";
+                pool = "zroot";
+              };
             };
           };
         };
       };
     };
 
-    zpool.zroot = {
-      type = "zpool";
-      options = {
-        ashift = "12";
-        autotrim = "on";
-      };
-      rootFsOptions = {
-        compression = "zstd";
-        atime = "off";
-        xattr = "sa";
-        acltype = "posixacl";
-      };
-      createOptions = [
-        "-O" "encryption=on"
-        "-O" "keyformat=passphrase"
-        "-O" "mountpoint=/"
-      ];
-      datasets = {
-        "root" = {
-          type = "zfs_fs";
-          mountpoint = "/";
+    zpool = {
+      zroot = {
+        type = "zpool";
+        rootFsOptions = {
+          mountpoint = "none";
+          compression = "zstd";
+          acltype = "posixacl";
+          xattr = "sa";
+          "com.sun:auto-snapshot" = "true";
+        };
+        options.ashift = "12";
+
+        datasets = {
+          "root" = {
+            type = "zfs_fs";
+            options = {
+              encryption = "aes-256-gcm";
+              keyformat = "passphrase";
+              keylocation = "prompt";
+            };
+            mountpoint = "/";
+          };
         };
       };
     };
