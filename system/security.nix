@@ -24,5 +24,6 @@
     apparmor-pam
     apparmor-parser
     apparmor-bin-utils
+    apparmor-profiles
   ];
 }
