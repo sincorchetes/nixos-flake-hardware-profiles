@@ -76,14 +76,12 @@
         ashift = "12";
         autotrim = "on";
       };
-      # Opciones que se aplican a la raíz y datasets
       rootFsOptions = {
         compression = "zstd";
         atime = "off";
         xattr = "sa";
         acltype = "posixacl";
       };
-      # Opciones de creación del zpool
       createOptions = [
         "-O" "encryption=on"
         "-O" "keyformat=passphrase"
