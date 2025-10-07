@@ -24,7 +24,6 @@
 
       system = {
         path = "${pkgs.apparmor-profiles}/etc/apparmor.d";
-        profile = "system";
         state = "enforce";
       };
     };
