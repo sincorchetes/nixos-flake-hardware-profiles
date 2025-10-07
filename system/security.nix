@@ -2,6 +2,7 @@
 
 {
   security = {
+    lsm = [ "apparmor" ];
     sudo = {
       enable = true;
       extraConfig = ''
@@ -15,7 +16,7 @@
 
   boot = {
       kernelModules = [ "apparmor" ];
-      kernelParams = [ "security=apparmor" "apparmor=1" ];
+      kernelParams = [ "apparmor=1" ];
     };
 
   environment.systemPackages = with pkgs; [
