@@ -9,7 +9,7 @@ in
   environment.systemPackages = with pkgs; [
     tree eza tmux unzip gnupg unrar btop binutils htop zoxide ncdu fastfetch
     acpi lm_sensors pciutils inetutils lshw usbutils vdpauinfo
-    tcpdump nmap p0f wireshark rustscan
+    tcpdump nmap p0f wireshark rustscan mesa
     pritunl-client openfortivpn veracrypt borgbackup kernelshark
     jq openssl sops age cachix git pre-commit devenv
     argo stripe-cli terraform terragrunt kubectl lens istioctl
