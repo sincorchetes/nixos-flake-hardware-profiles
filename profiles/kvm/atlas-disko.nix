@@ -1,9 +1,11 @@
+{ config, pkgs, lib, ... }:
+
 {
   disko.devices = {
     disk = {
       root = {
         type = "disk";
-        device = "/dev/vda";
+        device = "/dev/vda"; # tu disco principal
         content = {
           type = "gpt";
           partitions = {
@@ -14,7 +16,6 @@
                 type = "filesystem";
                 format = "vfat";
                 mountpoint = "/boot";
-                mountOptions = [ "nofail" ];
               };
             };
             zfs = {
@@ -28,6 +29,7 @@
         };
       };
     };
+
     zpool = {
       zroot = {
         type = "zpool";
@@ -36,23 +38,17 @@
           compression = "zstd";
           acltype = "posixacl";
           xattr = "sa";
-          "com.sun:auto-snapshot" = "true";
         };
         options.ashift = "12";
         datasets = {
           "root" = {
             type = "zfs_fs";
             options = {
+              mountpoint = "/";
               encryption = "aes-256-gcm";
               keyformat = "passphrase";
               keylocation = "prompt";
             };
-            mountpoint = "/";
-          };
-          "root/nix" = {
-            type = "zfs_fs";
-            options.mountpoint = "/nix";
-            mountpoint = "/nix";
           };
         };
       };
