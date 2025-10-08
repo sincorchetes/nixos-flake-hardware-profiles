@@ -42,7 +42,23 @@
     supportedFilesystems = [ "zfs" ];
     initrd = {
       supportedFilesystems = [ "zfs" ];
-      kernelModules = [ "zfs" ];
+      kernelModules = [ "zfs" "kvm-amd" "ahci" "xhci_pci" "virtio_pci" "sr_mod" "virtio_blk" ];
     };
   };
+
+  fileSystems."/" =
+    { device = "zroot/root";
+      fsType = "zfs";
+    };
+
+  fileSystems."/boot" =
+    { device = "/dev/disk/by-uuid/5325-2B90";
+      fsType = "vfat";
+      options = [ "fmask=0022" "dmask=0022" ];
+    };
+
+  fileSystems."/nix" =
+    { device = "zroot/root/nix";
+      fsType = "zfs";
+    };
 }
