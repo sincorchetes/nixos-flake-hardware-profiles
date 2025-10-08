@@ -2,6 +2,7 @@
   description = "nixOS configuration file";
 
   inputs = {
+    sops-nix.url = "github:Mic92/sops-nix";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
@@ -10,10 +11,14 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    sops-nix.url = "github:Mic92/sops-nix";
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
   };
 
-  outputs = inputs@{ nixpkgs, sops-nix, home-manager, ... }:
+  outputs = inputs@{ nixpkgs, sops-nix, home-manager, disko, ... }:
     let
       system = "x86_64-linux";
 
@@ -35,6 +40,7 @@
             path
             sops-nix.nixosModules.sops
             home-manager.nixosModules.home-manager
+            disko.nixosModules.disko
             {
               home-manager = {
                 useGlobalPkgs = true;
@@ -50,6 +56,7 @@
         tank0     = mkSystem ./profiles/desktops/tank.nix;
         thinkpad0 = mkSystem ./profiles/laptops/thinkpad.nix;
         probook0  = mkSystem ./profiles/laptops/probook.nix;
+        atlas0    = mkSystem ./profiles/kvm/atlas.nix;
       };
     };
 }
