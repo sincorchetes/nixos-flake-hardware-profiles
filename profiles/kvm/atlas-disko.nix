@@ -16,6 +16,7 @@
                 type = "filesystem";
                 format = "vfat";
                 mountpoint = "/boot";
+                mountOptions = [ "nofail" ];
               };
             };
             zfs = {
@@ -38,18 +39,19 @@
           compression = "zstd";
           acltype = "posixacl";
           xattr = "sa";
+          "com.sun:auto-snapshot" = "true";
         };
         options.ashift = "12";
+
         datasets = {
-          "root" = {
-            type = "zfs_fs";
-            rootFs = true;                  # <--- AQUÍ
+          root = {
+            type = "zfs_fs";  # dataset raíz
             options = {
-              mountpoint = "/";
               encryption = "aes-256-gcm";
               keyformat = "passphrase";
               keylocation = "prompt";
             };
+            mountpoint = "/";   # root
           };
         };
       };
