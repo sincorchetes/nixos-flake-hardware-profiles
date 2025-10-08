@@ -52,13 +52,8 @@
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/5325-2B90";
+    { device = "/dev/disk/by-uuid/7D23-F9E0";
       fsType = "vfat";
       options = [ "fmask=0022" "dmask=0022" ];
-    };
-
-  fileSystems."/nix" =
-    { device = "zroot/root/nix";
-      fsType = "zfs";
     };
 }
