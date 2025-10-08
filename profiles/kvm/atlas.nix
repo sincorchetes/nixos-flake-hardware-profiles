@@ -40,7 +40,7 @@
     kernelParams = [
       "preempt=full"
     ];
-    zfs.forceImportAll = true
+    zfs.forceImportAll = true;
     supportedFilesystems = [ "zfs" ];
     initrd = {
       supportedFilesystems = [ "zfs" ];
