@@ -5,7 +5,7 @@
     disk = {
       root = {
         type = "disk";
-        device = "/dev/vda"; # tu disco principal
+        device = "/dev/vda";
         content = {
           type = "gpt";
           partitions = {
@@ -43,6 +43,7 @@
         datasets = {
           "root" = {
             type = "zfs_fs";
+            rootFs = true;                  # <--- AQUÍ
             options = {
               mountpoint = "/";
               encryption = "aes-256-gcm";
