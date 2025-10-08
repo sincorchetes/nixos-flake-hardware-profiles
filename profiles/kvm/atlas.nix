@@ -47,15 +47,4 @@
       kernelModules = [ "zfs" "kvm-amd" "ahci" "xhci_pci" "virtio_pci" "sr_mod" "virtio_blk" ];
     };
   };
-
-  fileSystems."/" =
-    { device = "zroot/root";
-      fsType = "zfs";
-    };
-
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/7D23-F9E0";
-      fsType = "vfat";
-      options = [ "fmask=0022" "dmask=0022" ];
-    };
 }
