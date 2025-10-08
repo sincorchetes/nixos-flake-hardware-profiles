@@ -3,6 +3,7 @@
 {
   imports = [
     ../../system/importer.nix
+    ./atlas-disko.nix
   ];
 
   hardware = {
@@ -39,6 +40,7 @@
     kernelParams = [
       "preempt=full"
     ];
+    zfs.forceImportAll = true
     supportedFilesystems = [ "zfs" ];
     initrd = {
       supportedFilesystems = [ "zfs" ];
