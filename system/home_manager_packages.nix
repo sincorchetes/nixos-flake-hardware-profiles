@@ -9,7 +9,7 @@
       vlc mpv spotify stremio gimp inkscape obs-studio easyeffects qpwgraph pavucontrol
       vscode-fhs code-cursor helix vim
       jetbrains.pycharm-professional jetbrains.webstorm jetbrains.datagrip dbeaver-bin
-      alacritty kitty rio
+      alacritty kitty rio k9s
       geekbench endeavour remmina
       nix-search-cli asciinema postman
     ])
