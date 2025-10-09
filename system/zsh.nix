@@ -17,8 +17,9 @@
         syntaxHighlighting.enable = true;
 
         shellAliases = {
+          cat = "bat";
           c = "clear";
-          k = "kubectl";
+          k = "kubecolor";
           g = "git";
           t = "terraform";
           dc = "docker compose";
