@@ -14,7 +14,7 @@ in
     jq openssl sops age cachix git pre-commit devenv
     argo stripe-cli terraform terragrunt kubectl lens istioctl
     kubernetes-helm minikube awscli2 azure-cli azure-cli-extensions.azure-devops gcloud
-    flat-remix-gnome flat-remix-icon-theme
+    flat-remix-gnome flat-remix-icon-theme bat kubecolor
     gnomeExtensions.pop-shell
     gnomeExtensions.easyeffects-preset-selector
     gnomeExtensions.appindicator
