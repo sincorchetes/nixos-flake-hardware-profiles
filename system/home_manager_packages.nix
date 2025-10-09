@@ -10,7 +10,7 @@
       vscode-fhs code-cursor helix vim
       jetbrains.pycharm-professional jetbrains.webstorm jetbrains.datagrip dbeaver-bin
       alacritty kitty rio k9s
-      geekbench endeavour remmina
+      geekbench endeavour remmina heroic
       nix-search-cli asciinema postman
     ])
     ++
