@@ -9,12 +9,12 @@
       vlc mpv spotify stremio gimp inkscape obs-studio easyeffects qpwgraph pavucontrol
       vscode-fhs code-cursor helix vim
       jetbrains.pycharm-professional jetbrains.webstorm jetbrains.datagrip dbeaver-bin
-      alacritty kitty rio k9s
+      alacritty kitty rio k9s brave
       geekbench endeavour remmina heroic
       nix-search-cli asciinema postman
-    ])
-    ++
-    (with pkgsUnstable; [
-      brave
     ]);
+    #++
+    #(with pkgsUnstable; [
+    #  brave
+    #]);
 }
