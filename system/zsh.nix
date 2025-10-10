@@ -15,12 +15,13 @@
         enableCompletion = true;
         autosuggestion.enable = true;
         syntaxHighlighting.enable = true;
-
+        initExtra = ''
+          compdef kubecolor=kubectl;
+        '';
         shellAliases = {
           cat = "bat";
           c = "clear";
           k = "kubecolor";
-          kubectl = "kubecolor";
           g = "git";
           t = "terraform";
           dc = "docker compose";
