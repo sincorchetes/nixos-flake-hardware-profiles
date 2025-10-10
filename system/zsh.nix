@@ -20,6 +20,7 @@
           cat = "bat";
           c = "clear";
           k = "kubecolor";
+          kubectl = "kubecolor";
           g = "git";
           t = "terraform";
           dc = "docker compose";
