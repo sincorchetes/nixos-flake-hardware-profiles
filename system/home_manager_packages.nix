@@ -14,7 +14,7 @@
       alacritty kitty rio k9s brave
       geekbench endeavour remmina heroic
       nix-search-cli asciinema postman
-      waybar libglvnd hyprshot hyprpaper wofi hyprpaper wl-clipboard mako desktop-file-utils blueman playerctl     # Hyprland
+      waybar hyprshot hyprpaper wofi hyprpaper wl-clipboard mako desktop-file-utils blueman playerctl     # Hyprland
     ]);
     #++
     #(with pkgsUnstable; [
