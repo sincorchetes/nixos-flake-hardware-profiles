@@ -9,11 +9,11 @@
     cpu.amd.updateMicrocode = true;
     xpadneo.enable = true;
     nvidia = {
-      package = pkgs.linuxPackages_zen.nvidia_x11_beta_open;
+      package = pkgs.linuxPackages_zen.nvidia_x11_beta;
       modesetting.enable = true;
       powerManagement.enable = true;
       powerManagement.finegrained = false;
-      open = true;
+      open = false;
       nvidiaSettings = true;
       prime = {
             offload.enable = true;
