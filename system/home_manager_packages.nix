@@ -15,7 +15,7 @@
       geekbench endeavour remmina heroic
       nix-search-cli asciinema postman
       waybar hyprshot hyprpaper wofi hyprpaper wl-clipboard mako desktop-file-utils blueman playerctl     # Hyprland
-      yazi imv 
+      yazi imv wl-color-picker
     ]);
     #++
     #(with pkgsUnstable; [
