@@ -13,7 +13,7 @@
       jetbrains.pycharm-professional jetbrains.webstorm jetbrains.datagrip dbeaver-bin
       alacritty kitty rio k9s brave
       geekbench endeavour remmina heroic
-      nix-search-cli asciinema postman
+      nix-search-cli asciinema postman networkmanagerapplet
       waybar hyprshot hyprpaper wofi hyprpaper wl-clipboard mako desktop-file-utils blueman playerctl     # Hyprland
       yazi imv wl-color-picker
     ]);
