@@ -1,6 +1,10 @@
 # { pkgs, pkgsUnstable, ... }: 
 { pkgs, ... }: 
-
+let
+  gcloud = pkgs.google-cloud-sdk.withExtraComponents [
+    pkgs.google-cloud-sdk.components.gke-gcloud-auth-plugin
+  ];
+in
 {
   home.packages =
     (with pkgs; [
@@ -13,7 +17,7 @@
       flat-remix-gnome flat-remix-icon-theme                                                              # Desktop Theme Software
       rio alacritty kitty yazi imv asciinema tmux eza tree btop htop ncdu fastfetch bat zoxide            # GUI Terminal Tools
       waybar hyprshot hyprpaper wofi hyprpaper wl-clipboard mako desktop-file-utils blueman playerctl     # Hyprland Desktop
-      terraform terragrunt kubectl kubecolor k9s kubernetes-helm awscli2 gcloud                           # DevOps Tools
+      terraform terragrunt kubectl kubecolor k9s kubernetes-helm awscli2 gcloud minikube                  # DevOps Tools
       vscode-fhs code-cursor helix vim jetbrains.pycharm-professional jetbrains.webstorm                  # IDE Software
       jq pre-commit postman figma-linux stripe-cli                                                        # Development Tools
       jetbrains.datagrip dbeaver-bin                                                                      # Database Management Tools
