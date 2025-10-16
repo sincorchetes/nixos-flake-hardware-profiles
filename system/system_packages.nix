@@ -1,23 +1,13 @@
 { pkgs, ... }:
 
-let
-  gcloud = pkgs.google-cloud-sdk.withExtraComponents [
-    pkgs.google-cloud-sdk.components.gke-gcloud-auth-plugin
-  ];
-in
 {
   environment.systemPackages = with pkgs; [
-    tree eza tmux unzip gnupg unrar btop binutils htop zoxide ncdu fastfetch
-    acpi lm_sensors pciutils inetutils lshw usbutils vdpauinfo
-    tcpdump nmap p0f wireshark rustscan mesa
-    pritunl-client openfortivpn veracrypt borgbackup kernelshark
-    jq openssl sops age cachix git pre-commit devenv
-    argo stripe-cli terraform terragrunt kubectl lens istioctl
-    kubernetes-helm minikube awscli2 azure-cli azure-cli-extensions.azure-devops gcloud
-    flat-remix-gnome flat-remix-icon-theme bat kubecolor
-    gnomeExtensions.pop-shell
-    gnomeExtensions.easyeffects-preset-selector
-    gnomeExtensions.appindicator
+    acpi lm_sensors pciutils inetutils lshw usbutils vdpauinfo kernelshark mesa binutils gnupg unzip       # System Tools
+    borgbackup openssl git                                                                                 # System Tools
+    tcpdump nmap p0f wireshark rustscan                                                                    # Network Security Tools
+    pritunl-client openfortivpn                                                                            # VPN Software
+    sops age cachix devenv                                                                                 # NixOS Management Software Tools
+    gnomeExtensions.pop-shell gnomeExtensions.easyeffects-preset-selector gnomeExtensions.appindicator     # GNOME Extensions
   ];
 
   fonts.packages = with pkgs; [
