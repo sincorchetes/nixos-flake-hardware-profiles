@@ -1,21 +1,31 @@
 # { pkgs, pkgsUnstable, ... }: 
 { pkgs, ... }: 
-
+let
+  gcloud = pkgs.google-cloud-sdk.withExtraComponents [
+    pkgs.google-cloud-sdk.components.gke-gcloud-auth-plugin
+  ];
+in
 {
   home.packages =
     (with pkgs; [
-      google-chrome firefox
-      libreoffice typora copyq transmission_4-gtk appimage-run
-      figma-linux _1password-gui
-      telegram-desktop slack discord
-      vlc mpv spotify stremio gimp inkscape obs-studio easyeffects qpwgraph pavucontrol
-      vscode-fhs code-cursor helix vim
-      jetbrains.pycharm-professional jetbrains.webstorm jetbrains.datagrip dbeaver-bin
-      alacritty kitty rio k9s brave
-      geekbench endeavour remmina heroic
-      nix-search-cli asciinema postman
-      waybar hyprshot hyprpaper wofi hyprpaper wl-clipboard mako desktop-file-utils blueman playerctl     # Hyprland
-      yazi imv wl-color-picker
+      google-chrome firefox brave                                                                         # Web Browsers
+      libreoffice typora                                                                                  # Office Tools
+      gimp inkscape obs-studio wl-color-picker                                                            # Multimedia Tools
+      vlc mpv spotify stremio                                                                             # Video Players
+      copyq _1password-gui easyeffects qpwgraph pavucontrol appimage-run endeavour heroic                 # Desktop Tools
+      unrar                                                                                               # File Compression Software
+      flat-remix-gnome flat-remix-icon-theme                                                              # Desktop Theme Software
+      rio alacritty kitty yazi imv asciinema tmux eza tree btop htop ncdu fastfetch bat zoxide            # GUI Terminal Tools
+      waybar hyprshot hyprpaper wofi hyprpaper wl-clipboard mako desktop-file-utils blueman playerctl     # Hyprland Desktop
+      terraform terragrunt kubectl kubecolor k9s kubernetes-helm awscli2 gcloud minikube                  # DevOps Tools
+      vscode-fhs code-cursor helix vim jetbrains.pycharm-professional jetbrains.webstorm                  # IDE Software
+      jq pre-commit postman figma-linux stripe-cli                                                        # Development Tools
+      jetbrains.datagrip dbeaver-bin                                                                      # Database Management Tools
+      telegram-desktop slack discord                                                                      # Instant Messaging
+      transmission_4-gtk networkmanagerapplet                                                             # Network Tools
+      nix-search-cli                                                                                      # Nix Packager Manager Tools
+      veracrypt                                                                                           # Security Tools
+      
     ]);
     #++
     #(with pkgsUnstable; [
