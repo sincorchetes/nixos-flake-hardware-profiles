@@ -8,7 +8,7 @@ in
 {
   home.packages =
     (with pkgs; [
-      google-chrome firefox brave                                                                         # Web Browsers
+      google-chrome firefox                                                                               # Web Browsers
       libreoffice typora                                                                                  # Office Tools
       gimp inkscape obs-studio wl-color-picker                                                            # Multimedia Tools
       vlc mpv spotify stremio                                                                             # Video Players
