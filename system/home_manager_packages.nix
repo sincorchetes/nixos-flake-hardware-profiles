@@ -15,7 +15,9 @@ in
       copyq _1password-gui easyeffects qpwgraph pavucontrol appimage-run endeavour heroic                     # Desktop Tools
       unrar                                                                                                   # File Compression Software
       flat-remix-gnome flat-remix-icon-theme                                                                  # Desktop Theme Software
-      rio alacritty kitty yazi imv asciinema tmux eza tree btop htop ncdu fastfetch bat zoxide                # GUI Terminal Tools
+      rio alacritty kitty                                                                                     # GUI Terminal Tools
+      yazi imv asciinema tmux eza tree btop htop ncdu fastfetch bat zoxide fzf ripgrep zellij delta bottom    # Shell Tools
+      lazygit xh procs atuin dust duf tldr sd glow broot hyperfine navi dog                                   # Shell Tools
       waybar hyprshot hyprpaper wofi hyprpaper wl-clipboard mako desktop-file-utils                           # Hyprland Desktop
       blueman playerctl hypridle hyprlock                                                                     # Hyprland Desktop
       terraform terragrunt kubectl kubecolor k9s kubernetes-helm awscli2 gcloud minikube                      # DevOps Tools
