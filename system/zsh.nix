@@ -19,7 +19,7 @@
           compdef kubecolor=kubectl;
         '';
         shellAliases = {
-          cat = "bat";
+          cat = "bat -p";
           c = "clear";
           k = "kubecolor";
           g = "git";
