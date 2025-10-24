@@ -49,6 +49,12 @@
         enable = true;
         enableZshIntegration = true;
       };
+
+      atuin = {
+        enable = true;
+        enableZshIntegration = true;
+        enableNushellIntegration = true;
+      };
     };
 
     home.sessionVariables = {
