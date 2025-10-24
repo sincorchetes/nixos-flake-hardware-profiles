@@ -15,9 +15,9 @@
         enableCompletion = true;
         autosuggestion.enable = true;
         syntaxHighlighting.enable = true;
-        initContent = ''
-          compdef kubecolor=kubectl;
-        '';
+        #initContent = ''
+        #  compdef kubecolor=kubectl;
+        #'';
         shellAliases = {
           cat = "bat -p";
           c = "clear";
@@ -40,11 +40,27 @@
 
         oh-my-zsh = {
           enable = true;
-          theme = "agnoster";
+          #theme = "agnoster";
           plugins = [ "git" "colorize" ];
         };
       };
 
+      carapace = {
+        enable = true;
+        enableZshIntegration = true;
+        completers = {
+          k = "kubectl";
+          kubecolor = "kubectl";
+          g = "git";
+          t = "terraform";
+          dc = "docker compose";
+          gg = "gcloud";
+        };
+      starship = {
+        enable = true;
+        enableZshIntegration = true;
+      };
+      };
       zoxide = {
         enable = true;
         enableZshIntegration = true;
