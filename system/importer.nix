@@ -10,6 +10,6 @@
         ./services.nix
         ./users.nix
         ./virtualization.nix
-        ./zsh.nix
+        ./shell.nix
     ];
 }
