@@ -56,19 +56,12 @@
       carapace = {
         enable = true;
         enableZshIntegration = true;
-        completers = {
-          k = "kubectl";
-          kubecolor = "kubectl";
-          g = "git";
-          t = "terraform";
-          dc = "docker compose";
-          gg = "gcloud";
-        };
+      };
       starship = {
         enable = true;
         enableZshIntegration = true;
       };
-      };
+      
       zoxide = {
         enable = true;
         enableZshIntegration = true;
