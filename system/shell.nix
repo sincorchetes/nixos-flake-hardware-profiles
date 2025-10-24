@@ -15,9 +15,17 @@
         enableCompletion = true;
         autosuggestion.enable = true;
         syntaxHighlighting.enable = true;
-        #initContent = ''
+        initContent = ''
+          if command -v carapace &> /dev/null; then
+            carapace _carapace alias k kubectl
+            carapace _carapace alias kubecolor kubectl
+            carapace _carapace alias g git
+            carapace _carapace alias t terraform
+            carapace _carapace alias dc "docker compose"
+            carapace _carapace alias gg gcloud
+          fi
         #  compdef kubecolor=kubectl;
-        #'';
+        '';
         shellAliases = {
           cat = "bat -p";
           c = "clear";
