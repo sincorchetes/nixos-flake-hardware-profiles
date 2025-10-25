@@ -34,12 +34,12 @@
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
+    backupFileExtension = "backup";
     users.sincorchetes = {
       home = {
         stateVersion = "25.05";
         username = "sincorchetes";
         homeDirectory = "/home/sincorchetes";
-        backupFileExtension = "backup";
       };
       
       imports = [ ./home_manager_packages.nix ./xdg_desktop_entries.nix ];
