@@ -3,7 +3,7 @@
 {
   environment.systemPackages = with pkgs; [
     acpi lm_sensors pciutils inetutils lshw usbutils vdpauinfo kernelshark mesa binutils gnupg unzip       # System Tools
-    borgbackup openssl git                                                                                 # System Tools
+    borgbackup openssl git zsh                                                                             # System Tools
     tcpdump nmap p0f wireshark rustscan                                                                    # Network Security Tools
     pritunl-client openfortivpn                                                                            # VPN Software
     sops age cachix devenv                                                                                 # NixOS Management Software Tools
