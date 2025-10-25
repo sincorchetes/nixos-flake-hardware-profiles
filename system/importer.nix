@@ -10,6 +10,5 @@
         ./services.nix
         ./users.nix
         ./virtualization.nix
-        ./shell.nix
     ];
 }
