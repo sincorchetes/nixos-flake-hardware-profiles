@@ -47,7 +47,7 @@
         ./xdg_desktop_entries.nix 
         ./hypr/hyprland.nix 
         ./hypr/hyprpaper.nix
-        /wofi/wofi.nix
+        ./wofi/wofi.nix
       ];
     };
   };
