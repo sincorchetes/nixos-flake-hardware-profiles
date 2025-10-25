@@ -15,12 +15,11 @@
         enableCompletion = true;
         autosuggestion.enable = true;
         syntaxHighlighting.enable = true;
-        initContent = lib.mkAfter ''
+        initContent = ''
           compdef k=kubectl;
           compdef kubecolor=kubectl;
           compdef g=git;
           compdef t=terraform;
-          compdef dc="docker compose";
           compdef gg=gcloud;
         '';
         shellAliases = {
@@ -50,10 +49,6 @@
         };
       };
 
-      carapace = {
-        enable = true;
-        enableZshIntegration = true;
-      };
       starship = {
         enable = true;
         enableZshIntegration = true;
