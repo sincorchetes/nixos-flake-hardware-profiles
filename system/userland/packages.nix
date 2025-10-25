@@ -4,8 +4,21 @@ let
   gcloud = pkgs.google-cloud-sdk.withExtraComponents [
     pkgs.google-cloud-sdk.components.gke-gcloud-auth-plugin
   ];
+
+  homeFonts = with pkgs; [
+    nerd-fonts._0xproto
+    nerd-fonts.droid-sans-mono
+    nerd-fonts.ubuntu-sans
+    nerd-fonts.ubuntu
+    nerd-fonts.jetbrains-mono
+    roboto
+    font-awesome
+    noto-fonts-emoji-blob-bin
+    powerline-fonts
+  ];
 in
 {
+  fonts.fontconfig.enable = true;
   programs = {
       #rio.enable = true;
       #tmux.enable = true;
@@ -62,6 +75,7 @@ in
           transmission_4-gtk                                                                 # Network Tools
           nix-search-cli                                                                                          # Nixpkg Manager Tools
           veracrypt                                                                                               # Security Tools
+          homeFonts
         ]);
         #++
         #(with pkgsUnstable; [
