@@ -4,8 +4,8 @@
     enable = true;
     settings = {
       "main" = {
-        "font" = "FiraCode Nerd Font Mono:size=11";
-        "dpi-aware" = "yes";
+        "font" = "FiraCode Nerd Font Mono:size=12";
+        "dpi-aware" = "no";
         "term" = "foot";
       };
       "scrollback" = {
