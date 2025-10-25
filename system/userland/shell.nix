@@ -55,11 +55,6 @@
         };
       };
 
-      zellij = {
-        enable = true;
-        enableZshIntegration = true;
-      };
-
       navi = {
         enable = true;
         enableZshIntegration = true;

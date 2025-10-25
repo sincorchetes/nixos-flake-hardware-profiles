@@ -42,7 +42,7 @@ in
 
       packages =
         (with pkgs; [
-          rio fastfetch mpv firefox obs-studio
+          fastfetch mpv firefox obs-studio
           google-chrome brave                                                                                     # Web Browsers
           libreoffice typora                                                                                      # Office Tools
           gimp inkscape wl-color-picker                                                                           # Multimedia Tools
