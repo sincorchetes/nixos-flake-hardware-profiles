@@ -26,6 +26,7 @@
                 "backend" = "Vulkan";
                 "disable-unfocused-render" = false;
                 "level" = 1;
+            };
             fonts = {
                 "size" = 16;
             };
