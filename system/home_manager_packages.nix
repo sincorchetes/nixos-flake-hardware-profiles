@@ -22,7 +22,7 @@ in
     #asciinema.enable = true;
     helix.enable = true;
     git.enable = true;
-    delta.enable = true;
+    #delta.enable = true;
     htop.enable = true;
     imv.enable = true;
     hwatch.enable = true;
