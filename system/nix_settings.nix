@@ -55,6 +55,7 @@
         ./userland/rio/rio.nix
         ./userland/tmux/tmux.nix
         ./userland/mako/mako.nix
+        ./userland/foot/foot.nix
       ];
     };
   };
