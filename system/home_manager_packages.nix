@@ -19,7 +19,7 @@ in
     ripgrep.enable = true;
     ripgrep-all.enable = true;
     neovim.enable = true;
-    asciinema.enable = true;
+    #asciinema.enable = true;
     helix.enable = true;
     git.enable = true;
     delta.enable = true;
