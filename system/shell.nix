@@ -24,8 +24,8 @@
         autosuggestion.enable = true;
         syntaxHighlighting.enable = true;
         initContent = ''
-          source "${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme"
-          unsetopt PROMPT_CR
+          source "${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
+          unsetopt PROMPT_CR;
           compdef k=kubectl;
           compdef kubecolor=kubectl;
           compdef g=git;
