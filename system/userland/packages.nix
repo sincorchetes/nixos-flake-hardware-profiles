@@ -73,6 +73,9 @@ in
           font-awesome
           noto-fonts-emoji-blob-bin
           powerline-fonts
+          borgbackup openssl tcpdump nmap p0f wireshark rustscan 
+          gnomeExtensions.pop-shell gnomeExtensions.easyeffects-preset-selector gnomeExtensions.appindicator
+          devenv gnupg unzip
         ]);
         #++
         #(with pkgsUnstable; [
