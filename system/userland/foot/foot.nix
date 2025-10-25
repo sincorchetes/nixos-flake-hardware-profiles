@@ -1,5 +1,6 @@
 {
   programs.foot = {
+    server.enable = true;
     enable = true;
     settings = {
       "main" = {
@@ -10,9 +11,5 @@
         "lines" = 30000;
       };
     };
-  };
-
-  services.foot = {
-    enable = true;
   };
 }
