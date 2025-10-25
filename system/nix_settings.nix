@@ -53,6 +53,8 @@
         ./userland/wofi/wofi.nix
         ./userland/waybar/waybar.nix
         ./userland/rio/rio.nix
+        ./userland/tmux/tmux.nix
+        ./userland/mako/mako.nix
       ];
     };
   };
