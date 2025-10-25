@@ -42,7 +42,18 @@
         homeDirectory = "/home/sincorchetes";
       };
       
-      imports = [ ./home_manager_packages.nix ./xdg_desktop_entries.nix ];
+      imports = [ 
+        ./userland/shell.nix 
+        ./userland/packages.nix 
+        ./userland/xdg_desktop_entries.nix 
+        ./userland/hypr/hyprland.nix 
+        ./userland/hypr/hyprpaper.nix
+        ./userland/hypr/hypridle.nix
+        ./userland/hypr/hyprlock.nix
+        ./userland/wofi/wofi.nix
+        ./userland/waybar/waybar.nix
+        ./userland/rio/rio.nix
+      ];
     };
   };
 }
