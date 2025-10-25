@@ -47,6 +47,7 @@
         ./xdg_desktop_entries.nix 
         ./hypr/hyprland.nix 
         ./hypr/hyprpaper.nix
+        ./hypr/hypridle.nix
         ./wofi/wofi.nix
         ./waybar/waybar.nix
       ];
