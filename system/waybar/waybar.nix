@@ -43,7 +43,7 @@
                     "connected" = "";
                 };
                 "tray"= {
-                    "spacing"= 10
+                    "spacing"= 10;
                 };
                 "clock" = {
                     "format" = "{:%H:%M}  ";
