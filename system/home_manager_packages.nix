@@ -6,7 +6,6 @@ let
   ];
 in
 {
-  home = {
   programs = {
     rio.enable = true;
     tmux.enable = true;
@@ -36,6 +35,7 @@ in
     jq.enable= true;
   };
 
+  home = {
     #services = {
     #  mako = {
     #    enable = true;
