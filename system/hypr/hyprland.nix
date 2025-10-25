@@ -7,7 +7,7 @@
             "$fileManager" = "nautilus";
             "$menu" = "wofi --show drun --insensitive";
             "$mainMod" = "SUPER";
-            
+
             monitor = [
                 "DP-2, preferred, auto, 1.25"
                 "HDMI-A-1, disable"
@@ -41,10 +41,8 @@
                 gaps_in = 5;
                 gaps_out = 20;
                 border_size = 3;
-                col = {
-                  active_border = "rgba(FFFFFFFF)";
-                  inactive_border = "rgba(595959aa)";
-                };
+                "col.active_border" = "rgba(FFFFFFFF)";
+                "col.inactive_border" = "rgba(595959aa)";
                 resize_on_border = false;
                 allow_tearing = false;
                 layout = "dwindle";
