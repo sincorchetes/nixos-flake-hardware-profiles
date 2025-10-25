@@ -55,8 +55,30 @@
         };
       };
 
-      programs.ripgrep.enable = true;
-      programs.ripgrep-all.enable = true;
+      zellij = {
+        enable = true;
+        enableZshIntegration = true;
+      };
+
+      navi = {
+        enable = true;
+        enableZshIntegration = true;
+      };
+
+      lazygit = {
+        enable = true;
+        enableZshIntegration;
+      };
+
+      broot = {
+        enable = true;
+        enableZshIntegration = true;
+      };
+
+      yazi = {
+        enable = true;
+        enableZshIntegration = true;
+      };
 
       fzf = {
         enable = true;
