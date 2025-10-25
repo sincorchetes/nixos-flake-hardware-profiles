@@ -25,7 +25,7 @@ in
     #delta.enable = true;
     htop.enable = true;
     imv.enable = true;
-    hwatch.enable = true;
+    #hwatch.enable = true;
     wofi.enable = true;
     hyprlock.enable = true;
     waybar.enable = true;
