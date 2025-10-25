@@ -5,7 +5,7 @@ let
     pkgs.google-cloud-sdk.components.gke-gcloud-auth-plugin
   ];
 
-  homeFonts = with pkgs; [
+  homeFonts = [
     nerd-fonts._0xproto
     nerd-fonts.droid-sans-mono
     nerd-fonts.ubuntu-sans
