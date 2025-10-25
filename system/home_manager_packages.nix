@@ -78,4 +78,5 @@ in
       #(with pkgsUnstable; [
       #  brave
       #]);
+   };
 }
