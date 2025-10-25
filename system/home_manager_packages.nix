@@ -39,20 +39,13 @@ in
     #  mako = {
     #    enable = true;
     #  };
-    #  waybar = {
-    #    enable = true;
-    #    # settings = { ... };
-    #  };
     #  copyq.enable = true;
-    #  hyprpaper.enable = true;
-    #  hypridle.enable = true;
-    #  hyprlock.enable = true;
     #  blueman-applet.enable = true;
     #  network-manager-applet.enable = true;
     #};
     packages =
       (with pkgs; [
-        rio tmux fastfetch mpv firefox obs-studio hyprlock
+        rio tmux fastfetch mpv firefox obs-studio
         google-chrome brave                                                                                     # Web Browsers
         libreoffice typora                                                                                      # Office Tools
         gimp inkscape wl-color-picker                                                                           # Multimedia Tools
