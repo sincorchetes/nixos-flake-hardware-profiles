@@ -35,7 +35,6 @@
     useGlobalPkgs = true;
     useUserPackages = true;
     backupFileExtension = "backup";
-    extraSpecialArgs = { inherit pkgsUnstable; };
     users.sincorchetes = {
       home = {
         stateVersion = "25.05";
