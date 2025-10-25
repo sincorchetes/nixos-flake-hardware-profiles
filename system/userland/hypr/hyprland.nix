@@ -14,13 +14,7 @@
             ];
 
             exec-once = [
-                "waybar"
-                "hyprpaper"
-                "hypridle"
-                "mako"
-                "copyq"
                 "easyeffects -w"
-                "nm-applet"
                 "hyprctl setcursor Adwaita 24"
             ];
 
