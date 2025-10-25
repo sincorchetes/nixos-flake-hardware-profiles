@@ -19,7 +19,6 @@
           compdef k=kubectl;
           compdef kubecolor=kubectl;
           compdef g=git;
-          compdef t=terraform;
           compdef gg=gcloud;
         '';
         shellAliases = {
@@ -44,14 +43,9 @@
 
         oh-my-zsh = {
           enable = true;
-          #theme = "agnoster";
+          theme = "agnoster";
           plugins = [ "git" "colorize" ];
         };
-      };
-
-      starship = {
-        enable = true;
-        enableZshIntegration = true;
       };
       
       zoxide = {
