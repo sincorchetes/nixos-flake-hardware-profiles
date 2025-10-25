@@ -52,7 +52,7 @@ in
     #  network-manager-applet.enable = true;
     #};
     packages =
-      (with pkgs; [
+      (with pkgsUnstable; [
         google-chrome brave                                                                                     # Web Browsers
         libreoffice typora                                                                                      # Office Tools
         gimp inkscape wl-color-picker                                                                           # Multimedia Tools
