@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, lib ? pkgs.lib, ... }:
 
 {
   environment.systemPackages = with pkgs; [
@@ -15,7 +15,7 @@
         enableCompletion = true;
         autosuggestion.enable = true;
         syntaxHighlighting.enable = true;
-        initContent = ''
+        initContent = lib.mkAfter ''
           if command -v carapace &> /dev/null; then
             carapace _carapace alias k kubectl
             carapace _carapace alias kubecolor kubectl
