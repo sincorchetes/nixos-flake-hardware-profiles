@@ -67,7 +67,7 @@
 
       lazygit = {
         enable = true;
-        enableZshIntegration = true;       # Available in 25.11
+        #enableZshIntegration = true;       # Available in 25.11
       };
 
       broot = {
