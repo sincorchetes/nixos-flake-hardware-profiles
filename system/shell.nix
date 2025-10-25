@@ -1,14 +1,21 @@
-{ pkgs, lib ? pkgs.lib, ... }:
+{ pkgs, ... }:
 
 {
-  environment.systemPackages = with pkgs; [
-    zsh
-    zsh-syntax-highlighting
-    zsh-autosuggestions
-    zsh-powerlevel10k
-  ];
 
   home-manager.users.sincorchetes = {
+    home = {
+      sessionVariables = {
+        EDITOR = "vim";
+        LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath [ pkgs.stdenv.cc.cc ];
+        XCURSOR_THEME = "Adwaita";
+        XCURSOR_SIZE = "24";
+        XDG_CONFIG_HOME = "$HOME/.config";
+        SOPS_AGE_KEY_FILE = "/home/sincorchetes/.config/sops/age/keys.txt";
+      };
+      packages = {
+        zsh-powerlevel10k
+      };
+
     programs = {
       zsh = {
         enable = true;
@@ -16,6 +23,8 @@
         autosuggestion.enable = true;
         syntaxHighlighting.enable = true;
         initContent = ''
+          source "${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme"
+          unsetopt PROMPT_CR
           compdef k=kubectl;
           compdef kubecolor=kubectl;
           compdef g=git;
@@ -41,11 +50,11 @@
           # sudo-graphics = "run0 --setenv=DISPLAY=\\\"$DISPLAY\\\" --setenv=XAUTHORITY=\\\"$XAUTHORITY\\\"";
         };
 
-        oh-my-zsh = {
-          enable = true;
-          theme = "agnoster";
-          plugins = [ "git" "colorize" ];
-        };
+        #oh-my-zsh = {
+        #  enable = true;
+        #  theme = "agnoster";
+        #  plugins = [ "git" "colorize" ];
+        #};
       };
       
       zoxide = {
@@ -60,13 +69,6 @@
       };
     };
 
-    home.sessionVariables = {
-      EDITOR = "vim";
-      LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath [ pkgs.stdenv.cc.cc ];
-      XCURSOR_THEME = "Adwaita";
-      XCURSOR_SIZE = "24";
-      XDG_CONFIG_HOME = "$HOME/.config";
-      SOPS_AGE_KEY_FILE = "/home/sincorchetes/.config/sops/age/keys.txt";
-    };
+    
   };
 }
