@@ -1,6 +1,10 @@
 {
+    home.file.".config/waybar/power_menu.xml" = {
+        source = ./power_menu.xml;
+    };
     programs.waybar = {
         enable = true;
+        systemd.enable = true;
         settings = {
             mainBar = {
                 height = 40;
