@@ -41,13 +41,13 @@
             sops-nix.nixosModules.sops
             home-manager.nixosModules.home-manager
             disko.nixosModules.disko
-            {
-              home-manager = {
-                useGlobalPkgs = true;
-                useUserPackages = true;
-                extraSpecialArgs = { inherit pkgsUnstable; };
-              };
-            }
+            #{
+            #  home-manager = {
+            #    useGlobalPkgs = true;
+            #    useUserPackages = true;
+            #    extraSpecialArgs = { inherit pkgsUnstable; };
+            #  };
+            #}
           ];
         };
     in
