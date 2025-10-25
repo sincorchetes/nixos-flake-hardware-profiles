@@ -34,13 +34,15 @@
                         "car" = "";
                         "default" = ["" "" ""];
                     };
+                };
                 "bluetooth" = {
                     "format" = "";
                     "on-click" = "blueman-manager";
                     "format-icons" = {
-                    "on" = "";
-                    "off" = "";
-                    "connected" = "";
+                        "on" = "";
+                        "off" = "";
+                        "connected" = "";
+                    };
                 };
                 "tray"= {
                     "spacing"= 10;
@@ -69,6 +71,7 @@
                             "on-scroll-down" = "shift_down";
                         };
                     };
+                };
                 "cpu" = {
                     "format" = "{usage}% ";
                     "tooltip" = false;
