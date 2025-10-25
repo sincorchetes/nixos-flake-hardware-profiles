@@ -1,5 +1,4 @@
 {
-    ipc = "on";
     preload = [
         "~/.config/hypr/wallpaper.png"
     ];
