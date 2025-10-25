@@ -26,8 +26,6 @@ in
       htop.enable = true;
       imv.enable = true;
       #hwatch.enable = true;       # Available in 25.11
-      hyprlock.enable = true;
-      #waybar.enable = true;
       #hyprshot.enable = true;     # Available in 25.11
       kubecolor.enable = true;
       awscli.enable = true;
@@ -38,12 +36,13 @@ in
       copyq.enable = true;
       blueman-applet.enable = true;
       network-manager-applet.enable = true;
-      };
+    };
+
     home = {
 
       packages =
         (with pkgs; [
-          rio tmux fastfetch mpv firefox obs-studio
+          rio fastfetch mpv firefox obs-studio
           google-chrome brave                                                                                     # Web Browsers
           libreoffice typora                                                                                      # Office Tools
           gimp inkscape wl-color-picker                                                                           # Multimedia Tools
