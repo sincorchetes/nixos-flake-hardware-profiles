@@ -1,8 +1,8 @@
 # { pkgs, pkgsUnstable, ... }: 
 { pkgsUnstable, ... }: 
 let
-  gcloud = pkgs.google-cloud-sdk.withExtraComponents [
-    pkgs.google-cloud-sdk.components.gke-gcloud-auth-plugin
+  gcloud = pkgsUnstable.google-cloud-sdk.withExtraComponents [
+    pkgsUnstable.google-cloud-sdk.components.gke-gcloud-auth-plugin
   ];
 in
 {
