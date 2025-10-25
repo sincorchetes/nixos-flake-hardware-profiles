@@ -53,12 +53,14 @@
           # sudo = "run0";
           # sudo-graphics = "run0 --setenv=DISPLAY=\\\"$DISPLAY\\\" --setenv=XAUTHORITY=\\\"$XAUTHORITY\\\"";
         };
+      };
 
-        #oh-my-zsh = {
-        #  enable = true;
-        #  theme = "agnoster";
-        #  plugins = [ "git" "colorize" ];
-        #};
+      programs.ripgrep.enable = true;
+      programs.ripgrep-all.enable = true;
+
+      fzf = {
+        enable = true;
+        enableZshIntegration = true;
       };
       
       zoxide = {
