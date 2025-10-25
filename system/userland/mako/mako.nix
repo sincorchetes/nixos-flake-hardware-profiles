@@ -1,7 +1,5 @@
 {
-    home.file.".config/hypr/wallpaper.png" = {
-        source = ./wallpaper.png;
-    };
+    
     services.mako = {
         enable = true;
         settings = {
