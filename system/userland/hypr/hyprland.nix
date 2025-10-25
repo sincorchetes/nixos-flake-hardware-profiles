@@ -17,6 +17,7 @@
                 "easyeffects -w"
                 "hyprctl setcursor Adwaita 24"
                 "1password --silent &"
+                "waybar"
             ];
 
             env = [
