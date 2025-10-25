@@ -26,7 +26,6 @@ in
     htop.enable = true;
     imv.enable = true;
     #hwatch.enable = true;       # Available in 25.11
-    #wofi.enable = true;
     hyprlock.enable = true;
     #waybar.enable = true;
     #hyprshot.enable = true;     # Available in 25.11
