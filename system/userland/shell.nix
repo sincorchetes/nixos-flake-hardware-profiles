@@ -1,8 +1,6 @@
 { pkgs, ... }:
 
 {
-
-  home-manager.users.sincorchetes = {
     
     home = {
       sessionVariables = {
@@ -90,5 +88,4 @@
         enableZshIntegration = true;
       };
     };
-  };
 }
