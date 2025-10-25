@@ -1,8 +1,8 @@
 # { pkgs, pkgsUnstable, ... }: 
-{ pkgsUnstable, ... }: 
+{ pkgs, ... }: 
 let
-  gcloud = pkgsUnstable.google-cloud-sdk.withExtraComponents [
-    pkgsUnstable.google-cloud-sdk.components.gke-gcloud-auth-plugin
+  gcloud = pkgs.google-cloud-sdk.withExtraComponents [
+    pkgs.google-cloud-sdk.components.gke-gcloud-auth-plugin
   ];
 in
 {
@@ -52,7 +52,7 @@ in
     #  network-manager-applet.enable = true;
     #};
     packages =
-      (with pkgsUnstable; [
+      (with pkgs; [
         google-chrome brave                                                                                     # Web Browsers
         libreoffice typora                                                                                      # Office Tools
         gimp inkscape wl-color-picker                                                                           # Multimedia Tools
