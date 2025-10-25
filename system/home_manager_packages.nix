@@ -19,17 +19,17 @@ in
     ripgrep.enable = true;
     ripgrep-all.enable = true;
     neovim.enable = true;
-    #asciinema.enable = true;
+    #asciinema.enable = true;    # Available in 25.11
     helix.enable = true;
     git.enable = true;
-    #delta.enable = true;
+    #delta.enable = true;        # Available in 25.11
     htop.enable = true;
     imv.enable = true;
-    #hwatch.enable = true;
+    #hwatch.enable = true;       # Available in 25.11
     wofi.enable = true;
     hyprlock.enable = true;
     waybar.enable = true;
-    hyprshot.enable = true;
+    #hyprshot.enable = true;     # Available in 25.11
     kubecolor.enable = true;
     awscli.enable = true;
     jq.enable= true;
@@ -60,9 +60,9 @@ in
         copyq _1password-gui easyeffects qpwgraph pavucontrol appimage-run endeavour heroic                     # Desktop Tools
         unrar                                                                                                   # File Compression Software
         flat-remix-gnome flat-remix-icon-theme                                                                  # Desktop Theme Software
-        eza tree ncdu                                                                                           # Shell Tools
-        xh procs dust duf tldr sd glow hyperfine navi dogdns just chezmoi                                       # Shell Tools
-        hyprpaper wl-clipboard mako desktop-file-utils                                                          # Hyprland Desktop
+        eza tree ncdu delta hwtach                                                                              # Shell Tools
+        xh procs dust duf tldr sd glow hyperfine navi dogdns just chezmoi asciinema                             # Shell Tools
+        hyprpaper wl-clipboard mako desktop-file-utils hyprshot                                                 # Hyprland Desktop
         blueman playerctl hypridle                                                                              # Hyprland Desktop
         terraform terragrunt kubectl kubernetes-helm gcloud minikube                                            # DevOps Tools
         vscode-fhs code-cursor jetbrains.pycharm-professional jetbrains.webstorm                                # IDE Software
