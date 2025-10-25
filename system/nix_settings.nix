@@ -44,7 +44,7 @@
       
       imports = [ 
         ./userland/shell.nix 
-        ./userland/home_manager_packages.nix 
+        ./userland/packages.nix 
         ./userland/xdg_desktop_entries.nix 
         ./userland/hypr/hyprland.nix 
         ./userland/hypr/hyprpaper.nix
