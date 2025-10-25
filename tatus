@@ -1,0 +1,34 @@
+[38;2;248;248;242mgeneral {[0m
+[38;2;248;248;242m    lock_cmd = pidof hyprlock || hyprlock       # avoid starting multiple hyprlock instances.[0m
+[38;2;248;248;242m    before_sleep_cmd = loginctl lock-session    # lock before suspend.[0m
+[38;2;248;248;242m    after_sleep_cmd = hyprctl dispatch dpms on  # to avoid having to press a key twice to turn on the display.[0m
+[38;2;248;248;242m}[0m
+
+[38;2;248;248;242mlistener {[0m
+[38;2;248;248;242m    timeout = 150                                # 2.5min.[0m
+[38;2;248;248;242m    on-timeout = brightnessctl -s set 10         # set monitor backlight to minimum, avoid 0 on OLED monitor.[0m
+[38;2;248;248;242m    on-resume = brightnessctl -r                 # monitor backlight restore.[0m
+[38;2;248;248;242m}[0m
+
+[38;2;248;248;242m# turn off keyboard backlight, comment out this section if you dont have a keyboard backlight.[0m
+[38;2;248;248;242mlistener { [0m
+[38;2;248;248;242m    timeout = 150                                          # 2.5min.[0m
+[38;2;248;248;242m    on-timeout = brightnessctl -sd rgb:kbd_backlight set 0 # turn off keyboard backlight.[0m
+[38;2;248;248;242m    on-resume = brightnessctl -rd rgb:kbd_backlight        # turn on keyboard backlight.[0m
+[38;2;248;248;242m}[0m
+
+[38;2;248;248;242mlistener {[0m
+[38;2;248;248;242m    timeout = 300                                 # 5min[0m
+[38;2;248;248;242m    on-timeout = loginctl lock-session            # lock screen when timeout has passed[0m
+[38;2;248;248;242m}[0m
+
+[38;2;248;248;242mlistener {[0m
+[38;2;248;248;242m    timeout = 330                                 # 5.5min[0m
+[38;2;248;248;242m    on-timeout = hyprctl dispatch dpms off        # screen off when timeout has passed[0m
+[38;2;248;248;242m    on-resume = hyprctl dispatch dpms on          # screen on when activity is detected after timeout has fired.[0m
+[38;2;248;248;242m}[0m
+
+[38;2;248;248;242mlistener {[0m
+[38;2;248;248;242m    timeout = 1800                                # 30min[0m
+[38;2;248;248;242m    on-timeout = systemctl suspend                # suspend pc[0m
+[38;2;248;248;242m}[0m
