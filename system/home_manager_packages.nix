@@ -60,7 +60,7 @@ in
         copyq _1password-gui easyeffects qpwgraph pavucontrol appimage-run endeavour heroic                     # Desktop Tools
         unrar                                                                                                   # File Compression Software
         flat-remix-gnome flat-remix-icon-theme                                                                  # Desktop Theme Software
-        eza tree ncdu delta hwtach                                                                              # Shell Tools
+        eza tree ncdu delta hwatch                                                                              # Shell Tools
         xh procs dust duf tldr sd glow hyperfine navi dogdns just chezmoi asciinema                             # Shell Tools
         hyprpaper wl-clipboard mako desktop-file-utils hyprshot                                                 # Hyprland Desktop
         blueman playerctl hypridle                                                                              # Hyprland Desktop
