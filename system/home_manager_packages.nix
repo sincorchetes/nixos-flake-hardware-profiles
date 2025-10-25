@@ -7,12 +7,12 @@ let
 in
 {
   programs = {
-    rio.enable = true;
-    tmux.enable = true;
-    fastfetch.enable = true;
-    mpv.enable = true;
-    firefox.enable = true;
-    obs-studio.enable = true;
+    #rio.enable = true;
+    #tmux.enable = true;
+    #fastfetch.enable = true;
+    #mpv.enable = true;
+    #firefox.enable = true;
+    #obs-studio.enable = true;
     bat.enable = true;
     bottom.enable = true;
     k9s.enable = true;
@@ -20,15 +20,15 @@ in
     ripgrep-all.enable = true;
     neovim.enable = true;
     #asciinema.enable = true;    # Available in 25.11
-    helix.enable = true;
+    #helix.enable = true;
     git.enable = true;
     #delta.enable = true;        # Available in 25.11
     htop.enable = true;
     imv.enable = true;
     #hwatch.enable = true;       # Available in 25.11
-    wofi.enable = true;
+    #wofi.enable = true;
     hyprlock.enable = true;
-    waybar.enable = true;
+    #waybar.enable = true;
     #hyprshot.enable = true;     # Available in 25.11
     kubecolor.enable = true;
     awscli.enable = true;
@@ -53,6 +53,7 @@ in
     #};
     packages =
       (with pkgs; [
+        rio tmux fastfetch mpv firefox obs-studio wofi hyprlock waybar
         google-chrome brave                                                                                     # Web Browsers
         libreoffice typora                                                                                      # Office Tools
         gimp inkscape wl-color-picker                                                                           # Multimedia Tools
