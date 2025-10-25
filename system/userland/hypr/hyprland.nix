@@ -3,7 +3,7 @@
         enable = true;
         settings = {
 
-            "$terminal" = "rio";
+            "$terminal" = "footclient";
             "$fileManager" = "nautilus";
             "$menu" = "wofi --show drun --insensitive";
             "$mainMod" = "SUPER";
