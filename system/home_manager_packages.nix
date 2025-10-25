@@ -52,7 +52,7 @@ in
     #};
     packages =
       (with pkgs; [
-        rio tmux fastfetch mpv firefox obs-studio wofi hyprlock waybar
+        rio tmux fastfetch mpv firefox obs-studio wofi hyprlock
         google-chrome brave                                                                                     # Web Browsers
         libreoffice typora                                                                                      # Office Tools
         gimp inkscape wl-color-picker                                                                           # Multimedia Tools
