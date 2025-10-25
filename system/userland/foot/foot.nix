@@ -5,6 +5,7 @@
     settings = {
       "main" = {
         "font" = "FiraCode Nerd Font Mono:size=12";
+        "dpi-aware" = "yes";
         "term" = "foot";
       };
       "scrollback" = {
