@@ -12,9 +12,10 @@
         XDG_CONFIG_HOME = "$HOME/.config";
         SOPS_AGE_KEY_FILE = "/home/sincorchetes/.config/sops/age/keys.txt";
       };
-      packages = {
+
+      packages = with pkgs; [
         zsh-powerlevel10k
-      };
+      ];
 
     programs = {
       zsh = {
