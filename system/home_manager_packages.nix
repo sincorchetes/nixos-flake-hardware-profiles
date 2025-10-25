@@ -52,7 +52,7 @@ in
     #};
     packages =
       (with pkgs; [
-        rio tmux fastfetch mpv firefox obs-studio wofi hyprlock
+        rio tmux fastfetch mpv firefox obs-studio hyprlock
         google-chrome brave                                                                                     # Web Browsers
         libreoffice typora                                                                                      # Office Tools
         gimp inkscape wl-color-picker                                                                           # Multimedia Tools
@@ -62,8 +62,8 @@ in
         flat-remix-gnome flat-remix-icon-theme                                                                  # Desktop Theme Software
         eza tree ncdu delta hwatch                                                                              # Shell Tools
         xh procs dust duf tldr sd glow hyperfine navi dogdns just chezmoi asciinema                             # Shell Tools
-        hyprpaper wl-clipboard mako desktop-file-utils hyprshot                                                 # Hyprland Desktop
-        blueman playerctl hypridle                                                                              # Hyprland Desktop
+        wl-clipboard mako desktop-file-utils hyprshot                                                 # Hyprland Desktop
+        blueman playerctl                                                                              # Hyprland Desktop
         terraform terragrunt kubectl kubernetes-helm gcloud minikube                                            # DevOps Tools
         vscode-fhs code-cursor jetbrains.pycharm-professional jetbrains.webstorm                                # IDE Software
         pre-commit postman figma-linux stripe-cli                                                               # Development Tools

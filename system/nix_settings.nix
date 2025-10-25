@@ -48,6 +48,7 @@
         ./hypr/hyprland.nix 
         ./hypr/hyprpaper.nix
         ./hypr/hypridle.nix
+        ./hypr/hyprlock.nix
         ./wofi/wofi.nix
         ./waybar/waybar.nix
       ];
