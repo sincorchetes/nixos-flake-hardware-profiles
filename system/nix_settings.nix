@@ -48,6 +48,7 @@
         ./hypr/hyprland.nix 
         ./hypr/hyprpaper.nix
         ./wofi/wofi.nix
+        ./waybar/waybar.nix
       ];
     };
   };
