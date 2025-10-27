@@ -33,7 +33,6 @@
         compdef gg=gcloud;
       '';
       shellAliases = {
-        cat = "bat -p";
         c = "clear";
         k = "kubecolor";
         g = "git";
