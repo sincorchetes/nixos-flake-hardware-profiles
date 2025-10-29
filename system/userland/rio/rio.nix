@@ -29,6 +29,7 @@
             };
             fonts = {
                 "size" = 16;
+                "family" = "FiraCode Nerd Font Mono";
             };
             navigation = {
                 "mode" = "BottomTab";

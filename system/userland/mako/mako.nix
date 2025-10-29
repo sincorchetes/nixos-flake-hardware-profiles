@@ -1,19 +1,13 @@
 {
-    home.file.".config/hypr/wallpaper.png" = {
-        source = ./wallpaper.png;
-    };
     services.mako = {
         enable = true;
         settings = {
-            input-field = {
-                monitor = "";
-                fade_on_empty = false;
-            };
-
-            background = {
-                monitor = "";
-                path = "~/.config/hypr/wallpaper.png";
-            };
+            "font" = "Font Awesome Brands, Regular, 10";
+            "border-radius"= 5;
+            "background-color" = "#272a2e";
+            "border-color" = "#ecf0f1";
+            "default-timeout" = 5000;
+            "width" = 500;
         };
     };
 }
