@@ -8,10 +8,10 @@
             "$menu" = "wofi --show drun --insensitive";
             "$mainMod" = "SUPER";
 
-            monitor = [ ", preferred, auto, 1.25" ];
-                #"DP-2, preferred, auto, 1.25"
-                #"HDMI-A-1, disable"
-            #];
+            monitor = [
+                "DP-2, disable"
+                "HDMI-A-1, preferred, auto, 1.25"
+            ];
 
             exec-once = [
                 "easyeffects -w"
