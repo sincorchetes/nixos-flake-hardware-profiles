@@ -77,6 +77,9 @@
   boot = {
     blacklistedKernelModules = [ "nouveau" ];
     kernelModules = [ "hid_logitech_dj" "hid_logitech_hidpp" ];
+    extraInitrdFlags = ''
+      cp /etc/nixos/edid-DP-2.bin /lib/firmware/edid/DP-2.bin
+    '';
 
     initrd = {
       secrets."/vault.key" = "/etc/disk-keys/vault.key";
