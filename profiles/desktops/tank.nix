@@ -109,6 +109,7 @@
     kernelParams = [
       "preempt=full"
       "usbcore.autosuspend=-1"
+      "drm.edid_firmware=DP-2:edid/DP-2.bin"
     ];
   };
 
