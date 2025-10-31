@@ -81,9 +81,6 @@
 
     initrd = {
       secrets."/vault.key" = "/etc/disk-keys/vault.key";
-      extraFiles = {
-        "lib/firmware/edid/DP‑2.bin".source = /etc/nixos/edid-DP-2.bin;
-      };
       availableKernelModules = [
         "xhci_pci"
         "nvme"
@@ -113,7 +110,6 @@
     kernelParams = [
       "preempt=full"
       "usbcore.autosuspend=-1"
-      "drm.edid_firmware=DP-2:edid/DP-2.bin"
     ];
   };
 
