@@ -81,7 +81,9 @@
 
     initrd = {
       secrets."/vault.key" = "/etc/disk-keys/vault.key";
-      firmware = [ "/etc/nixos/edid-DP-2.bin" ];
+      extraFiles = {
+        "lib/firmware/edid/DP‑2.bin".source = /etc/nixos/edid-DP-2.bin;
+      };
       availableKernelModules = [
         "xhci_pci"
         "nvme"
