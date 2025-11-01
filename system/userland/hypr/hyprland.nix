@@ -30,7 +30,7 @@
                 "QT_QPA_PLATFORM,wayland"
                 "NIXOS_OZONE_WL,1 "
                 "GTK_THEME, Adwaita-dark"
-                "GDK_SCALE,2"
+                "GDK_SCALE,1.25"
             ];
 
             general = {
