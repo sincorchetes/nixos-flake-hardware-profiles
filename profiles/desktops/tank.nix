@@ -53,9 +53,7 @@
   environment = {
 
     systemPackages = with pkgs; [
-      microcodeAmd
-      glxinfo
-      vulkan-tools
+      microcode-amd
       (writeShellScriptBin "nvidia-offload" ''
         export __NV_PRIME_RENDER_OFFLOAD=1
         export __NV_PRIME_RENDER_OFFLOAD_PROVIDER=NVIDIA-G0
@@ -77,6 +75,7 @@
   boot = {
     blacklistedKernelModules = [ "nouveau" ];
     kernelModules = [ "hid_logitech_dj" "hid_logitech_hidpp" ];
+    
 
     initrd = {
       secrets."/vault.key" = "/etc/disk-keys/vault.key";

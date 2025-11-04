@@ -8,10 +8,10 @@
             "$menu" = "wofi --show drun --insensitive";
             "$mainMod" = "SUPER";
 
-            monitor = [
-                "DP-2, preferred, auto, 1.25"
-                "HDMI-A-1, disable"
-            ];
+            monitor = [ ", preferred, auto, 1.25" ];
+                #"DP-2, disable"
+                #"HDMI-A-1, preferred, auto, 1.25"
+            #];
 
             exec-once = [
                 "easyeffects -w"
@@ -110,11 +110,6 @@
                 vfr = 0;
             };
 
-            render = {
-                explicit_sync = 2;
-                explicit_sync_kms = 0;
-            };
-
             debug = {
                 damage_tracking = 0;
             };
@@ -127,10 +122,6 @@
                 touchpad = {
                     natural_scroll = false;
                 };
-            };
-            
-            gestures = {
-                workspace_swipe = false;
             };
 
             device = {

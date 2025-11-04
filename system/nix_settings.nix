@@ -16,11 +16,6 @@
     '';
   };
 
-  nixpkgs.config = {
-    allowUnfree = true;
-    allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [];
-  };
-
   sops = {
     age.keyFile = builtins.getEnv "SOPS_AGE_KEY_FILE";
     defaultSopsFile = ./secrets.yaml;
