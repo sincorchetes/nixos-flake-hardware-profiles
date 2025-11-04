@@ -40,7 +40,7 @@
       #};
 
       mkSystem = path:
-        nixpkgs.lib.nixosSystem {
+        nixpkgs-unstable.lib.nixosSystem {
           inherit system;
           specialArgs = { inherit inputs pkgsUnstable; };
           modules = [
