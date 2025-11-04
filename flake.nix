@@ -24,7 +24,7 @@
       stdenv.hostPlatform.system = "x86_64-linux";
       mkSystem = path:
         nixpkgs.lib.nixosSystem {
-          inherit system;
+          inherit stdenv.hostPlatform.system;
           modules = [
             path
             sops-nix.nixosModules.sops
