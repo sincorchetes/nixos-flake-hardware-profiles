@@ -3,12 +3,19 @@
 
   inputs = {
     sops-nix.url = "github:Mic92/sops-nix";
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
+    #nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
+    # Stable channel
     home-manager = {
       url = "github:nix-community/home-manager/release-25.05";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixpkgs-unstable.follows = "nixpkgs-unstable";
+    };
+
+    # Unstable channel
+    home-manager = {
+      url = "github:nix-community/home-manager/master";
+      inputs.nixpkgs-unstable.follows = "nixpkgs-unstable";
     };
 
     disko = {
@@ -22,15 +29,15 @@
     let
       system = "x86_64-linux";
 
-      pkgs = import nixpkgs {
+      pkgs = import nixpkgs-unstable {
         inherit system;
         config.allowUnfree = true;
       };
 
-      pkgsUnstable = import inputs."nixpkgs-unstable" {
-        inherit system;
-        config.allowUnfree = true;
-      };
+      #pkgsUnstable = import inputs."nixpkgs-unstable" {
+      #  inherit system;
+      #  config.allowUnfree = true;
+      #};
 
       mkSystem = path:
         nixpkgs.lib.nixosSystem {
