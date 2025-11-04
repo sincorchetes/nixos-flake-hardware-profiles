@@ -15,7 +15,7 @@
     # Unstable channel
     home-manager = {
       url = "github:nix-community/home-manager/master";
-      inputs.nixpkgs-unstable.follows = "nixpkgs-unstable";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
 
     #disko = {
