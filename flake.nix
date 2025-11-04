@@ -19,7 +19,7 @@
 
   };
 
-  outputs = inputs@{ nixpkgs, sops-nix, home-manager, ... }:
+  outputs = inputs@{ nixpkgs, sops-nix, home-manager, disko, ... }:
     let
       system = "x86_64-linux";
 
