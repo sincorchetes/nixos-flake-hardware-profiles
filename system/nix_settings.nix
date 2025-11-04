@@ -38,7 +38,7 @@
       };
       
       imports = [ 
-        ./userland/shell.nix 
+        ./userland/shell/zsh.nix 
         ./userland/packages.nix 
         ./userland/xdg_desktop_entries.nix 
         ./userland/hypr/hyprland.nix 
