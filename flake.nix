@@ -42,6 +42,9 @@
                 useUserPackages = true;
               };
             }
+            {
+              nixpkgs.config.allowUnfree = true; 
+            }
           ];
         };
     in
