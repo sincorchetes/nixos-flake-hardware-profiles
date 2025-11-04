@@ -29,7 +29,7 @@
     let
       system = "x86_64-linux";
 
-      pkgs = import nixpkgs-unstable {
+      pkgs = import inputs."nixpkgs-unstable" {
         inherit system;
         config.allowUnfree = true;
       };
