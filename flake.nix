@@ -7,10 +7,10 @@
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
     # Stable channel
-    home-manager = {
-      url = "github:nix-community/home-manager/release-25.05";
-      inputs.nixpkgs-unstable.follows = "nixpkgs-unstable";
-    };
+    #home-manager = {
+    #  url = "github:nix-community/home-manager/release-25.05";
+    #  inputs.nixpkgs.follows = "nixpkgs";
+    #};
 
     # Unstable channel
     home-manager = {
