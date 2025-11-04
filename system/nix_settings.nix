@@ -1,4 +1,4 @@
-{ config, nixpkgs, lib, home-manager, inputs, ... }:
+{ config, nixpkgs-unstable, lib, home-manager, inputs, ... }:
 
 {
   system.stateVersion = "25.05";
