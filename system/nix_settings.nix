@@ -32,7 +32,7 @@
     backupFileExtension = "backup";
     users.sincorchetes = {
       home = {
-        stateVersion = "unstable";
+        stateVersion = "25.05";
         username = "sincorchetes";
         homeDirectory = "/home/sincorchetes";
       };
