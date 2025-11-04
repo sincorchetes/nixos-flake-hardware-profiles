@@ -24,7 +24,7 @@
         intel-media-driver
         intel-media-sdk
         intel-vaapi-driver
-        vaapiVdpau
+        libva-vdpau-driver
         libvdpau-va-gl
         vpl-gpu-rt
       ];
