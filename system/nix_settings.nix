@@ -1,4 +1,4 @@
-{ config, nixpkgs-unstable, lib, home-manager, inputs, ... }:
+{ config, nixpkgs, lib, home-manager, inputs, ... }:
 
 {
   system.stateVersion = "25.05";
@@ -14,11 +14,6 @@
     extraOptions = ''
       trusted-users = root sincorchetes
     '';
-  };
-
-  nixpkgs-unstable.config = {
-    allowUnfree = true;
-    allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [];
   };
 
   sops = {
