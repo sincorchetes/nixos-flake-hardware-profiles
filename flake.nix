@@ -3,11 +3,12 @@
 
   inputs = {
     sops-nix.url = "github:Mic92/sops-nix";
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
-    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    #nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
+    # Unstable channel
     home-manager = {
-      url = "github:nix-community/home-manager/release-25.05";
+      url = "github:nix-community/home-manager/master";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -20,34 +21,22 @@
 
   outputs = inputs@{ nixpkgs, sops-nix, home-manager, disko, ... }:
     let
-      system = "x86_64-linux";
-
-      pkgs = import nixpkgs {
-        inherit system;
-        config.allowUnfree = true;
-      };
-
-      pkgsUnstable = import inputs."nixpkgs-unstable" {
-        inherit system;
-        config.allowUnfree = true;
-      };
-
+      stdenv.hostPlatform.system = "x86_64-linux";
       mkSystem = path:
         nixpkgs.lib.nixosSystem {
-          inherit system;
-          specialArgs = { inherit inputs pkgsUnstable; };
           modules = [
             path
             sops-nix.nixosModules.sops
             home-manager.nixosModules.home-manager
             disko.nixosModules.disko
-            #{
-            #  home-manager = {
-            #    useGlobalPkgs = true;
-            #    useUserPackages = true;
-            #    extraSpecialArgs = { inherit pkgsUnstable; };
-            #  };
-            #}
+            {
+              nixpkgs.config.allowUnfree = true; 
+              nixpkgs.hostPlatform = "x86_64-linux";
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+              };
+            }
           ];
         };
     in

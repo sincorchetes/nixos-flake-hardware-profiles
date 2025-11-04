@@ -26,16 +26,20 @@
         touchpad.tapping = true;
       };
       
-    xserver = {
-      enable = true;
-      xkb.layout = "es";
-      
-      displayManager.gdm = {
+    #xserver = {
+    #  enable = true;
+    #  xkb.layout = "es";
+    #};
+
+    desktopManager.gnome.enable = true;
+    
+    displayManager = {
+      gdm = {
         enable = true;
         wayland = true;
       };
-      desktopManager.gnome.enable = true;
     };
+        
 
     pulseaudio.enable = false;
 
