@@ -53,7 +53,7 @@
   environment = {
 
     systemPackages = with pkgs; [
-      microcodeAmd
+      microcode-amd
       glxinfo
       vulkan-tools
       (writeShellScriptBin "nvidia-offload" ''
