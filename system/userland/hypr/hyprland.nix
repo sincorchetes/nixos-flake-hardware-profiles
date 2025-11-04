@@ -26,7 +26,7 @@
                 "LIBVA_DRIVER_NAME,radeonsi"
                 "VDPAU_DRIVER,radeonsi"
                 "ELECTRON_OZONE_PLATFORM_HINT,auto"
-                "HYPRCURSOR_THEME,Adwaita"
+                "HYPRCURSOR_THEME,Adwaita-dark"
                 "QT_QPA_PLATFORM,wayland"
                 "NIXOS_OZONE_WL,1 "
                 "GTK_THEME, Adwaita"
