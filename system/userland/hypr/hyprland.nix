@@ -110,11 +110,6 @@
                 vfr = 0;
             };
 
-            render = {
-                explicit_sync = 2;
-                explicit_sync_kms = 0;
-            };
-
             debug = {
                 damage_tracking = 0;
             };
@@ -127,10 +122,6 @@
                 touchpad = {
                     natural_scroll = false;
                 };
-            };
-            
-            gestures = {
-                workspace_swipe = false;
             };
 
             device = {
