@@ -42,7 +42,7 @@
       mkSystem = path:
         nixpkgs-unstable.lib.nixosSystem {
           inherit system;
-          specialArgs = { inherit inputs pkgsUnstable; };
+          #specialArgs = { inherit inputs pkgsUnstable; };
           modules = [
             path
             sops-nix.nixosModules.sops
