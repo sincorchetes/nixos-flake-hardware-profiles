@@ -21,10 +21,9 @@
 
   outputs = inputs@{ nixpkgs, sops-nix, home-manager, disko, ... }:
     let
-      stdenv.hostPlatform.system = "x86_64-linux";
+      system = "x86_64-linux";
       mkSystem = path:
         nixpkgs.lib.nixosSystem {
-          #inherit stdenv.hostPlatform.system;
           modules = [
             path
             sops-nix.nixosModules.sops
