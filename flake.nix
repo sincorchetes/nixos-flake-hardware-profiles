@@ -4,57 +4,44 @@
   inputs = {
     sops-nix.url = "github:Mic92/sops-nix";
     #nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
-    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-
-    # Stable channel
-    #home-manager = {
-    #  url = "github:nix-community/home-manager/release-25.05";
-    #  inputs.nixpkgs.follows = "nixpkgs";
-    #};
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
     # Unstable channel
     home-manager = {
       url = "github:nix-community/home-manager/master";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    #disko = {
-    #  url = "github:nix-community/disko";
-    #  inputs.nixpkgs.follows = "nixpkgs";
-    #};
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
   };
 
-  outputs = inputs@{ nixpkgs-unstable, sops-nix, home-manager, ... }:
+  outputs = inputs@{ nixpkgs, sops-nix, home-manager, ... }:
     let
       system = "x86_64-linux";
 
-      pkgs = import inputs."nixpkgs-unstable" {
+      pkgs = import inputs."nixpkgs" {
         inherit system;
         config.allowUnfree = true;
       };
 
-      #pkgsUnstable = import inputs."nixpkgs-unstable" {
-      #  inherit system;
-      #  config.allowUnfree = true;
-      #};
-
       mkSystem = path:
-        nixpkgs-unstable.lib.nixosSystem {
+        nixpkgs.lib.nixosSystem {
           inherit system;
-          #specialArgs = { inherit inputs pkgsUnstable; };
           modules = [
             path
             sops-nix.nixosModules.sops
             home-manager.nixosModules.home-manager
-            #disko.nixosModules.disko
-            #{
-            #  home-manager = {
-            #    useGlobalPkgs = true;
-            #    useUserPackages = true;
-            #    extraSpecialArgs = { inherit pkgsUnstable; };
-            #  };
-            #}
+            disko.nixosModules.disko
+            {
+              home-manager = {
+                useGlobalPkgs = true;
+                useUserPackages = true;
+              };
+            }
           ];
         };
     in
