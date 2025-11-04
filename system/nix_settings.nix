@@ -16,7 +16,7 @@
     '';
   };
 
-  nixpkgs.config = {
+  nixpkgs-unstable.config = {
     allowUnfree = true;
     allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [];
   };
@@ -37,7 +37,7 @@
     backupFileExtension = "backup";
     users.sincorchetes = {
       home = {
-        stateVersion = "25.05";
+        stateVersion = "unstable";
         username = "sincorchetes";
         homeDirectory = "/home/sincorchetes";
       };
