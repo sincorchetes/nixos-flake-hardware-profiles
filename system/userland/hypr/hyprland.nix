@@ -8,7 +8,7 @@
             "$menu" = "wofi --show drun --insensitive";
             "$mainMod" = "SUPER";
 
-            monitor = [ ", preferred, auto, 1.25" ];
+            monitor = [ ", preferred, auto, 1.33" ];
                 #"DP-2, disable"
                 #"HDMI-A-1, preferred, auto, 1.25"
             #];
