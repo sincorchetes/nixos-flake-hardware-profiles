@@ -22,7 +22,6 @@
     graphics = {
       extraPackages = with pkgs; [
         intel-media-driver
-        intel-media-sdk
         intel-vaapi-driver
         libva-vdpau-driver
         libvdpau-va-gl
