@@ -18,14 +18,14 @@
       inputs.nixpkgs-unstable.follows = "nixpkgs-unstable";
     };
 
-    disko = {
-      url = "github:nix-community/disko";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    #disko = {
+    #  url = "github:nix-community/disko";
+    #  inputs.nixpkgs.follows = "nixpkgs";
+    #};
 
   };
 
-  outputs = inputs@{ nixpkgs-unstable, sops-nix, home-manager, disko, ... }:
+  outputs = inputs@{ nixpkgs-unstable, sops-nix, home-manager, ... }:
     let
       system = "x86_64-linux";
 
@@ -47,7 +47,7 @@
             path
             sops-nix.nixosModules.sops
             home-manager.nixosModules.home-manager
-            disko.nixosModules.disko
+            #disko.nixosModules.disko
             #{
             #  home-manager = {
             #    useGlobalPkgs = true;
