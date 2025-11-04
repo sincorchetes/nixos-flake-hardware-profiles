@@ -9,7 +9,6 @@ in
 {
   fonts.fontconfig.enable = true;
   programs = {
-      #fastfetch.enable = true;
       #mpv.enable = true;
       #firefox.enable = true;
       #obs-studio.enable = true;
@@ -22,11 +21,11 @@ in
       asciinema.enable = true;
       #helix.enable = true;
       git.enable = true;
-      delta.enable = true;        # Available in 25.11
+      delta.enable = true;
       htop.enable = true;
       imv.enable = true;
-      hwatch.enable = true;       # Available in 25.11
-      hyprshot.enable = true;     # Available in 25.11
+      hwatch.enable = true;
+      hyprshot.enable = true;
       kubecolor.enable = true;
       awscli.enable = true;
       jq.enable= true;
@@ -50,9 +49,9 @@ in
           copyq _1password-gui easyeffects qpwgraph pavucontrol appimage-run endeavour heroic                     # Desktop Tools
           unrar unzip                                                                                             # File Compression Software
           flat-remix-gnome flat-remix-icon-theme                                                                  # Desktop Theme Software
-          eza tree ncdu delta hwatch                                                                              # Shell Tools
+          eza tree ncdu                                                                                           # Shell Tools
           xh procs dust duf tldr sd glow hyperfine navi dogdns just chezmoi asciinema borgbackup                  # Shell Tools
-          wl-clipboard desktop-file-utils hyprshot playerctl devenv                                               # Hyprland Desktop
+          wl-clipboard desktop-file-utils          playerctl devenv                                               # Hyprland Desktop
           terraform terragrunt kubectl kubernetes-helm gcloud minikube                                            # DevOps Tools
           vscode-fhs code-cursor jetbrains.pycharm-professional jetbrains.webstorm                                # IDE Software
           pre-commit postman figma-linux stripe-cli                                                               # Development Tools
