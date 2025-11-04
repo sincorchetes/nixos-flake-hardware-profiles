@@ -12,7 +12,7 @@
       SOPS_AGE_KEY_FILE = "/home/sincorchetes/.config/sops/age/keys.txt";
     };
 
-    file.".p10k.zsh"" = {
+    file.".p10k.zsh" = {
       source = ./p10k.zsh;
     };
 
