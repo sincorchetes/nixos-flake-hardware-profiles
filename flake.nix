@@ -30,13 +30,12 @@
             home-manager.nixosModules.home-manager
             disko.nixosModules.disko
             {
+              nixpkgs.config.allowUnfree = true; 
+              nixpkgs.hostPlatform = "x86_64-linux";
               home-manager = {
                 useGlobalPkgs = true;
                 useUserPackages = true;
               };
-            }
-            {
-              nixpkgs.config.allowUnfree = true; 
             }
           ];
         };
