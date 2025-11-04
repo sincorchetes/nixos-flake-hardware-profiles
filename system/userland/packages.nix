@@ -46,7 +46,7 @@ in
           google-chrome brave                                                                                     # Web Browsers
           libreoffice typora                                                                                      # Office Tools
           gimp inkscape wl-color-picker                                                                           # Multimedia Tools
-          vlc spotify stremio                                                                                     # Video Players
+          vlc spotify                                                                                             # Video Players
           copyq _1password-gui easyeffects qpwgraph pavucontrol appimage-run endeavour heroic                     # Desktop Tools
           unrar unzip                                                                                             # File Compression Software
           flat-remix-gnome flat-remix-icon-theme                                                                  # Desktop Theme Software
