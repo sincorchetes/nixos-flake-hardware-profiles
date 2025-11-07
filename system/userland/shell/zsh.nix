@@ -45,6 +45,7 @@
         dc = "docker compose";
         ls = "eza";
         ll = "eza -l";
+        y = "yazi";
         open = "xdg-open";
         gg = "gcloud";
         #code = "code --enable-features=UseOzonePlatform --ozone-platform=wayland --disable-gpu";
