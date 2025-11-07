@@ -23,12 +23,15 @@
             env = [
                 "XCURSOR_SIZE,24"
                 "HYPRCURSOR_SIZE,24"
-                "LIBVA_DRIVER_NAME,radeonsi"
-                "VDPAU_DRIVER,radeonsi"
+                "WLR_NO_HARDWARE_CURSORS,1"
+                "LIBVA_DRIVER_NAME,nvidia"
+                "__GLX_VENDOR_LIBRARY_NAME,nvidia"
+                "GBM_BACKEND,nvidia-drm"
+                "__GL_GSYNC_ALLOWED,0"
                 "ELECTRON_OZONE_PLATFORM_HINT,auto"
                 "HYPRCURSOR_THEME,Adwaita-dark"
                 "QT_QPA_PLATFORM,wayland"
-                "NIXOS_OZONE_WL,1 "
+                "NIXOS_OZONE_WL,1"
                 "GTK_THEME, Adwaita"
                 "GDK_SCALE,1.25"
             ];
