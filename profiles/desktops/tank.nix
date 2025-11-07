@@ -15,11 +15,6 @@
       powerManagement.finegrained = false;
       open = true;
       nvidiaSettings = true;
-      prime = {
-            offload.enable = true;
-            amdgpuBusId = "PCI:73:0:0";
-            nvidiaBusId = "PCI:1:0:0";
-      };
     };
   };
 
@@ -32,12 +27,7 @@
     '';
   };
 
-  services = {
-    xserver.videoDrivers = [ "amdgpu" "nvidia" ];
-    udev.extraRules = ''
-      ACTION=="add", SUBSYSTEM=="usb", ATTR{idVendor}=="046d", ATTR{idProduct}=="c52b", TEST=="power/control", ATTR{power/control}="on"
-    '';
-  };
+  services.xserver.videoDrivers = [ "nvidia" ];
 
   programs.steam.enable = true;
 
@@ -54,26 +44,11 @@
 
     systemPackages = with pkgs; [
       microcode-amd
-      (writeShellScriptBin "nvidia-offload" ''
-        export __NV_PRIME_RENDER_OFFLOAD=1
-        export __NV_PRIME_RENDER_OFFLOAD_PROVIDER=NVIDIA-G0
-        export __GLX_VENDOR_LIBRARY_NAME=nvidia
-        export __VK_LAYER_NV_optimus=NVIDIA_only
-        exec "$@"
-      '')
-      
-      (writeShellScriptBin "prime-run" ''
-        export __NV_PRIME_RENDER_OFFLOAD=1
-        export __NV_PRIME_RENDER_OFFLOAD_PROVIDER=NVIDIA-G0
-        export __GLX_VENDOR_LIBRARY_NAME=nvidia
-        export __VK_LAYER_NV_optimus=NVIDIA_only
-        exec "$@"
-      '')
     ];
   };
 
   boot = {
-    blacklistedKernelModules = [ "nouveau" ];
+    blacklistedKernelModules = [ "nouveau" "amdgpu" ];
     kernelModules = [ "hid_logitech_dj" "hid_logitech_hidpp" ];
     
 
@@ -86,7 +61,6 @@
         "sd_mod"
         "uas"
         "ahci"
-        "amdgpu"
       ];
       luks.devices = {
         "nixos-root" = {
