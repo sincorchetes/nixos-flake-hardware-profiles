@@ -83,6 +83,7 @@
       "preempt=full"
       "usbcore.autosuspend=-1"
       "iommu=pt"
+      "nvidia-drm.modeset=1"
     ];
   };
 
