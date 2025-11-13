@@ -4,7 +4,7 @@
 
   home = {
     sessionVariables = {
-      EDITOR = "vim";
+      EDITOR = "nvim";
       LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath [ pkgs.stdenv.cc.cc ];
       XCURSOR_THEME = "Adwaita";
       XCURSOR_SIZE = "24";
@@ -46,6 +46,7 @@
         ls = "eza";
         ll = "eza -l";
         open = "xdg-open";
+        vim = "nvim";
         gg = "gcloud";
         #code = "code --enable-features=UseOzonePlatform --ozone-platform=wayland --disable-gpu";
         nxupdate = "sudo nixos-rebuild switch --refresh --flake github:sincorchetes/nixos-flake-hardware-profiles#$(hostname) --impure";
