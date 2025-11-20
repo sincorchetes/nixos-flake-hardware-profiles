@@ -6,7 +6,7 @@
     services.NetworkManager-wait-online.enable = false;
     targets.multi-user.wants = [ "pritunl-client.service" ];
   };
-  
+  speechd.enable = false;
   orca.enable = false;
 
   powerManagement = {
