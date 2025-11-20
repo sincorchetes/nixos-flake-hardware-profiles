@@ -6,8 +6,6 @@
     services.NetworkManager-wait-online.enable = false;
     targets.multi-user.wants = [ "pritunl-client.service" ];
   };
-  speechd.enable = false;
-  orca.enable = false;
 
   powerManagement = {
     enable = true;
@@ -15,6 +13,8 @@
   };
 
   services = {
+    speechd.enable = false;
+    orca.enable = false;
     thermald.enable = true;
     fstrim.enable = true;
     dbus.apparmor = "enabled";
