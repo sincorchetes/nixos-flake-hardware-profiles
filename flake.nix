@@ -45,7 +45,7 @@
         tank0     = mkSystem ./profiles/desktops/tank.nix;
         thinkpad0 = mkSystem ./profiles/laptops/thinkpad.nix;
         probook0  = mkSystem ./profiles/laptops/probook.nix;
-        atlas0    = mkSystem ./profiles/kvm/atlas.nix;
+        #atlas0    = mkSystem ./profiles/kvm/atlas.nix;
       };
     };
 }
