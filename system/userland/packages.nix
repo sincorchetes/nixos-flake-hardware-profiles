@@ -1,6 +1,9 @@
-# { pkgs, pkgsUnstable, ... }: 
 { pkgs, ... }: 
-
+let
+  gcloud = pkgs.google-cloud-sdk.withExtraComponents( with pkgs.google-cloud-sdk.components; [
+    gke-gcloud-auth-plugin
+  ]);
+in
 {
   fonts.fontconfig.enable = true;
   programs = {
@@ -46,7 +49,7 @@
           eza tree ncdu                                                                                           # Shell Tools
           xh procs dust duf tldr sd glow hyperfine navi dogdns just chezmoi asciinema borgbackup                  # Shell Tools
           wl-clipboard desktop-file-utils playerctl devenv                                                        # Hyprland Desktop
-          kubectl kubernetes-helm minikube                                                   # DevOps Tools
+          kubectl kubernetes-helm minikube gcloud                                                                 # DevOps Tools
           vscode-fhs code-cursor jetbrains.pycharm-professional jetbrains.webstorm                                # IDE Software
           pre-commit postman figma-linux stripe-cli                                                               # Development Tools
           jetbrains.datagrip dbeaver-bin                                                                          # Database Management Tools
