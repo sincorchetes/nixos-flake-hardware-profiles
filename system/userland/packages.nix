@@ -1,10 +1,8 @@
-# { pkgs, pkgsUnstable, ... }: 
 { pkgs, ... }: 
 let
-  gcloud = pkgs.google-cloud-sdk.withExtraComponents [
-    pkgs.google-cloud-sdk.components.gke-gcloud-auth-plugin
-  ];
-
+  gcloud = pkgs.google-cloud-sdk.withExtraComponents( with pkgs.google-cloud-sdk.components; [
+    gke-gcloud-auth-plugin
+  ]);
 in
 {
   fonts.fontconfig.enable = true;
@@ -39,8 +37,7 @@ in
 
     home = {
 
-      packages =
-        (with pkgs; [
+      packages = with pkgs; [
           fastfetch mpv firefox obs-studio
           google-chrome brave                                                                                     # Web Browsers
           libreoffice typora                                                                                      # Office Tools
@@ -51,8 +48,8 @@ in
           flat-remix-gnome flat-remix-icon-theme                                                                  # Desktop Theme Software
           eza tree ncdu                                                                                           # Shell Tools
           xh procs dust duf tldr sd glow hyperfine navi dogdns just chezmoi asciinema borgbackup                  # Shell Tools
-          wl-clipboard desktop-file-utils          playerctl devenv                                               # Hyprland Desktop
-          terraform terragrunt kubectl kubernetes-helm gcloud minikube                                            # DevOps Tools
+          wl-clipboard desktop-file-utils playerctl devenv                                                        # Hyprland Desktop
+          kubectl kubernetes-helm minikube gcloud                                                                 # DevOps Tools
           vscode-fhs code-cursor jetbrains.pycharm-professional jetbrains.webstorm                                # IDE Software
           pre-commit postman figma-linux stripe-cli                                                               # Development Tools
           jetbrains.datagrip dbeaver-bin                                                                          # Database Management Tools
@@ -63,11 +60,6 @@ in
           nerd-fonts.ubuntu nerd-fonts.jetbrains-mono nerd-fonts.fira-code roboto                                 # Fonts
           font-awesome noto-fonts-emoji-blob-bin powerline-fonts                                                  # Fonts
           gnomeExtensions.pop-shell gnomeExtensions.easyeffects-preset-selector gnomeExtensions.appindicator      # GNOME Extensions
-            
-        ]);
-        #++
-        #(with pkgsUnstable; [
-        #  brave
-        #]);
+        ];
     };
 }
