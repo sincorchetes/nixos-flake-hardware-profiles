@@ -1,7 +1,7 @@
 { config, nixpkgs, lib, home-manager, inputs, ... }:
 
 {
-  system.stateVersion = "25.05";
+  system.stateVersion = "25.11";
 
   nix = {
     settings = {
@@ -32,7 +32,7 @@
     backupFileExtension = "backup";
     users.sincorchetes = {
       home = {
-        stateVersion = "25.05";
+        stateVersion = "25.11";
         username = "sincorchetes";
         homeDirectory = "/home/sincorchetes";
       };
