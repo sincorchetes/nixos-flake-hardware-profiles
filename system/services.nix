@@ -13,6 +13,8 @@
   };
 
   services = {
+    speechd.enable = false;
+    orca.enable = false;
     thermald.enable = true;
     fstrim.enable = true;
     dbus.apparmor = "enabled";
