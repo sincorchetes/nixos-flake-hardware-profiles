@@ -9,7 +9,7 @@
     cpu.amd.updateMicrocode = true;
     xpadneo.enable = true;
     nvidia = {
-      package = pkgs.linuxPackages_latest.nvidia_x11;
+      package = pkgs.linuxPackages_latest.nvidia_x11_beta;
       modesetting.enable = true;
       powerManagement.enable = true;
       powerManagement.finegrained = false;
