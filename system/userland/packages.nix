@@ -27,7 +27,6 @@ in
       kubecolor.enable = true;
       awscli.enable = true;
       jq.enable= true;
-      spotify-player.enable = true;
     };
 
     services = {
@@ -44,15 +43,15 @@ in
           libreoffice typora                                                                                      # Office Tools
           gimp inkscape wl-color-picker                                                                           # Multimedia Tools
           vlc                                                                                                     # Video Players
-          copyq _1password-gui easyeffects qpwgraph pavucontrol appimage-run endeavour heroic                     # Desktop Tools
+          copyq _1password-gui easyeffects qpwgraph pavucontrol appimage-run endeavour                            # Desktop Tools
           unrar unzip                                                                                             # File Compression Software
           flat-remix-gnome flat-remix-icon-theme                                                                  # Desktop Theme Software
           eza tree ncdu                                                                                           # Shell Tools
           xh procs dust duf tldr sd glow hyperfine navi dogdns just chezmoi asciinema borgbackup                  # Shell Tools
           wl-clipboard desktop-file-utils playerctl devenv                                                        # Hyprland Desktop
           kubectl kubernetes-helm minikube gcloud                                                                 # DevOps Tools
-          vscode-fhs code-cursor jetbrains.pycharm-professional jetbrains.webstorm antigravity-fhs              # IDE Software
-          pre-commit postman figma-linux stripe-cli                                                               # Development Tools
+          vscode-fhs code-cursor jetbrains.pycharm-professional jetbrains.webstorm antigravity-fhs                # IDE Software
+          pre-commit postman figma-linux                                                                          # Development Tools
           jetbrains.datagrip dbeaver-bin                                                                          # Database Management Tools
           telegram-desktop slack discord                                                                          # Instant Messaging
           transmission_4-gtk tcpdump nmap p0f wireshark rustscan veracrypt openssl gnupg                          # NetSec Tools
