@@ -27,6 +27,7 @@ in
       kubecolor.enable = true;
       awscli.enable = true;
       jq.enable= true;
+      spotify-player.enable = true;
     };
 
     services = {
