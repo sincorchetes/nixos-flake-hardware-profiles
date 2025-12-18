@@ -27,6 +27,7 @@ in
       kubecolor.enable = true;
       awscli.enable = true;
       jq.enable= true;
+      spotify-player.enable = true;
     };
 
     services = {
@@ -50,7 +51,7 @@ in
           xh procs dust duf tldr sd glow hyperfine navi dogdns just chezmoi asciinema borgbackup                  # Shell Tools
           wl-clipboard desktop-file-utils playerctl devenv                                                        # Hyprland Desktop
           kubectl kubernetes-helm minikube gcloud                                                                 # DevOps Tools
-          vscode-fhs code-cursor jetbrains.pycharm-professional jetbrains.webstorm                                # IDE Software
+          vscode-fhs code-cursor jetbrains.pycharm-professional jetbrains.webstorm antigravity-fhs              # IDE Software
           pre-commit postman figma-linux stripe-cli                                                               # Development Tools
           jetbrains.datagrip dbeaver-bin                                                                          # Database Management Tools
           telegram-desktop slack discord                                                                          # Instant Messaging
