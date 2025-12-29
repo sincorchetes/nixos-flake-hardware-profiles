@@ -35,5 +35,6 @@
   programs = {
     zsh.enable = true;
     hyprland.enable = true;
+    dconf.enable = true;
   };
 }
