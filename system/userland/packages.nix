@@ -41,7 +41,7 @@ in
           fastfetch mpv firefox obs-studio
           google-chrome brave                                                                                     # Web Browsers
           libreoffice typora anki-bin                                                                             # Office Tools
-          gimp inkscape wl-color-picker                                                                           # Multimedia Tools
+          gimp inkscape wl-color-picker digikam                                                                   # Multimedia Tools
           vlc spotify spotify-tray                                                                                # Video/Audio Players
           copyq _1password-gui easyeffects qpwgraph pavucontrol appimage-run endeavour                            # Desktop Tools
           unrar unzip                                                                                             # File Compression Software
@@ -54,7 +54,7 @@ in
           pre-commit postman figma-linux                                                                          # Development Tools
           jetbrains.datagrip dbeaver-bin                                                                          # Database Management Tools
           telegram-desktop slack discord                                                                          # Instant Messaging
-          transmission_4-gtk tcpdump nmap p0f wireshark rustscan veracrypt openssl gnupg                          # NetSec Tools
+          transmission_4-gtk tcpdump nmap p0f wireshark rustscan openssl gnupg                                    # NetSec Tools
           nix-search-cli                                                                                          # Nixpkg Manager Tools
           nerd-fonts._0xproto nerd-fonts.droid-sans-mono nerd-fonts.ubuntu-sans                                   # Fonts
           nerd-fonts.ubuntu nerd-fonts.jetbrains-mono nerd-fonts.fira-code roboto                                 # Fonts
