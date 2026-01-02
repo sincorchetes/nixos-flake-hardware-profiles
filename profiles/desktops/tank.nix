@@ -8,6 +8,7 @@
   hardware = {
     cpu.amd.updateMicrocode = true;
     xpadneo.enable = true;
+    nvidia-container-toolkit.enable = true;
     nvidia = {
       package = pkgs.linuxPackages_latest.nvidia_x11;
       modesetting.enable = true;
@@ -17,7 +18,7 @@
       nvidiaSettings = true;
     };
   };
-
+  virtualisation.docker.enableNvidia = true;
   systemd = {
     sleep.extraConfig = ''
       AllowSuspend=no
