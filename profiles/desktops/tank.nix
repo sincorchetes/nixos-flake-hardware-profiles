@@ -8,6 +8,7 @@
   hardware = {
     cpu.amd.updateMicrocode = true;
     xpadneo.enable = true;
+    nvidia-container-toolkit.enable
     nvidia = {
       package = pkgs.linuxPackages_latest.nvidia_x11;
       modesetting.enable = true;
@@ -15,7 +16,6 @@
       powerManagement.finegrained = false;
       open = true;
       nvidiaSettings = true;
-      nvidia-container-toolkit.enable = true;
     };
   };
   virtualisation.docker.enableNvidia = true;
