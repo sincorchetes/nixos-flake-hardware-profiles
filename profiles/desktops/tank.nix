@@ -15,9 +15,10 @@
       powerManagement.finegrained = false;
       open = true;
       nvidiaSettings = true;
+      nvidia-container-toolkit.enable = true;
     };
   };
-
+  virtualisation.docker.enableNvidia = true;
   systemd = {
     sleep.extraConfig = ''
       AllowSuspend=no
