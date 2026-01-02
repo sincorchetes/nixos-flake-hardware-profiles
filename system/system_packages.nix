@@ -5,6 +5,7 @@
     acpi lm_sensors pciutils inetutils lshw usbutils vdpauinfo kernelshark mesa binutils        # System Tools
     uutils-coreutils-noprefix
     pritunl-client openfortivpn                                                                 # VPN Software
+    dupeguru digikam                                                                            # Multimedia (OpenCL)
     cachix                                                                                      # NixOS Management Software Tools
   ];
 
