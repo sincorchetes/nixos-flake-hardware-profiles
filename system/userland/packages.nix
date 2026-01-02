@@ -41,7 +41,7 @@ in
           fastfetch mpv firefox obs-studio
           google-chrome brave                                                                                     # Web Browsers
           libreoffice typora anki-bin                                                                             # Office Tools
-          gimp inkscape wl-color-picker digikam                                                                   # Multimedia Tools
+          gimp inkscape wl-color-picker                                                                           # Multimedia Tools
           vlc spotify spotify-tray                                                                                # Video/Audio Players
           copyq _1password-gui easyeffects qpwgraph pavucontrol appimage-run endeavour                            # Desktop Tools
           unrar unzip                                                                                             # File Compression Software
