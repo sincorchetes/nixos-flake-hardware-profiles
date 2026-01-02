@@ -8,7 +8,7 @@
   hardware = {
     cpu.amd.updateMicrocode = true;
     xpadneo.enable = true;
-    nvidia-container-toolkit.enable
+    nvidia-container-toolkit.enable = true;
     nvidia = {
       package = pkgs.linuxPackages_latest.nvidia_x11;
       modesetting.enable = true;
