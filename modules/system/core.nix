@@ -68,4 +68,5 @@
 
   hardware.enableRedistributableFirmware = true;
   services.fwupd.enable = true;
+  nixpkgs.config.allowUnfree = true;
 }
