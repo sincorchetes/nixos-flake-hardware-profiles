@@ -5,30 +5,6 @@ let
   ]);
 in
 {
-  fonts.fontconfig.enable = true;
-  programs = {
-      #mpv.enable = true;
-      #firefox.enable = true;
-      #obs-studio.enable = true;
-      bat.enable = true;
-      bottom.enable = true;
-      k9s.enable = true;
-      ripgrep.enable = true;
-      ripgrep-all.enable = true;
-      neovim.enable = true;
-      asciinema.enable = true;
-      #helix.enable = true;
-      git.enable = true;
-      delta.enable = true;
-      htop.enable = true;
-      imv.enable = true;
-      hwatch.enable = true;
-      hyprshot.enable = true;
-      kubecolor.enable = true;
-      awscli.enable = true;
-      jq.enable= true;
-    };
-
     services = {
       copyq.enable = true;
       blueman-applet.enable = true;
