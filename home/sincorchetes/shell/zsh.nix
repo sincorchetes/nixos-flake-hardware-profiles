@@ -65,5 +65,7 @@
 
     atuin.enable = true;
     atuin.enableZshIntegration = true;
+
+    neovim.enable = true;
   };
 }
