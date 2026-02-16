@@ -15,8 +15,8 @@
 
     sessionVariables = {
       EDITOR = "nvim";
-      XDG_CONFIG_HOME = "$HOME/.config";
-      SOPS_AGE_KEY_FILE = "$HOME/.config/sops/age/keys.txt";
+      XDG_CONFIG_HOME = "/home/sincorchetes/.config";
+      SOPS_AGE_KEY_FILE = "/home/sincorchetes/.config/sops/age/keys.txt";
     };
 
     packages = with pkgs; [
