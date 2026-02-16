@@ -21,7 +21,7 @@
     };
 
     packages = with pkgs; [
-      fastfetch mpv firefox obs-studio google-chrome brave libreoffice typora anki-bin git nvim                                                                           
+      fastfetch mpv firefox obs-studio google-chrome brave libreoffice typora anki-bin git                                                                           
       gimp inkscape wl-color-picker vlc spotify spotify-tray copyq _1password-gui easyeffects 
       qpwgraph pavucontrol appimage-run endeavour unrar unzip flat-remix-gnome flat-remix-icon-theme                                                                 
       eza tree ncdu xh procs dust duf tldr sd glow hyperfine navi dogdns just chezmoi asciinema borgbackup                  
