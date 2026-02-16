@@ -11,7 +11,7 @@
   hardware = {
     cpu.amd.updateMicrocode = true;
     xpadneo.enable = true;
-    
+    enableAllFirmware = true;
     nvidia = {
       package = pkgs.linuxPackages_latest.nvidia_x11;
       modesetting.enable = true;
@@ -21,7 +21,8 @@
   };
 
   boot = {
-    kernelPackages = pkgs.linuxPackages_25_11;
+    kernelPackages = pkgs.linuxPackages_6_18;
+    zfs.package = pkgs.zfs_2_4;
     kernelParams = [
       "preempt=full"
       "usbcore.autosuspend=-1"
