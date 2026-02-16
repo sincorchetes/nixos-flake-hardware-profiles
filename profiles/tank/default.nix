@@ -12,8 +12,12 @@
     ../../modules/system/core.nix
   ];
 
-  networking.hostName = "tank0";
-  networking.networkmanager.wifi.powersave = false;
+  networking = {
+    hostName = "tank0";
+    hostId = "a50eaf91";
+    networkmanager.wifi.powersave = false;
+  };
+  
   nixpkgs.hostPlatform = "x86_64-linux";
   hardware = {
     cpu.amd.updateMicrocode = true;
@@ -28,7 +32,6 @@
       grub.enable = false;
     };
     
-    networking.hostId = "a50eaf91";
     kernelPackages = pkgs.linuxPackages_6_18;
     zfs.package = pkgs.zfs_2_4;
     kernelParams = [
