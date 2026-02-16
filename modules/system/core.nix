@@ -12,14 +12,14 @@
     };
   };
 
-  sops = {
-    age.keyFile = "/home/sincorchetes/.config/sops/age/keys.txt"; 
-    defaultSopsFile = ./secrets.yaml;
-    secrets = {
-      root_password.neededForUsers = true;
-      sincorchetes_password.neededForUsers = true;
-    };
-  };
+  #sops = {
+  #  age.keyFile = "/home/sincorchetes/.config/sops/age/keys.txt"; 
+  #  defaultSopsFile = ./secrets.yaml;
+  #  secrets = {
+  #    root_password.neededForUsers = true;
+  #    sincorchetes_password.neededForUsers = true;
+  #  };
+  #};
 
   home-manager = {
     useGlobalPkgs = true;
