@@ -4,7 +4,6 @@
   imports = [
     ./shell/zsh.nix
     ./shell/tmux.nix
-    ./editors/nvim.nix
     ./desktop/hyprland.nix
     ./desktop/foot.nix
     ./desktop/entries.nix
