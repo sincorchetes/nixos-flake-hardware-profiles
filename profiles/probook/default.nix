@@ -31,8 +31,8 @@
       efi.canTouchEfiVariables = true;
       grub.enable = false;
     };
-    hostId = "8425af91";
     
+    networking.hostId = "8425af91";
     zfs.devNodes = "/dev/disk/by-path";
     supportedFilesystems = [ "ntfs" "zfs" ];
 
