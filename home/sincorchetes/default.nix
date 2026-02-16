@@ -4,9 +4,8 @@
   imports = [
     ./shell/zsh.nix
     ./shell/tmux.nix
-    ./desktop/hyprland.nix
-    ./desktop/foot.nix
-    ./desktop/entries.nix
+#    ./desktop/hyprland.nix
+#    ./desktop/foot.nix
   ];
 
   home = {
