@@ -12,8 +12,12 @@
     ../../modules/system/core.nix
   ];
 
-  networking.hostName = "probook0";
-  networking.networkmanager.wifi.powersave = true;
+  networking = {
+    hostName = "probook0";
+    hostId = "8425af91";
+    networkmanager.wifi.powersave = true;
+  };
+  
   nixpkgs.hostPlatform = "x86_64-linux";
   services.thermald.enable = true;
   services.power-profiles-daemon.enable = true;
@@ -32,7 +36,6 @@
       grub.enable = false;
     };
     
-    networking.hostId = "8425af91";
     zfs.devNodes = "/dev/disk/by-path";
     supportedFilesystems = [ "ntfs" "zfs" ];
 
