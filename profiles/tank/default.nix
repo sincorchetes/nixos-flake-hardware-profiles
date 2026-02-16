@@ -14,7 +14,7 @@
 
   networking.hostName = "tank0";
   networking.networkmanager.wifi.powersave = false;
-
+  nixpkgs.hostPlatform = "x86_64-linux";
   hardware = {
     cpu.amd.updateMicrocode = true;
     xpadneo.enable = true;
