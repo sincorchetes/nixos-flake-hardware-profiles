@@ -17,6 +17,7 @@
       EDITOR = "nvim";
       XDG_CONFIG_HOME = "/home/sincorchetes/.config";
       SOPS_AGE_KEY_FILE = "/home/sincorchetes/.config/sops/age/keys.txt";
+      LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath [ pkgs.stdenv.cc.cc ];
     };
 
     packages = with pkgs; [
