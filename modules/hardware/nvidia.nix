@@ -13,7 +13,6 @@
   };
   
   hardware.nvidia-container-toolkit.enable = true;
-  virtualisation.docker.enableNvidia = true;
 
   boot.kernelParams = [ "nvidia-drm.modeset=1" ];
 
