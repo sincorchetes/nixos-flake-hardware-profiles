@@ -19,7 +19,7 @@
       }
     ];
 
-    initExtra = ''
+    initContent = ''
       [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
       unsetopt PROMPT_CR
     '';
