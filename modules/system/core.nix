@@ -69,4 +69,10 @@
   hardware.enableRedistributableFirmware = true;
   services.fwupd.enable = true;
   nixpkgs.config.allowUnfree = true;
+
+  services.xserver.enable = true;
+  services.xserver.displayManager.gdm.enable = true;
+  services.xserver.desktopManager.gnome.enable = true;
+  networking.networkmanager.enable = true;
+
 }
