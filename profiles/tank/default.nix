@@ -22,6 +22,12 @@
   };
 
   boot = {
+    loader = { 
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = true;
+      grub.enable = false;
+    };
+    hostId = "a50eaf91";
     kernelPackages = pkgs.linuxPackages_6_18;
     zfs.package = pkgs.zfs_2_4;
     kernelParams = [
