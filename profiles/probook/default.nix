@@ -3,13 +3,13 @@
 {
   imports = [
     ./disko.nix
-    ../modules/hardware/intel-gpu.nix
-    ../modules/hardware/bluetooth.nix
-    ../modules/system/network.nix
-    ../modules/system/vpn.nix
-    ../modules/system/security.nix
-    ../modules/system/users.nix
-    ../modules/system/core.nix
+    ../../modules/hardware/intel-gpu.nix
+    ../../modules/hardware/bluetooth.nix
+    ../../modules/system/network.nix
+    ../../modules/system/vpn.nix
+    ../../modules/system/security.nix
+    ../../modules/system/users.nix
+    ../../modules/system/core.nix
   ];
 
   networking.hostName = "probook0";
