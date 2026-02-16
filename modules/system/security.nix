@@ -8,7 +8,6 @@
         apparmor-utils
         apparmor-profiles
       ];
-      policies.system.state = "enforce";
     };
 
     sudo = {
