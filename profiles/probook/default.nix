@@ -14,7 +14,7 @@
 
   networking.hostName = "probook0";
   networking.networkmanager.wifi.powersave = true;
-
+  nixpkgs.hostPlatform = "x86_64-linux";
   services.thermald.enable = true;
   services.power-profiles-daemon.enable = true;
 
