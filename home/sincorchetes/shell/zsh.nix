@@ -67,5 +67,8 @@
     atuin.enableZshIntegration = true;
 
     neovim.enable = true;
+    direnv.enable = true;
+    direnv.nix-direnv.enable = true;
+};
   };
 }
