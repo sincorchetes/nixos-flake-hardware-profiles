@@ -1,11 +1,5 @@
 { config, pkgs, inputs, ... }: 
 
-let
-  gdk = pkgs.google-cloud-sdk.withExtraComponents( with pkgs.google-cloud-sdk.components; [
-    gke-gcloud-auth-plugin
-  ]);
-in
-
 {
   system.stateVersion = "25.11";
 
@@ -45,7 +39,6 @@ in
     uutils-coreutils-noprefix
     fwupd
     fwupd-efi
-    gdk
   ];
 
   programs = {
