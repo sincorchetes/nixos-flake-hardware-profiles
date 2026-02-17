@@ -26,7 +26,7 @@ in
 
     packages = with pkgs; [
       fastfetch mpv firefox obs-studio google-chrome brave libreoffice typora anki-bin git bat k9s gdk                                                                        
-      gimp inkscape wl-color-picker vlc spotify spotify-tray copyq _1password-gui easyeffects 
+      gimp inkscape wl-color-picker vlc spotify spotify-tray copyq _1password-gui easyeffects kubecolor
       qpwgraph pavucontrol appimage-run endeavour unrar unzip flat-remix-gnome flat-remix-icon-theme                                                                 
       eza tree ncdu xh procs dust duf tldr sd glow hyperfine navi dogdns just chezmoi asciinema borgbackup                  
       wl-clipboard desktop-file-utils playerctl devenv kubectl kubernetes-helm minikube
