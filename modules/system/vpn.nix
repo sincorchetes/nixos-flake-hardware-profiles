@@ -2,6 +2,6 @@
 
 {
   environment.systemPackages = with pkgs; [
-    openfortivpn
+    openfortivpn openvpn
   ];
 }
