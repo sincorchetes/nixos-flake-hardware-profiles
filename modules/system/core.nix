@@ -1,5 +1,11 @@
 { config, pkgs, inputs, ... }: 
 
+let
+  gdk = pkgs.google-cloud-sdk.withExtraComponents( with pkgs.google-cloud-sdk.components; [
+    gke-gcloud-auth-plugin
+  ]);
+in
+
 {
   system.stateVersion = "25.11";
 
@@ -27,12 +33,6 @@
     extraSpecialArgs = { inherit inputs; };
     users.sincorchetes = import ../../home/sincorchetes;
   };
-
-  let
-  gdk = pkgs.google-cloud-sdk.withExtraComponents( with pkgs.google-cloud-sdk.components; [
-    gke-gcloud-auth-plugin
-  ]);
-  in
 
   environment.systemPackages = with pkgs; [
     cachix 
