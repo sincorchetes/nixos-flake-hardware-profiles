@@ -1,5 +1,9 @@
 { pkgs, inputs, ... }:
-
+let
+  gdk = pkgs.google-cloud-sdk.withExtraComponents( with pkgs.google-cloud-sdk.components; [
+    gke-gcloud-auth-plugin
+  ]);
+in
 {
   imports = [
     ./shell/zsh.nix
@@ -21,7 +25,7 @@
     };
 
     packages = with pkgs; [
-      fastfetch mpv firefox obs-studio google-chrome brave libreoffice typora anki-bin git bat k9s                                                                         
+      fastfetch mpv firefox obs-studio google-chrome brave libreoffice typora anki-bin git bat k9s gdk                                                                        
       gimp inkscape wl-color-picker vlc spotify spotify-tray copyq _1password-gui easyeffects 
       qpwgraph pavucontrol appimage-run endeavour unrar unzip flat-remix-gnome flat-remix-icon-theme                                                                 
       eza tree ncdu xh procs dust duf tldr sd glow hyperfine navi dogdns just chezmoi asciinema borgbackup                  
