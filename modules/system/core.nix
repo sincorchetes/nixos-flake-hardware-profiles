@@ -28,6 +28,12 @@
     users.sincorchetes = import ../../home/sincorchetes;
   };
 
+  let
+  gdk = pkgs.google-cloud-sdk.withExtraComponents( with pkgs.google-cloud-sdk.components; [
+    gke-gcloud-auth-plugin
+  ]);
+  in
+
   environment.systemPackages = with pkgs; [
     cachix 
     acpi 
@@ -39,6 +45,7 @@
     uutils-coreutils-noprefix
     fwupd
     fwupd-efi
+    gdk
   ];
 
   programs = {
