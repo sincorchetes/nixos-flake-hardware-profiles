@@ -1,9 +1,8 @@
 {
   disko.devices = {
     zpool = {
-      zroot = {
+      rpool = {
         type = "zpool";
-        device = "/dev/disk/by-partlabel/nixos-zfs"; 
         
         rootFsOptions = {
           acltype = "posixacl";
@@ -20,18 +19,49 @@
         };
 
         datasets = {
-          "local/root" = { type = "zfs_fs"; mountpoint = "/"; };
-          "local/nix"  = { type = "zfs_fs"; mountpoint = "/nix"; options.atime = "off"; };
-          "safe/home"  = { type = "zfs_fs"; mountpoint = "/home"; };
-          "safe/persist" = { type = "zfs_fs"; mountpoint = "/persist"; };
+          "local/root" = { 
+            type = "zfs_fs"; 
+            mountpoint = "/"; 
+            options.mountpoint = "legacy"; 
+          };
+          "local/nix" = { 
+            type = "zfs_fs"; 
+            mountpoint = "/nix"; 
+            options = { mountpoint = "legacy"; atime = "off"; }; 
+          };
+          "local/vms" = { 
+            type = "zfs_fs"; 
+            mountpoint = "/var/lib/libvirt/images"; # Ruta estándar
+            options = { mountpoint = "legacy"; atime = "off"; }; 
+          };
+          "local/docker" = { 
+            type = "zfs_fs"; 
+            mountpoint = "/var/lib/docker"; 
+            options = { mountpoint = "legacy"; atime = "off"; }; 
+          };
+          "safe/home" = { 
+            type = "zfs_fs"; 
+            mountpoint = "/home"; 
+            options.mountpoint = "legacy"; 
+          };
+          "safe/home/sincorchetes" = { 
+            type = "zfs_fs"; 
+            mountpoint = "/home/sincorchetes"; 
+            options.mountpoint = "legacy"; 
+          };
+          "safe/home/sincorchetes/.cache" = { 
+            type = "zfs_fs"; 
+            mountpoint = "/home/sincorchetes/.cache"; 
+            options = { mountpoint = "legacy"; atime = "off"; }; 
+          };
         };
       };
     };
   };
 
   fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/9EAB-2D57";
+    device = "/dev/disk/by-uuid/00BB-E2E2";
     fsType = "vfat";
-    options = [ "fmask=0077" "dmask=0077" ];
+    options = [ "fmask=0077" "dmask=0077" "defaults" ];
   };
 }
