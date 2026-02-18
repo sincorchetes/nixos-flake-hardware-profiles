@@ -1,5 +1,10 @@
 {
   disko.devices = {
+    disk.main = {
+      type = "disk";
+      device = "/dev/nvme0n1";
+    };
+
     zpool = {
       rpool = {
         type = "zpool";
@@ -10,7 +15,7 @@
         options = {
           ashift = "12";
           autotrim = "on";
-        }; 
+        };
         rootFsOptions = {
           encryption = "aes-256-gcm";
           keyformat = "passphrase";
