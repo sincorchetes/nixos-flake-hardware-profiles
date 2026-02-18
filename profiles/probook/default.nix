@@ -47,8 +47,11 @@
     
     initrd = {
       supportedFilesystems = [ "zfs" ]; 
-      availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usb_storage" "sd_mod" ];
-      includeDefaultModules = false;
+      availableKernelModules = [ 
+      "nvme" "xhci_pci" "ahci" "usb_storage" "sd_mod" 
+      "intel_lpss_pci" "i915" "thunderbolt" 
+    ];
+      includeDefaultModules = true;
     };
 
     zfs.devNodes = "/dev/disk/by-partlabel"; 
