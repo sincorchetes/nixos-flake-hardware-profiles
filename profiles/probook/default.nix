@@ -33,7 +33,7 @@
     loader = { 
       systemd-boot = {
         enable = true;
-        configurationLimit = 5;
+        configurationLimit = 3;
       };
       efi = {
         canTouchEfiVariables = true;
@@ -54,6 +54,7 @@
       "nvme_core.default_ps_max_latency_us=0" 
     ];
     
-    initrd.supportedFilesystems = [ "zfs" ];
+    initrd.supportedFilesystems = [ "zfs" "nvme" "xhci_pci" "ahci" "usb_storage" "sd_mod" ];
+    initrd.includeDefaultModules = false;
   };
 }
