@@ -20,9 +20,6 @@
   
   nixpkgs.hostPlatform = "x86_64-linux";
   
-  services.thermald.enable = true;
-  services.power-profiles-daemon.enable = true;
-
   hardware = {
     cpu.intel.updateMicrocode = true;
     enableRedistributableFirmware = true;
@@ -31,21 +28,16 @@
 
   boot = {
     loader = { 
-      systemd-boot = {
-        enable = true;
-        configurationLimit = 5;
-      };
-      efi = {
-        canTouchEfiVariables = true;
-        efiSysMountPoint = "/boot"; 
-      };
+      systemd-boot.enable = true;
+      systemd-boot.configurationLimit = 5;
+      efi.canTouchEfiVariables = true;
       grub.enable = false;
     };
     
-    zfs.devNodes = "/dev/disk/by-partlabel"; 
-    supportedFilesystems = [ "ntfs" "zfs" ];
+    # Versiones específicas sincronizadas con Tank0
+    kernelPackages = pkgs.linuxPackages_6_18;
+    zfs.package = pkgs.zfs_2_4;
 
-    kernelModules = [ "kvm-intel" ];
     kernelParams = [
       "i915.enable_psr=1"
       "intel_iommu=on"
@@ -54,6 +46,18 @@
       "nvme_core.default_ps_max_latency_us=0" 
     ];
     
-    initrd.supportedFilesystems = [ "zfs" ];
+    initrd = {
+      supportedFilesystems = [ "zfs" ];
+      availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usb_storage" "sd_mod" ];
+      includeDefaultModules = false;
+    };
+
+    zfs.devNodes = "/dev/disk/by-partlabel"; 
+    zfs.forceImportRoot = true;
+    supportedFilesystems = [ "ntfs" "zfs" ];
+    kernelModules = [ "kvm-intel" ];
   };
+  
+  services.thermald.enable = true;
+  services.power-profiles-daemon.enable = true;
 }
