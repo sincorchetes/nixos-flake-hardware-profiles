@@ -10,6 +10,7 @@
     ../../modules/system/security.nix
     ../../modules/system/users.nix
     ../../modules/system/core.nix
+    ../../modules/services/default.nix
   ];
 
   networking = {
