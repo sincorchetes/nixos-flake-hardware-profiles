@@ -38,11 +38,6 @@
           mountpoint = "/home/sincorchetes/.cache";
           options.mountpoint = "legacy";
         };
-        "safe/home/sincorchetes/.local" = {
-          type = "zfs_fs";
-          mountpoint = "/home/sincorchetes/.local";
-          options.mountpoint = "legacy";
-        };
       };
     };
   };
