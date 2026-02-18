@@ -1,39 +1,7 @@
 {
   disko.devices = {
-    disk.main = {
-      type = "disk";
-      device = "/dev/nvme0n1";
-      content = {
-        type = "gpt";
-        partitions = {}; 
-      };
-    };
-
     zpool.rpool = {
       type = "zpool";
-      mode = ""; 
-      vdevs = [
-        {
-          mode = "single";
-          devices = [ "/dev/disk/by-partlabel/nixos-zfs" ];
-        }
-      ];
-      
-      options = {
-        ashift = "12";
-        autotrim = "on";
-      };
-
-      rootFsOptions = {
-        encryption = "aes-256-gcm";
-        keyformat = "passphrase";
-        keylocation = "prompt";
-        compression = "lz4";
-        xattr = "sa";
-        atime = "off";
-        acltype = "posixacl";
-      };
-
       datasets = {
         "local/root" = {
           type = "zfs_fs";
@@ -43,27 +11,17 @@
         "local/nix" = {
           type = "zfs_fs";
           mountpoint = "/nix";
-          options = {
-            atime = "off";
-            mountpoint = "legacy";
-          };
+          options.mountpoint = "legacy";
         };
         "local/vms" = {
           type = "zfs_fs";
           mountpoint = "/var/lib/libvirt/images";
-          options = {
-            mountpoint = "legacy";
-            recordsize = "64K";
-            "com.sun:auto-snapshot" = "false";
-          };
+          options.mountpoint = "legacy";
         };
         "local/docker" = {
           type = "zfs_fs";
           mountpoint = "/var/lib/docker";
-          options = {
-            mountpoint = "legacy";
-            recordsize = "128K";
-          };
+          options.mountpoint = "legacy";
         };
         "safe/home" = {
           type = "zfs_fs";
@@ -78,11 +36,7 @@
         "safe/home/sincorchetes/.cache" = {
           type = "zfs_fs";
           mountpoint = "/home/sincorchetes/.cache";
-          options = {
-            mountpoint = "legacy";
-            atime = "off";
-            "com.sun:auto-snapshot" = "false";
-          };
+          options.mountpoint = "legacy";
         };
         "safe/home/sincorchetes/.local" = {
           type = "zfs_fs";
