@@ -12,7 +12,12 @@
     zpool = {
       rpool = {
         type = "zpool";
-        mode = "/dev/disk/by-partlabel/nixos-zfs";
+        mode = ""; 
+        vdevs = [
+          {
+            devices = [ "/dev/disk/by-partlabel/nixos-zfs" ];
+          }
+        ];
         
         options = {
           ashift = "12";
