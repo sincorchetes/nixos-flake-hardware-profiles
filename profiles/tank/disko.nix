@@ -1,33 +1,8 @@
 {
   disko.devices = {
-    disk.main = {
-      type = "disk";
-      device = "/dev/nvme0n1";
-      content = {
-        type = "gpt";
-        partitions = {
-          ESP = {
-            size = "1G";
-            type = "EF00";
-            content = {
-              type = "filesystem";
-              format = "vfat";
-              mountpoint = "/boot";
-              mountOptions = [ "fmask=0022" "dmask=0022" ];
-            };
-          };
-          zfs = {
-            size = "100%";
-            content = {
-              type = "zfs";
-              pool = "rpool";
-            };
-          };
-        };
-      };
-    };
     zpool.rpool = {
       type = "zpool";
+      device = "/dev/disk/by-partlabel/nixos-zfs"; 
       options = {
         ashift = "12";
         autotrim = "on";
@@ -72,19 +47,14 @@
             recordsize = "128K";
           };
         };
-        "safe/home/sincorchetes/.local/share/Steam" = {
-          type = "zfs_fs";
-          options = {
-            mountpoint = "legacy";
-            recordsize = "1M"; 
-            compression = "lz4";
-            atime = "off";
-            "com.sun:auto-snapshot" = "false";
-          };
-        };
         "safe/home" = {
           type = "zfs_fs";
           mountpoint = "/home";
+          options.mountpoint = "legacy";
+        };
+        "safe/home/sincorchetes" = {
+          type = "zfs_fs";
+          mountpoint = "/home/sincorchetes";
           options.mountpoint = "legacy";
         };
         "safe/home/sincorchetes/.cache" = {
@@ -93,10 +63,21 @@
           options = {
             mountpoint = "legacy";
             atime = "off";
-            "com.sun:auto-snapshot" = "false"; 
+            "com.sun:auto-snapshot" = "false";
           };
+        };
+        "safe/home/sincorchetes/.local" = {
+          type = "zfs_fs";
+          mountpoint = "/home/sincorchetes/.local";
+          options.mountpoint = "legacy";
         };
       };
     };
+  };
+
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-uuid/9EAB-2D57";
+    fsType = "vfat";
+    options = [ "fmask=0077" "dmask=0077" "defaults" ];
   };
 }
