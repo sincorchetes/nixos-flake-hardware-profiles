@@ -19,6 +19,7 @@
   };
   
   nixpkgs.hostPlatform = "x86_64-linux";
+  
   hardware = {
     cpu.intel.updateMicrocode = true;
     enableRedistributableFirmware = true;
@@ -28,12 +29,14 @@
   boot = {
     loader = { 
       systemd-boot.enable = true;
+      systemd-boot.configurationLimit = 5;
       efi.canTouchEfiVariables = true;
       grub.enable = false;
     };
     
     kernelPackages = pkgs.linuxPackages_6_18;
     zfs.package = pkgs.zfs_2_4;
+
     kernelParams = [
       "i915.enable_psr=1"
       "intel_iommu=on"
@@ -42,9 +45,14 @@
       "nvme_core.default_ps_max_latency_us=0" 
     ];
     
-    initrd.supportedFilesystems = [ "zfs" "nvme" "xhci_pci" "ahci" "usb_storage" "sd_mod" ];
-    initrd.includeDefaultModules = false;
+    initrd = {
+      supportedFilesystems = [ "zfs" ]; 
+      availableKernelModules = [ "nvme" "xhci_pci" "ahci" "usb_storage" "sd_mod" ];
+      includeDefaultModules = false;
+    };
+
     zfs.devNodes = "/dev/disk/by-partlabel"; 
+    zfs.forceImportRoot = true;
     supportedFilesystems = [ "ntfs" "zfs" ];
     kernelModules = [ "kvm-intel" ];
   };
