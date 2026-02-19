@@ -9,8 +9,14 @@
       shell = pkgs.zsh;
       description = "Álvaro Castillo";
       #hashedPasswordFile = config.sops.secrets.sincorchetes_password.path;
-      extraGroups = [ 
-        "wheel" "networkmanager" "docker" "libvirtd" "video" "audio" "input" 
+      extraGroups = [
+        "wheel"
+        "networkmanager"
+        "docker"
+        "libvirtd"
+        "video"
+        "audio"
+        "input"
       ];
     };
   };

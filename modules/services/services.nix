@@ -1,15 +1,18 @@
-{ pkgs, ... }: 
+{ pkgs, ... }:
 {
-  systemd.services.NetworkManager-wait-online.enable = false; 
+  systemd.services.NetworkManager-wait-online.enable = false;
   xdg.portal = {
-      enable = true;
-      xdgOpenUsePortal = true;
-      extraPortals = [ 
-        pkgs.xdg-desktop-portal-gnome
-        pkgs.xdg-desktop-portal-gtk 
-      ];
-      config.common.default = ["gnome" "gtk"];
-    };
+    enable = true;
+    xdgOpenUsePortal = true;
+    extraPortals = [
+      pkgs.xdg-desktop-portal-gnome
+      pkgs.xdg-desktop-portal-gtk
+    ];
+    config.common.default = [
+      "gnome"
+      "gtk"
+    ];
+  };
 
   services = {
     xserver = {

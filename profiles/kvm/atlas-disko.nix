@@ -1,4 +1,9 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 {
   disko.devices = {
@@ -45,13 +50,13 @@
 
         datasets = {
           root = {
-            type = "zfs_fs";  # dataset raíz
+            type = "zfs_fs"; # dataset raíz
             options = {
               encryption = "aes-256-gcm";
               keyformat = "passphrase";
               keylocation = "prompt";
             };
-            mountpoint = "/";   # root
+            mountpoint = "/"; # root
           };
         };
       };

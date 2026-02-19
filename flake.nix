@@ -13,23 +13,30 @@
     };
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, disko, ... }:
+  outputs =
+    inputs@{
+      nixpkgs,
+      home-manager,
+      disko,
+      ...
+    }:
     let
       specialArgs = { inherit inputs; };
-    in {
+    in
+    {
       nixosConfigurations = {
         tank0 = nixpkgs.lib.nixosSystem {
           inherit specialArgs;
-          modules = [ 
-            ./profiles/tank/default.nix 
-            disko.nixosModules.disko 
+          modules = [
+            ./profiles/tank/default.nix
+            disko.nixosModules.disko
             home-manager.nixosModules.home-manager
-            ];
+          ];
         };
         probook0 = nixpkgs.lib.nixosSystem {
           inherit specialArgs;
-          modules = [ 
-            ./profiles/probook/default.nix 
+          modules = [
+            ./profiles/probook/default.nix
             disko.nixosModules.disko
             home-manager.nixosModules.home-manager
           ];

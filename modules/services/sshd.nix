@@ -5,8 +5,14 @@
       PermitRootLogin = "yes";
       PasswordAuthentication = true;
     };
-    ports = [ 22 2222 ];
+    ports = [
+      22
+      2222
+    ];
   };
 
-  networking.firewall.allowedTCPPorts = [ 22 2222 ];
+  networking.firewall.allowedTCPPorts = [
+    22
+    2222
+  ];
 }
