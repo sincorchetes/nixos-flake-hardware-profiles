@@ -1,6 +1,11 @@
 { pkgs, ... }: 
 {
   systemd.services.NetworkManager-wait-online.enable = false; 
+  xdg.portal = {
+      enable = true;
+      extraPortals = [ pkgs.xdg-desktop-portal-gnome ];
+      config.common.default = "gnome";
+    };
 
   services = {
     xserver = {
@@ -35,12 +40,6 @@
         [org.gnome.mutter]
         experimental-features=['scale-monitor-framebuffer']
       '';
-    };
-
-    xdg.portal = {
-      enable = true;
-      extraPortals = [ pkgs.xdg-desktop-portal-gnome ];
-      config.common.default = "gnome";
     };
 
     pipewire = {
