@@ -12,7 +12,7 @@
     };
     speechd.enable = false;
     orca.enable = false;
-    dbus.apparmor = "enabled"; 
+    dbus.apparmor = "disabled"; 
 
     printing = {
       enable = true;
@@ -35,6 +35,12 @@
         [org.gnome.mutter]
         experimental-features=['scale-monitor-framebuffer']
       '';
+    };
+
+    xdg.portal = {
+      enable = true;
+      extraPortals = [ pkgs.xdg-desktop-portal-gnome ];
+      config.common.default = "gnome";
     };
 
     pipewire = {
