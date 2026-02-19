@@ -1,15 +1,25 @@
 { pkgs, inputs, ... }:
 let
-  gdk = pkgs.google-cloud-sdk.withExtraComponents( with pkgs.google-cloud-sdk.components; [
-    gke-gcloud-auth-plugin
-  ]);
+  # Definimos el paquete con el parche aplicado
+  google-cloud-sdk-fixed = pkgs.google-cloud-sdk.overrideAttrs (oldAttrs: {
+    postInstall = (oldAttrs.postInstall or "") + ''
+      WRAPPER_SCRIPT="$out/google-cloud-sdk/bin/.gcloud-wrapped"
+
+      if [ -f "$WRAPPER_SCRIPT" ]; then
+        echo "Applying senior-level fix to $WRAPPER_SCRIPT..."
+        sed -i 's|_cloudsdk_path=\$0|_cloudsdk_path=$(realpath "$0")|g' "$WRAPPER_SCRIPT"
+        sed -i 's/readlink/readlink -q/g' "$WRAPPER_SCRIPT" 2>/dev/null || \
+        sed -i 's/readlink/readlink 2>\/dev/null/g' "$WRAPPER_SCRIPT"
+      fi
+    '';
+  });
 in
 {
   imports = [
     ./shell/zsh.nix
     ./shell/tmux.nix
-#    ./desktop/hyprland.nix
-#    ./desktop/foot.nix
+    #    ./desktop/hyprland.nix
+    #    ./desktop/foot.nix
   ];
 
   home = {
@@ -25,21 +35,104 @@ in
     };
 
     packages = with pkgs; [
-      fastfetch mpv firefox obs-studio google-chrome brave libreoffice typora anki-bin git bat k9s gdk nixfmt-rfc-style
-      gimp inkscape wl-color-picker vlc spotify spotify-tray copyq _1password-gui easyeffects kubecolor
-      qpwgraph pavucontrol appimage-run endeavour unrar unzip flat-remix-gnome flat-remix-icon-theme
-      eza tree ncdu xh procs dust duf tldr sd glow hyperfine navi dogdns just chezmoi asciinema borgbackup
-      wl-clipboard desktop-file-utils playerctl devenv kubectl kubernetes-helm minikube direnv devenv
-      vscode code-cursor jetbrains.pycharm jetbrains.webstorm antigravity pre-commit postman figma-linux
-      jetbrains.datagrip dbeaver-bin telegram-desktop slack discord transmission_4-gtk tcpdump nmap p0f wireshark
-      rustscan openssl gnupg nix-search-cli nerd-fonts._0xproto nerd-fonts.droid-sans-mono nerd-fonts.ubuntu-sans
-      nerd-fonts.ubuntu nerd-fonts.jetbrains-mono nerd-fonts.fira-code roboto font-awesome noto-fonts-emoji-blob-bin
-      powerline-fonts gnomeExtensions.pop-shell gnomeExtensions.easyeffects-preset-selector gnomeExtensions.appindicator
+      fastfetch
+      mpv
+      firefox
+      obs-studio
+      google-chrome
+      brave
+      libreoffice
+      typora
+      anki-bin
+      git
+      bat
+      k9s
+      nixfmt-rfc-style
+      gimp
+      inkscape
+      wl-color-picker
+      vlc
+      spotify
+      spotify-tray
+      copyq
+      _1password-gui
+      easyeffects
+      kubecolor
+      qpwgraph
+      pavucontrol
+      appimage-run
+      endeavour
+      unrar
+      unzip
+      flat-remix-gnome
+      flat-remix-icon-theme
+      google-cloud-sdk-fixed
+      eza
+      tree
+      ncdu
+      xh
+      procs
+      dust
+      duf
+      tldr
+      sd
+      glow
+      hyperfine
+      navi
+      dogdns
+      just
+      chezmoi
+      asciinema
+      borgbackup
+      wl-clipboard
+      desktop-file-utils
+      playerctl
+      devenv
+      kubectl
+      kubernetes-helm
+      minikube
+      direnv
+      devenv
+      vscode
+      code-cursor
+      jetbrains.pycharm
+      jetbrains.webstorm
+      antigravity
+      pre-commit
+      postman
+      figma-linux
+      jetbrains.datagrip
+      dbeaver-bin
+      telegram-desktop
+      slack
+      discord
+      transmission_4-gtk
+      tcpdump
+      nmap
+      p0f
+      wireshark
+      rustscan
+      openssl
+      gnupg
+      nix-search-cli
+      nerd-fonts._0xproto
+      nerd-fonts.droid-sans-mono
+      nerd-fonts.ubuntu-sans
+      nerd-fonts.ubuntu
+      nerd-fonts.jetbrains-mono
+      nerd-fonts.fira-code
+      roboto
+      font-awesome
+      noto-fonts-emoji-blob-bin
+      powerline-fonts
+      gnomeExtensions.pop-shell
+      gnomeExtensions.easyeffects-preset-selector
+      gnomeExtensions.appindicator
     ];
   };
 
   services = {
-    copyq.enable = true; 
+    copyq.enable = true;
     blueman-applet.enable = true;
     network-manager-applet.enable = true;
   };
@@ -49,9 +142,9 @@ in
     enable = true;
     enableDefaultConfig = false;
     matchBlocks = {
-        "*" = {
-          identityAgent = "~/.1password/agent.sock";
-        };
+      "*" = {
+        identityAgent = "~/.1password/agent.sock";
       };
+    };
   };
 }
