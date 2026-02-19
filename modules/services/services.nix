@@ -3,8 +3,12 @@
   systemd.services.NetworkManager-wait-online.enable = false; 
   xdg.portal = {
       enable = true;
-      extraPortals = [ pkgs.xdg-desktop-portal-gnome ];
-      config.common.default = "gnome";
+      xdgOpenUsePortal = true;
+      extraPortals = [ 
+        pkgs.xdg-desktop-portal-gnome
+        pkgs.xdg-desktop-portal-gtk 
+      ];
+      config.common.default = ["gnome" "gtk"];
     };
 
   services = {
@@ -17,7 +21,10 @@
     };
     speechd.enable = false;
     orca.enable = false;
-    dbus.apparmor = "disabled"; 
+    dbus = {
+      enable = true;
+      apparmor = "disabled";
+    };
 
     printing = {
       enable = true;
