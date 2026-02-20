@@ -11,27 +11,36 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    sops-nix.url = "github:Mic92/sops-nix";
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, disko, sops-nix, ... }:
+  outputs =
+    inputs@{
+      nixpkgs,
+      home-manager,
+      disko,
+      ...
+    }:
     let
       specialArgs = { inherit inputs; };
-    in {
+    in
+    {
       nixosConfigurations = {
         tank0 = nixpkgs.lib.nixosSystem {
           inherit specialArgs;
-          modules = [ 
-            ./profiles/tank/default.nix 
-            disko.nixosModules.disko 
+          modules = [
+            ./profiles/tank/default.nix
+            disko.nixosModules.disko
             home-manager.nixosModules.home-manager
-            sops-nix.nixosModules.sops
-            ];
+          ];
         };
-        #probook0 = nixpkgs.lib.nixosSystem {
-        #  inherit specialArgs;
-        #  modules = [ ./profiles/probook/default.nix disko.nixosModules.disko ];
-        #};
+        probook0 = nixpkgs.lib.nixosSystem {
+          inherit specialArgs;
+          modules = [
+            ./profiles/probook/default.nix
+            disko.nixosModules.disko
+            home-manager.nixosModules.home-manager
+          ];
+        };
       };
     };
 }
