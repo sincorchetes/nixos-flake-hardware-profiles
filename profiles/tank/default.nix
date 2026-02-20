@@ -42,9 +42,7 @@
     zfs.package = pkgs.zfs_2_4;
     kernelParams = [
       "preempt=full"
-      "usbcore.autosuspend=-1"
       "iommu=pt"
-      "nvidia-drm.modeset=1"
       "kvm_amd.avic=1"
     ];
     initrd.availableKernelModules = [
