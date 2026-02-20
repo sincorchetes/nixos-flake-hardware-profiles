@@ -1,19 +1,4 @@
 { pkgs, inputs, ... }:
-let
-  # Definimos el paquete con el parche aplicado
-  google-cloud-sdk-fixed = pkgs.google-cloud-sdk.overrideAttrs (oldAttrs: {
-    postInstall = (oldAttrs.postInstall or "") + ''
-      WRAPPER_SCRIPT="$out/google-cloud-sdk/bin/.gcloud-wrapped"
-
-      if [ -f "$WRAPPER_SCRIPT" ]; then
-        echo "Applying senior-level fix to $WRAPPER_SCRIPT..."
-        sed -i 's|_cloudsdk_path=\$0|_cloudsdk_path=$(realpath "$0")|g' "$WRAPPER_SCRIPT"
-        sed -i 's/readlink/readlink -q/g' "$WRAPPER_SCRIPT" 2>/dev/null || \
-        sed -i 's/readlink/readlink 2>\/dev/null/g' "$WRAPPER_SCRIPT"
-      fi
-    '';
-  });
-in
 {
   imports = [
     ./shell/zsh.nix
@@ -66,7 +51,7 @@ in
       unzip
       flat-remix-gnome
       flat-remix-icon-theme
-      google-cloud-sdk-fixed
+      google-cloud-sdk
       eza
       tree
       ncdu
@@ -128,6 +113,7 @@ in
       gnomeExtensions.pop-shell
       gnomeExtensions.easyeffects-preset-selector
       gnomeExtensions.appindicator
+      gemini-cli
     ];
   };
 
