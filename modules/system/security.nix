@@ -11,13 +11,7 @@
       ];
     };
 
-    sudo = {
-      enable = true;
-      extraConfig = ''
-        Defaults env_keep += "SOPS_AGE_KEY_FILE"
-      '';
-    };
-
+    sudo.enable = true;
     rtkit.enable = true;
   };
 
