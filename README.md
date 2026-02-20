@@ -136,4 +136,9 @@ This method is for installing NixOS alongside an existing Windows installation. 
         ```shell
         nixos-install --flake /mnt/etc/nixos#probook0
         ```
-7.  After the installation is complete, set a password for the `root` user and reboot.
+7.  Set the system partition
+    ```shell
+    zpool get bootfs tank
+    sudo zpool set bootfs=tank/root tank
+    ```
+8.  After the installation is complete, set a password for the `root` user and reboot.
