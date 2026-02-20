@@ -4,6 +4,7 @@
   security = {
     apparmor = {
       enable = true;
+      enableCache = true;
       packages = with pkgs; [
         apparmor-utils
         apparmor-profiles
@@ -21,7 +22,6 @@
   };
 
   boot = {
-    kernelModules = [ "apparmor" ];
-    kernelParams = [ "apparmor=1" "lsm=landlock,lockdown,yama,apparmor,bpf" ];
+    kernelParams = [ "lsm=landlock,lockdown,yama,apparmor,bpf" ];
   };
 }

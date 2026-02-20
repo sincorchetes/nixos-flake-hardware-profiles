@@ -39,9 +39,9 @@
       gg = "google-cloud-sdk";
 
       nxupdate = "sudo nixos-rebuild switch --refresh --flake .#$(hostname) --impure";
-      nxcboot  = "sudo nixos-rebuild boot --flake .#$(hostname) --impure";
-      nxcsys   = "nix-collect-garbage -d && sudo nix-collect-garbage -d";
-      nxfull   = "nxupdate && nxcsys && nxcboot";
+      nxcboot = "sudo nixos-rebuild boot --flake .#$(hostname) --impure";
+      nxcsys = "nix-collect-garbage -d && sudo nix-collect-garbage -d";
+      nxfull = "nxupdate && nxcsys && nxcboot";
     };
   };
 
@@ -67,5 +67,7 @@
     atuin.enableZshIntegration = true;
 
     neovim.enable = true;
+    direnv.enable = true;
+    direnv.nix-direnv.enable = true;
   };
 }

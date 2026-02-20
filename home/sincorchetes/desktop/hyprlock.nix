@@ -1,16 +1,16 @@
 {
-    programs.hyprlock = {
-        enable = true;
-        settings = {
-            input-field = {
-                monitor = "";
-                fade_on_empty = false;
-            };
+  programs.hyprlock = {
+    enable = true;
+    settings = {
+      input-field = {
+        monitor = "";
+        fade_on_empty = false;
+      };
 
-            background = {
-                monitor = "";
-                path = "~/.config/hypr/wallpaper.png";
-            };
-        };
+      background = {
+        monitor = "";
+        path = "~/.config/hypr/wallpaper.png";
+      };
     };
+  };
 }
