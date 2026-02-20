@@ -13,7 +13,10 @@
               type = "filesystem";
               format = "vfat";
               mountpoint = "/boot";
-              mountOptions = [ "fmask=0022" "dmask=0022" ];
+              mountOptions = [
+                "fmask=0022"
+                "dmask=0022"
+              ];
             };
           };
           zfs = {
@@ -76,7 +79,7 @@
           type = "zfs_fs";
           options = {
             mountpoint = "legacy";
-            recordsize = "1M"; 
+            recordsize = "1M";
             compression = "lz4";
             atime = "off";
             "com.sun:auto-snapshot" = "false";
@@ -93,7 +96,7 @@
           options = {
             mountpoint = "legacy";
             atime = "off";
-            "com.sun:auto-snapshot" = "false"; 
+            "com.sun:auto-snapshot" = "false";
           };
         };
       };

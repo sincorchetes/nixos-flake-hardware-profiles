@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
+    nixpkgs-gcloud-fix.url = "github:NixOS/nixpkgs/pull/492139/head";
     home-manager = {
       url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -11,27 +12,46 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    sops-nix.url = "github:Mic92/sops-nix";
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, disko, sops-nix, ... }:
+  outputs =
+    inputs@{
+      nixpkgs,
+      nixpkgs-gcloud-fix,
+      home-manager,
+      disko,
+      ...
+    }:
     let
+      gcloud-overlay = final: prev: {
+        google-cloud-sdk = (
+          nixpkgs-gcloud-fix.legacyPackages.${prev.system}.google-cloud-sdk.withExtraComponents [
+            nixpkgs-gcloud-fix.legacyPackages.${prev.system}.google-cloud-sdk.components.gke-gcloud-auth-plugin
+          ]
+        );
+      };
       specialArgs = { inherit inputs; };
-    in {
+    in
+    {
       nixosConfigurations = {
         tank0 = nixpkgs.lib.nixosSystem {
           inherit specialArgs;
-          modules = [ 
-            ./profiles/tank/default.nix 
-            disko.nixosModules.disko 
+          modules = [
+            { nixpkgs.overlays = [ gcloud-overlay ]; }
+            ./profiles/tank/default.nix
+            disko.nixosModules.disko
             home-manager.nixosModules.home-manager
-            sops-nix.nixosModules.sops
-            ];
+          ];
         };
-        #probook0 = nixpkgs.lib.nixosSystem {
-        #  inherit specialArgs;
-        #  modules = [ ./profiles/probook/default.nix disko.nixosModules.disko ];
-        #};
+        probook0 = nixpkgs.lib.nixosSystem {
+          inherit specialArgs;
+          modules = [
+            { nixpkgs.overlays = [ gcloud-overlay ]; }
+            ./profiles/probook/default.nix
+            disko.nixosModules.disko
+            home-manager.nixosModules.home-manager
+          ];
+        };
       };
     };
 }

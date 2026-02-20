@@ -1,4 +1,10 @@
-{ config, pkgs, lib, modulesPath, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  modulesPath,
+  ...
+}:
 
 {
   imports = [
@@ -13,7 +19,10 @@
   services = {
     spice-vdagentd.enable = true;
     qemuGuest.enable = true;
-    xserver.videoDrivers = [ "modesetting" "fbdev" ];
+    xserver.videoDrivers = [
+      "modesetting"
+      "fbdev"
+    ];
     zfs = {
       autoScrub.enable = true;
       trim.enable = true;
@@ -44,7 +53,15 @@
     supportedFilesystems = [ "zfs" ];
     initrd = {
       supportedFilesystems = [ "zfs" ];
-      kernelModules = [ "zfs" "kvm-amd" "ahci" "xhci_pci" "virtio_pci" "sr_mod" "virtio_blk" ];
+      kernelModules = [
+        "zfs"
+        "kvm-amd"
+        "ahci"
+        "xhci_pci"
+        "virtio_pci"
+        "sr_mod"
+        "virtio_blk"
+      ];
     };
   };
 }

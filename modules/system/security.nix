@@ -4,24 +4,18 @@
   security = {
     apparmor = {
       enable = true;
+      enableCache = true;
       packages = with pkgs; [
         apparmor-utils
         apparmor-profiles
       ];
     };
 
-    sudo = {
-      enable = true;
-      extraConfig = ''
-        Defaults env_keep += "SOPS_AGE_KEY_FILE"
-      '';
-    };
-
+    sudo.enable = true;
     rtkit.enable = true;
   };
 
   boot = {
-    kernelModules = [ "apparmor" ];
-    kernelParams = [ "apparmor=1" "lsm=landlock,lockdown,yama,apparmor,bpf" ];
+    kernelParams = [ "lsm=landlock,lockdown,yama,apparmor,bpf" ];
   };
 }

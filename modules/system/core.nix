@@ -1,25 +1,27 @@
-{ config, pkgs, inputs, ... }: 
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 
 {
   system.stateVersion = "25.11";
 
   nix = {
     settings = {
-      trusted-users = [ "root" "sincorchetes" ];
+      trusted-users = [
+        "root"
+        "sincorchetes"
+      ];
       download-buffer-size = 10737418240;
-      experimental-features = [ "nix-command" "flakes" ];
-      auto-optimise-store = true; 
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
+      auto-optimise-store = true;
     };
   };
-
-  #sops = {
-  #  age.keyFile = "/home/sincorchetes/.config/sops/age/keys.txt"; 
-  #  defaultSopsFile = ./secrets.yaml;
-  #  secrets = {
-  #    root_password.neededForUsers = true;
-  #    sincorchetes_password.neededForUsers = true;
-  #  };
-  #};
 
   home-manager = {
     useGlobalPkgs = true;
@@ -29,13 +31,13 @@
   };
 
   environment.systemPackages = with pkgs; [
-    cachix 
-    acpi 
-    lm_sensors 
-    pciutils 
-    lshw 
-    usbutils 
-    binutils 
+    cachix
+    acpi
+    lm_sensors
+    pciutils
+    lshw
+    usbutils
+    binutils
     uutils-coreutils-noprefix
     fwupd
     fwupd-efi
@@ -43,8 +45,12 @@
 
   programs = {
     zsh.enable = true;
-    hyprland.enable = true; 
+    hyprland.enable = true;
     dconf.enable = true;
+    _1password-gui = {
+      enable = true;
+      polkitPolicyOwners = [ "sincorchetes" ];
+    };
   };
 
   time.timeZone = "Atlantic/Canary";
@@ -69,13 +75,5 @@
   hardware.enableRedistributableFirmware = true;
   services.fwupd.enable = true;
   nixpkgs.config.allowUnfree = true;
-
-  services.xserver.enable = true;
-  services.displayManager.gdm.enable = true;
-  services.desktopManager.gnome.enable = true;
-  services.desktopManager.gnome.extraGSettingsOverrides = ''
-    [org.gnome.mutter]
-    experimental-features=['scale-monitor-framebuffer']
-  '';
 
 }

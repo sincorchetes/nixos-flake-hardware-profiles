@@ -11,7 +11,7 @@
     open = true;
     nvidiaSettings = true;
   };
-  
+
   hardware.nvidia-container-toolkit.enable = true;
 
   boot.kernelParams = [ "nvidia-drm.modeset=1" ];
