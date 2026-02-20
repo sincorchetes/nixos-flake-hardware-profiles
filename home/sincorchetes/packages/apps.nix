@@ -1,0 +1,34 @@
+{pkgs, ...}: {
+  home.packages = with pkgs; [
+    mpv
+    firefox
+    obs-studio
+    google-chrome
+    brave
+    libreoffice
+    typora
+    anki-bin
+    gimp
+    inkscape
+    wl-color-picker
+    vlc
+    spotify
+    spotify-tray
+    copyq
+    easyeffects
+    qpwgraph
+    pavucontrol
+    appimage-run
+    endeavour
+    unrar
+    unzip
+    flat-remix-gnome
+    flat-remix-icon-theme
+    postman
+    figma-linux
+    telegram-desktop
+    slack
+    discord
+    transmission_4-gtk
+  ];
+}
