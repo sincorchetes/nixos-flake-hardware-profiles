@@ -116,24 +116,24 @@ This method is for installing NixOS alongside an existing Windows installation. 
     *   Mount the other datasets and the EFI partition (which should already exist from the Windows installation).
     ```shell
     mkdir -p /mnt/nix /mnt/home /mnt/home/sincorchetes /mnt/home/sincorchetes/.cache /mnt/var/lib/libvirt/images /mnt/var/lib/docker /mnt/boot
-
-mount -t zfs rpool/local/nix /mnt/nix
-mount -t zfs rpool/safe/home /mnt/home
-mount -t zfs rpool/safe/home/sincorchetes /mnt/home/sincorchetes
-mount -t zfs rpool/safe/home/sincorchetes/.cache /mnt/home/sincorchetes/.cache
-mount -t zfs rpool/local/vms /mnt/var/lib/libvirt/images
-mount -t zfs rpool/local/docker /mnt/var/lib/docker
-
-# Find your EFI partition, usually the first one. e.g. /dev/nvme0n1p1
-mount /dev/nvme0n1p1 /mnt/boot
-```
-
+    mount -t zfs rpool/local/nix /mnt/nix
+    mount -t zfs rpool/safe/home /mnt/home
+    mount -t zfs rpool/safe/home/sincorchetes /mnt/home/sincorchetes
+    mount -t zfs rpool/safe/home/sincorchetes/.cache /mnt/home/sincorchetes/.cache
+    mount -t zfs rpool/local/vms /mnt/var/lib/libvirt/images
+    mount -t zfs rpool/local/docker /mnt/var/lib/docker
+    ```
+    Find your EFI partition, usually the first one. e.g. /dev/nvme0n1p1
+    ```
+    mount /dev/nvme0n1p1 /mnt/boot
+    ```
+    
 5.  **Clone the repository:**
-    ```shell
-    git clone https://github.com/sincorchetes/nixos-flake-hardware-profiles /mnt/etc/nixos
-    ```
+        ```shell
+        git clone https://github.com/sincorchetes/nixos-flake-hardware-profiles /mnt/etc/nixos
+        ```
 6.  **Run the installation:**
-    ```shell
-    nixos-install --flake /mnt/etc/nixos#probook0
-    ```
+        ```shell
+        nixos-install --flake /mnt/etc/nixos#probook0
+        ```
 7.  After the installation is complete, set a password for the `root` user and reboot.
