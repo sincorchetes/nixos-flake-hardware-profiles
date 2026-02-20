@@ -1,21 +1,23 @@
-{ config, pkgs, ... }:
+{
+  inputs,
+  config,
+  pkgs,
+  ...
+}:
 
 {
-  users.mutableUsers = true;
-  users.users = {
-    sincorchetes = {
-      isNormalUser = true;
-      shell = pkgs.zsh;
-      description = "Álvaro Castillo";
-      extraGroups = [
-        "wheel"
-        "networkmanager"
-        "docker"
-        "libvirtd"
-        "video"
-        "audio"
-        "input"
-      ];
-    };
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
+    extraSpecialArgs = { inherit inputs; };
+    users.sincorchetes = import ../../home/sincorchetes;
+  };
+
+  # Define user at system level to resolve homeDirectory conflict
+  users.users.sincorchetes = {
+    isNormalUser = true;
+    home = "/home/sincorchetes";
+    shell = pkgs.zsh;
+    extraGroups = [ "wheel" "networkmanager" "libvirtd" "docker" ];
   };
 }

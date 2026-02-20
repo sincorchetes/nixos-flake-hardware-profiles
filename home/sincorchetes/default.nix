@@ -3,6 +3,11 @@
   imports = [
     ./shell/zsh.nix
     ./shell/tmux.nix
+    ./packages/apps.nix
+    ./packages/cli.nix
+    ./packages/dev.nix
+    ./packages/fonts.nix
+    ./packages/gnome.nix
     #    ./desktop/hyprland.nix
     #    ./desktop/foot.nix
   ];
@@ -19,102 +24,6 @@
       LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath [ pkgs.stdenv.cc.cc ];
     };
 
-    packages = with pkgs; [
-      fastfetch
-      mpv
-      firefox
-      obs-studio
-      google-chrome
-      brave
-      libreoffice
-      typora
-      anki-bin
-      git
-      bat
-      k9s
-      nixfmt-rfc-style
-      gimp
-      inkscape
-      wl-color-picker
-      vlc
-      spotify
-      spotify-tray
-      copyq
-      _1password-gui
-      easyeffects
-      kubecolor
-      qpwgraph
-      pavucontrol
-      appimage-run
-      endeavour
-      unrar
-      unzip
-      flat-remix-gnome
-      flat-remix-icon-theme
-      google-cloud-sdk
-      eza
-      tree
-      ncdu
-      xh
-      procs
-      dust
-      duf
-      tldr
-      sd
-      glow
-      hyperfine
-      navi
-      dogdns
-      just
-      chezmoi
-      asciinema
-      borgbackup
-      wl-clipboard
-      desktop-file-utils
-      playerctl
-      devenv
-      kubectl
-      kubernetes-helm
-      minikube
-      direnv
-      devenv
-      vscode
-      code-cursor
-      jetbrains.pycharm
-      jetbrains.webstorm
-      antigravity
-      pre-commit
-      postman
-      figma-linux
-      jetbrains.datagrip
-      dbeaver-bin
-      telegram-desktop
-      slack
-      discord
-      transmission_4-gtk
-      tcpdump
-      nmap
-      p0f
-      wireshark
-      rustscan
-      openssl
-      gnupg
-      nix-search-cli
-      nerd-fonts._0xproto
-      nerd-fonts.droid-sans-mono
-      nerd-fonts.ubuntu-sans
-      nerd-fonts.ubuntu
-      nerd-fonts.jetbrains-mono
-      nerd-fonts.fira-code
-      roboto
-      font-awesome
-      noto-fonts-emoji-blob-bin
-      powerline-fonts
-      gnomeExtensions.pop-shell
-      gnomeExtensions.easyeffects-preset-selector
-      gnomeExtensions.appindicator
-      gemini-cli
-    ];
   };
 
   services = {
