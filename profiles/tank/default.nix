@@ -1,4 +1,9 @@
-{ config, pkgs, inputs, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 
 {
   imports = [
@@ -10,6 +15,7 @@
     ../../modules/system/security.nix
     ../../modules/system/users.nix
     ../../modules/system/core.nix
+    ../../modules/services/default.nix
   ];
 
   networking = {
@@ -17,7 +23,7 @@
     hostId = "a50eaf91";
     networkmanager.wifi.powersave = false;
   };
-  
+
   nixpkgs.hostPlatform = "x86_64-linux";
   hardware = {
     cpu.amd.updateMicrocode = true;
@@ -26,12 +32,12 @@
   };
 
   boot = {
-    loader = { 
+    loader = {
       systemd-boot.enable = true;
       efi.canTouchEfiVariables = true;
       grub.enable = false;
     };
-    
+
     kernelPackages = pkgs.linuxPackages_6_18;
     zfs.package = pkgs.zfs_2_4;
     kernelParams = [
@@ -41,8 +47,18 @@
       "nvidia-drm.modeset=1"
       "kvm_amd.avic=1"
     ];
-    initrd.availableKernelModules = [ "xhci_pci" "nvme" "usb_storage" "sd_mod" "uas" "ahci" ];
-    blacklistedKernelModules = [ "nouveau" "amdgpu" ];
+    initrd.availableKernelModules = [
+      "xhci_pci"
+      "nvme"
+      "usb_storage"
+      "sd_mod"
+      "uas"
+      "ahci"
+    ];
+    blacklistedKernelModules = [
+      "nouveau"
+      "amdgpu"
+    ];
   };
 
   virtualisation.docker = {
