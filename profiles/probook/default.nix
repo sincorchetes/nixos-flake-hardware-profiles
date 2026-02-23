@@ -21,9 +21,10 @@
   };
 
   nixpkgs.hostPlatform = "x86_64-linux";
-
+  
   hardware = {
     cpu.intel.updateMicrocode = true;
+    xpadneo.enable = true;
     enableRedistributableFirmware = true;
     firmware = with pkgs; [
       sof-firmware
