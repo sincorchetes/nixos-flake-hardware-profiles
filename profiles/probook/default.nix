@@ -76,4 +76,11 @@
 
   services.thermald.enable = true;
   services.power-profiles-daemon.enable = true;
+
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true;
+    dedicatedServer.openFirewall = true;
+    localNetworkGameTransfers.openFirewall = true;
+  };
 }
