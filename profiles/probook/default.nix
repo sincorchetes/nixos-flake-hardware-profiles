@@ -77,6 +77,11 @@
   services.thermald.enable = true;
   services.power-profiles-daemon.enable = true;
 
+  virtualisation.docker = {
+    enable = true;
+    storageDriver = "zfs";
+  };
+
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true;
