@@ -7,11 +7,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1771469470,
-        "narHash": "sha256-GnqdqhrguKNN3HtVfl6z+zbV9R9jhHFm3Z8nu7R6ml0=",
+        "lastModified": 1771881364,
+        "narHash": "sha256-A5uE/hMium5of/QGC6JwF5TGoDAfpNtW00T0s9u/PN8=",
         "owner": "nix-community",
         "repo": "disko",
-        "rev": "4707eec8d1d2db5182ea06ed48c820a86a42dc13",
+        "rev": "a4cb7bf73f264d40560ba527f9280469f1f081c6",
         "type": "github"
       },
       "original": {
@@ -73,12 +73,29 @@
         "type": "github"
       }
     },
+    "nixpkgs-gemini-cli-fix": {
+      "locked": {
+        "lastModified": 1771931898,
+        "narHash": "sha256-Twg/G+Bp0czNL55NAIozmtQVsZ5l1UuJp2TqX3wTevM=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "03657f6ed20bceaae897868e7a7702be98df1717",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "pull/493629/head",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "disko": "disko",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
-        "nixpkgs-gcloud-fix": "nixpkgs-gcloud-fix"
+        "nixpkgs-gcloud-fix": "nixpkgs-gcloud-fix",
+        "nixpkgs-gemini-cli-fix": "nixpkgs-gemini-cli-fix"
       }
     }
   },
