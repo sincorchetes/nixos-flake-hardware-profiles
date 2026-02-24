@@ -75,11 +75,11 @@
     },
     "nixpkgs-gemini-cli-fix": {
       "locked": {
-        "lastModified": 1771931898,
-        "narHash": "sha256-Twg/G+Bp0czNL55NAIozmtQVsZ5l1UuJp2TqX3wTevM=",
+        "lastModified": 1771933036,
+        "narHash": "sha256-MunLj/qI6MODnD4qaESMC7hfADRAptjQ+siyzcwimqU=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "03657f6ed20bceaae897868e7a7702be98df1717",
+        "rev": "0b0a1224fae5d14c26eefe8280d1356e30bf7719",
         "type": "github"
       },
       "original": {
