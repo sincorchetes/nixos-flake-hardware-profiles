@@ -4,6 +4,7 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
     nixpkgs-gcloud-fix.url = "github:NixOS/nixpkgs/pull/492139/head";
+    nixpkgs-gemini-cli-fix.url = "github:NixOS/nixpkgs/pull/493629/head";
     home-manager = {
       url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -18,6 +19,7 @@
     inputs@{
       nixpkgs,
       nixpkgs-gcloud-fix,
+      nixpkgs-gemini-cli-fix,
       home-manager,
       disko,
       ...
@@ -29,6 +31,10 @@
             nixpkgs-gcloud-fix.legacyPackages.${prev.system}.google-cloud-sdk.components.gke-gcloud-auth-plugin
           ]
         );
+      };
+
+      gemini-cli-overlay = final: prev: {
+        gemini-cli = nixpkgs-gemini-cli-fix.legacyPackages.${prev.system}.gemini-cli;
       };
       specialArgs = { inherit inputs; };
     in

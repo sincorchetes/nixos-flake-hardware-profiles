@@ -21,9 +21,10 @@
   };
 
   nixpkgs.hostPlatform = "x86_64-linux";
-
+  
   hardware = {
     cpu.intel.updateMicrocode = true;
+    xpadneo.enable = true;
     enableRedistributableFirmware = true;
     firmware = with pkgs; [
       sof-firmware
@@ -76,4 +77,16 @@
 
   services.thermald.enable = true;
   services.power-profiles-daemon.enable = true;
+
+  virtualisation.docker = {
+    enable = true;
+    storageDriver = "zfs";
+  };
+
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true;
+    dedicatedServer.openFirewall = true;
+    localNetworkGameTransfers.openFirewall = true;
+  };
 }
