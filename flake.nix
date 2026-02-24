@@ -30,6 +30,8 @@
             nixpkgs-gcloud-fix.legacyPackages.${prev.system}.google-cloud-sdk.components.gke-gcloud-auth-plugin
           ]
         );
+      gemini-cli-overlay = final: prev: {
+        gemini-cli = nixpkgs-gemini-cli-fix.legacyPackages.${prev.system}.gemini-cli;
       };
       specialArgs = { inherit inputs; };
     in
