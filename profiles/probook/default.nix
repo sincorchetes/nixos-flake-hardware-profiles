@@ -21,7 +21,7 @@
   };
 
   nixpkgs.hostPlatform = "x86_64-linux";
-  
+
   hardware = {
     cpu.intel.updateMicrocode = true;
     xpadneo.enable = true;
@@ -48,7 +48,7 @@
       "intel_iommu=on"
       "zswap.enabled=1"
       "zswap.max_pool_percent=15"
-      "nvme_core.default_ps_max_latency_us=0"
+      "zfs.zfs_arc_max=8589934592"
     ];
 
     initrd = {
