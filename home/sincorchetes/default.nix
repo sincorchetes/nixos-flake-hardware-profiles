@@ -8,8 +8,6 @@
     ./packages/dev.nix
     ./packages/fonts.nix
     ./packages/gnome.nix
-    #    ./desktop/hyprland.nix
-    #    ./desktop/foot.nix
   ];
 
   home = {
@@ -37,6 +35,10 @@
     enableDefaultConfig = false;
     matchBlocks = {
       "*" = {
+        extraOptions = {
+          "KexAlgorithms" =
+            "curve25519-sha256,curve25519-sha256@libssh.org,diffie-hellman-group-exchange-sha256";
+        };
         identityAgent = "~/.1password/agent.sock";
       };
     };
