@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
+    nixpkgs-antigravity-latest.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-gcloud-fix.url = "github:NixOS/nixpkgs/pull/492139/head";
     nixpkgs-gemini-cli-fix.url = "github:NixOS/nixpkgs/pull/493629/head";
     home-manager = {
@@ -20,6 +21,7 @@
       nixpkgs,
       nixpkgs-gcloud-fix,
       nixpkgs-gemini-cli-fix,
+      nixpkgs-antigravity-latest,
       home-manager,
       disko,
       ...
@@ -27,14 +29,33 @@
     let
       gcloud-overlay = final: prev: {
         google-cloud-sdk = (
-          nixpkgs-gcloud-fix.legacyPackages.${prev.system}.google-cloud-sdk.withExtraComponents [
-            nixpkgs-gcloud-fix.legacyPackages.${prev.system}.google-cloud-sdk.components.gke-gcloud-auth-plugin
-          ]
+          (import nixpkgs-gcloud-fix {
+            inherit (prev) system;
+            config.allowUnfree = true;
+          }).google-cloud-sdk.withExtraComponents
+            [
+              (import nixpkgs-gcloud-fix {
+                inherit (prev) system;
+                config.allowUnfree = true;
+              }).google-cloud-sdk.components.gke-gcloud-auth-plugin
+            ]
         );
       };
 
       gemini-cli-overlay = final: prev: {
-        gemini-cli = nixpkgs-gemini-cli-fix.legacyPackages.${prev.system}.gemini-cli;
+        gemini-cli =
+          (import nixpkgs-gemini-cli-fix {
+            inherit (prev) system;
+            config.allowUnfree = true;
+          }).gemini-cli;
+      };
+
+      antigravity-overlay = final: prev: {
+        antigravity =
+          (import nixpkgs-antigravity-latest {
+            inherit (prev) system;
+            config.allowUnfree = true;
+          }).antigravity;
       };
       specialArgs = { inherit inputs; };
     in
@@ -43,7 +64,13 @@
         tank0 = nixpkgs.lib.nixosSystem {
           inherit specialArgs;
           modules = [
-            { nixpkgs.overlays = [ gcloud-overlay ]; }
+            {
+              nixpkgs.overlays = [
+                gcloud-overlay
+                gemini-cli-overlay
+                antigravity-overlay
+              ];
+            }
             ./profiles/tank/default.nix
             disko.nixosModules.disko
             home-manager.nixosModules.home-manager
@@ -52,7 +79,13 @@
         probook0 = nixpkgs.lib.nixosSystem {
           inherit specialArgs;
           modules = [
-            { nixpkgs.overlays = [ gcloud-overlay ]; }
+            {
+              nixpkgs.overlays = [
+                gcloud-overlay
+                gemini-cli-overlay
+                antigravity-overlay
+              ];
+            }
             ./profiles/probook/default.nix
             disko.nixosModules.disko
             home-manager.nixosModules.home-manager
