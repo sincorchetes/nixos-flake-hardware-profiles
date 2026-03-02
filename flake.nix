@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
-    nixpkgs-antigravity-latest.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs-ide-latest.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-gcloud-fix.url = "github:NixOS/nixpkgs/pull/492139/head";
     nixpkgs-gemini-cli-fix.url = "github:NixOS/nixpkgs/pull/493629/head";
     home-manager = {
@@ -21,7 +21,7 @@
       nixpkgs,
       nixpkgs-gcloud-fix,
       nixpkgs-gemini-cli-fix,
-      nixpkgs-antigravity-latest,
+      nixpkgs-ide-latest,
       home-manager,
       disko,
       ...
@@ -50,12 +50,17 @@
           }).gemini-cli;
       };
 
-      antigravity-overlay = final: prev: {
+      ide-overlay = final: prev: {
         antigravity =
-          (import nixpkgs-antigravity-latest {
+          (import nixpkgs-ide-latest {
             inherit (prev) system;
             config.allowUnfree = true;
           }).antigravity;
+        vscode =
+          (import nixpkgs-ide-latest {
+            inherit (prev) system;
+            config.allowUnfree = true;
+          }).vscode;
       };
       specialArgs = { inherit inputs; };
     in
@@ -68,7 +73,7 @@
               nixpkgs.overlays = [
                 gcloud-overlay
                 gemini-cli-overlay
-                antigravity-overlay
+                ide-overlay
               ];
             }
             ./profiles/tank/default.nix
@@ -83,7 +88,7 @@
               nixpkgs.overlays = [
                 gcloud-overlay
                 gemini-cli-overlay
-                antigravity-overlay
+                ide-overlay
               ];
             }
             ./profiles/probook/default.nix
