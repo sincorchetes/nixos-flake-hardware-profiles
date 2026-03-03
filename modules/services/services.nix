@@ -7,11 +7,21 @@
     extraPortals = [
       pkgs.xdg-desktop-portal-gnome
       pkgs.xdg-desktop-portal-gtk
+      pkgs.xdg-desktop-portal-cosmic
     ];
-    config.common.default = [
-      "gnome"
-      "gtk"
-    ];
+    config = {
+      cosmic.default = [
+        "cosmic"
+        "gtk"
+      ];
+      gnome.default = [
+        "gnome"
+        "gtk"
+      ];
+      common.default = [
+        "gtk"
+      ];
+    };
   };
 
   services = {
@@ -39,17 +49,24 @@
       touchpad.tapping = true;
     };
 
-    displayManager.gdm = {
-      enable = true;
-      wayland = true;
+    displayManager = {
+      #gdm = {
+      #  enable = true;
+      #  wayland = true;
+      #};
+      cosmic-greeter.enable = true;
     };
 
-    desktopManager.gnome = {
-      enable = true;
-      extraGSettingsOverrides = ''
-        [org.gnome.mutter]
-        experimental-features=['scale-monitor-framebuffer']
-      '';
+    desktopManager = {
+      gnome = {
+        enable = true;
+        extraGSettingsOverrides = ''
+          [org.gnome.mutter]
+          experimental-features=['scale-monitor-framebuffer']
+        '';
+      };
+      cosmic.enable = true;
+
     };
 
     pipewire = {
