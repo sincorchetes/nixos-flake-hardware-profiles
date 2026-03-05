@@ -7,10 +7,8 @@
     brave
     libreoffice
     typora
-    anki-bin
     gimp
     inkscape
-    wl-color-picker
     vlc
     spotify
     spotify-tray
@@ -21,11 +19,8 @@
     endeavour
     unrar
     unzip
-    flat-remix-gnome
-    flat-remix-icon-theme
     postman
-    figma-linux
-    telegram-desktop
+    _64gram
     slack
     discord
     transmission_4-gtk

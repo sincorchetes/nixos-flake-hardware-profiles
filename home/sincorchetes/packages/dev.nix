@@ -7,7 +7,6 @@
     minikube
     direnv
     vscode
-    code-cursor
     jetbrains.pycharm
     jetbrains.webstorm
     antigravity
