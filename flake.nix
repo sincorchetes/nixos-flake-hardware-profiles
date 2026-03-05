@@ -4,7 +4,7 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
     nixpkgs-ide-latest.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixpkgs-gcloud-fix.url = "github:NixOS/nixpkgs/pull/492139/head";
+    nixpkgs-gcloud-fix.url = "github:NixOS/nixpkgs/pull/496533/head";
     nixpkgs-gemini-cli-fix.url = "github:NixOS/nixpkgs/pull/493629/head";
     home-manager = {
       url = "github:nix-community/home-manager/release-25.11";

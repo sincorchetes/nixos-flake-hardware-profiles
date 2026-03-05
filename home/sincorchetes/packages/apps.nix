@@ -15,7 +15,6 @@
     spotify
     spotify-tray
     copyq
-    easyeffects
     qpwgraph
     pavucontrol
     appimage-run
