@@ -59,16 +59,16 @@
     },
     "nixpkgs-gcloud-fix": {
       "locked": {
-        "lastModified": 1771516256,
-        "narHash": "sha256-TKEaKiokLFNLx4dA0KJ2Uc7UHjh+zqikqluxwek8Dc8=",
+        "lastModified": 1772619840,
+        "narHash": "sha256-EGvYAVOiP75zLvtrQPX9PmBuETP4VTuPqFRJI7Lg7eI=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "be7c24cabbd1b3fdf1b935ccd962b96f4e6ec0ed",
+        "rev": "667cd1065ddfcacd605d2b268db7ad036b9eb0c7",
         "type": "github"
       },
       "original": {
         "owner": "NixOS",
-        "ref": "pull/492139/head",
+        "ref": "pull/496533/head",
         "repo": "nixpkgs",
         "type": "github"
       }

@@ -6,6 +6,7 @@
     ./packages/apps.nix
     ./packages/cli.nix
     ./packages/dev.nix
+    ./packages/easyeffects.nix
     ./packages/fonts.nix
     ./packages/gnome.nix
   ];
