@@ -7,6 +7,7 @@
     minikube
     direnv
     vscode
+    github-copilot-cli
     jetbrains.pycharm
     jetbrains.webstorm
     antigravity
