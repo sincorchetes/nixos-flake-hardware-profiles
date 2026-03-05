@@ -61,6 +61,11 @@
             inherit (prev) system;
             config.allowUnfree = true;
           }).vscode;
+        github-copilot-cli =
+          (import nixpkgs-ide-latest {
+            inherit (prev) system;
+            config.allowUnfree = true;
+          }).github-copilot-cli;
       };
       specialArgs = { inherit inputs; };
     in
