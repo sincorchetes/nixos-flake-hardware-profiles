@@ -26,8 +26,6 @@
 
   services = {
     copyq.enable = true;
-    blueman-applet.enable = true;
-    network-manager-applet.enable = true;
   };
 
   programs.home-manager.enable = true;
