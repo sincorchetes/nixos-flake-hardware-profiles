@@ -20,7 +20,7 @@
     unrar
     unzip
     postman
-    _64gram
+    #telegram-desktop # broken build upstream v6.4.1
     slack
     discord
     transmission_4-gtk
