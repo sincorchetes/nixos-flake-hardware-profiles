@@ -9,7 +9,6 @@
   imports = [
     ./disko.nix
     ../../modules/hardware/nvidia.nix
-    ../../modules/hardware/hdmi-hotplug.nix
     ../../modules/hardware/bluetooth.nix
     ../../modules/system/network.nix
     ../../modules/system/vpn.nix
