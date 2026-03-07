@@ -6,6 +6,10 @@
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-gcloud-fix.url = "github:NixOS/nixpkgs/pull/496533/head";
     nixpkgs-gemini-cli-fix.url = "github:NixOS/nixpkgs/pull/493629/head";
+    cosmic-comp = {
+      url = "github:sincorchetes/cosmic-comp";
+      inputs.nixpkgs.follows = "nixpkgs-unstable";
+    };
     home-manager = {
       url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -22,6 +26,7 @@
       nixpkgs-gcloud-fix,
       nixpkgs-gemini-cli-fix,
       nixpkgs-unstable,
+      cosmic-comp,
       home-manager,
       disko,
       ...
@@ -39,6 +44,8 @@
             overlays.gcloud-overlay
             overlays.gemini-cli-overlay
             overlays.unstable-overlay
+            # Patched cosmic-comp with NVIDIA hotplug fixes
+            cosmic-comp.overlays.default
           ];
         }
         disko.nixosModules.disko
