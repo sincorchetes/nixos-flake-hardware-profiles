@@ -50,11 +50,11 @@
     };
 
     displayManager = {
-      #gdm = {
-      #  enable = true;
-      #  wayland = true;
-      #};
-      cosmic-greeter.enable = true;
+      gdm = {
+        enable = true;
+        wayland = true;
+      };
+      #cosmic-greeter.enable = true;
     };
 
     desktopManager = {
