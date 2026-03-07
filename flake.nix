@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
-    nixpkgs-ide-latest.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-gcloud-fix.url = "github:NixOS/nixpkgs/pull/496533/head";
     nixpkgs-gemini-cli-fix.url = "github:NixOS/nixpkgs/pull/493629/head";
     home-manager = {
@@ -21,85 +21,39 @@
       nixpkgs,
       nixpkgs-gcloud-fix,
       nixpkgs-gemini-cli-fix,
-      nixpkgs-ide-latest,
+      nixpkgs-unstable,
       home-manager,
       disko,
       ...
     }:
     let
-      gcloud-overlay = final: prev: {
-        google-cloud-sdk = (
-          (import nixpkgs-gcloud-fix {
-            inherit (prev) system;
-            config.allowUnfree = true;
-          }).google-cloud-sdk.withExtraComponents
-            [
-              (import nixpkgs-gcloud-fix {
-                inherit (prev) system;
-                config.allowUnfree = true;
-              }).google-cloud-sdk.components.gke-gcloud-auth-plugin
-            ]
-        );
+      overlays = import ./overlays {
+        inherit nixpkgs-unstable nixpkgs-gcloud-fix nixpkgs-gemini-cli-fix;
       };
 
-      gemini-cli-overlay = final: prev: {
-        gemini-cli =
-          (import nixpkgs-gemini-cli-fix {
-            inherit (prev) system;
-            config.allowUnfree = true;
-          }).gemini-cli;
-      };
-
-      ide-overlay = final: prev: {
-        antigravity =
-          (import nixpkgs-ide-latest {
-            inherit (prev) system;
-            config.allowUnfree = true;
-          }).antigravity;
-        vscode =
-          (import nixpkgs-ide-latest {
-            inherit (prev) system;
-            config.allowUnfree = true;
-          }).vscode;
-        github-copilot-cli =
-          (import nixpkgs-ide-latest {
-            inherit (prev) system;
-            config.allowUnfree = true;
-          }).github-copilot-cli;
-      };
       specialArgs = { inherit inputs; };
+
+      commonModules = [
+        {
+          nixpkgs.overlays = [
+            overlays.gcloud-overlay
+            overlays.gemini-cli-overlay
+            overlays.unstable-overlay
+          ];
+        }
+        disko.nixosModules.disko
+        home-manager.nixosModules.home-manager
+      ];
     in
     {
       nixosConfigurations = {
         tank0 = nixpkgs.lib.nixosSystem {
           inherit specialArgs;
-          modules = [
-            {
-              nixpkgs.overlays = [
-                gcloud-overlay
-                gemini-cli-overlay
-                ide-overlay
-              ];
-            }
-            ./profiles/tank/default.nix
-            disko.nixosModules.disko
-            home-manager.nixosModules.home-manager
-          ];
+          modules = commonModules ++ [ ./profiles/tank/default.nix ];
         };
         probook0 = nixpkgs.lib.nixosSystem {
           inherit specialArgs;
-          modules = [
-            {
-              nixpkgs.overlays = [
-                gcloud-overlay
-                gemini-cli-overlay
-                ide-overlay
-              ];
-            }
-            ./profiles/probook/default.nix
-            disko.nixosModules.disko
-            home-manager.nixosModules.home-manager
-          ];
+          modules = commonModules ++ [ ./profiles/probook/default.nix ];
         };
       };
     };

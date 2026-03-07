@@ -89,7 +89,7 @@
         "type": "github"
       }
     },
-    "nixpkgs-ide-latest": {
+    "nixpkgs-unstable": {
       "locked": {
         "lastModified": 1772624091,
         "narHash": "sha256-QKyJ0QGWBn6r0invrMAK8dmJoBYWoOWy7lN+UHzW1jc=",
@@ -112,7 +112,7 @@
         "nixpkgs": "nixpkgs",
         "nixpkgs-gcloud-fix": "nixpkgs-gcloud-fix",
         "nixpkgs-gemini-cli-fix": "nixpkgs-gemini-cli-fix",
-        "nixpkgs-ide-latest": "nixpkgs-ide-latest"
+        "nixpkgs-unstable": "nixpkgs-unstable"
       }
     }
   },
