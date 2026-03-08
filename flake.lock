@@ -11,11 +11,11 @@
         "rust": "rust"
       },
       "locked": {
-        "lastModified": 1772925274,
-        "narHash": "sha256-iO3TDMchCWZXoeNkTgZxd+iQvI9fhClZj5CcS8Kw584=",
+        "lastModified": 1772986820,
+        "narHash": "sha256-EAplS9Vfh6m7VbghNIHrQKwCVHBpp+Muj5/YLnuwepw=",
         "owner": "sincorchetes",
         "repo": "cosmic-comp",
-        "rev": "10872829b1a7359b36a861b1704731936457eae7",
+        "rev": "99b8fd089a32359d57f7053e5741d53244715b35",
         "type": "github"
       },
       "original": {
@@ -216,11 +216,11 @@
     "xdg-desktop-portal-cosmic-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1772940774,
-        "narHash": "sha256-sXNWpuVe3tVaowEfjelN7kPBECNc2iZ7wEB/cKOJOj8=",
+        "lastModified": 1772944560,
+        "narHash": "sha256-UVzK2CDMZOt6L9prZIJDAPhiySz2K7CtSW9ap+cCTCo=",
         "owner": "sincorchetes",
         "repo": "xdg-desktop-portal-cosmic",
-        "rev": "a0f14b8d5e83187fc483d70143add2715f016256",
+        "rev": "383099aefe173e2608284146c1c12dcde18c9efd",
         "type": "github"
       },
       "original": {
