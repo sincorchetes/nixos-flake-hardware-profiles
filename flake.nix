@@ -50,6 +50,8 @@
             overlays.gemini-cli-overlay
             overlays.unstable-overlay 
             # Patched cosmic-comp binary (NVIDIA hotplug) + data files from nixpkgs
+            # NOTE: To use patched libcosmic in cosmic-comp, update its Cargo.toml/Cargo.lock
+            #   in the cosmic-comp repo to point to sincorchetes/libcosmic (refactor/code-quality-alignment)
             (final: prev: {
               cosmic-comp = final.symlinkJoin {
                 name = "cosmic-comp-patched";
@@ -65,7 +67,11 @@
             (final: prev: {
               xdg-desktop-portal-cosmic = prev.xdg-desktop-portal-cosmic.overrideAttrs (old: {
                 src = xdg-desktop-portal-cosmic-src;
-                cargoHash = "sha256-99MGWfZrDOav77SRI7c5V21JTfkq7ejC7x+ZiQ5J0Yw=";
+                cargoDeps = final.rustPlatform.fetchCargoVendor {
+                  src = xdg-desktop-portal-cosmic-src;
+                  name = "xdg-desktop-portal-cosmic-vendor";
+                  hash = "sha256-99MGWfZrDOav77SRI7c5V21JTfkq7ejC7x+ZiQ5J0Yw=";
+                };
               });
             })
           ];
