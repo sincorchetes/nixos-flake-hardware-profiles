@@ -11,11 +11,11 @@
         "rust": "rust"
       },
       "locked": {
-        "lastModified": 1772924465,
-        "narHash": "sha256-+/XdKp/hsSg6+tJD2qPVK7CGzf7XbqjV3AgFaxj0TyY=",
+        "lastModified": 1772925274,
+        "narHash": "sha256-iO3TDMchCWZXoeNkTgZxd+iQvI9fhClZj5CcS8Kw584=",
         "owner": "sincorchetes",
         "repo": "cosmic-comp",
-        "rev": "a273f189a4fb1cfd99d079bbe22c68640d122bd3",
+        "rev": "10872829b1a7359b36a861b1704731936457eae7",
         "type": "github"
       },
       "original": {
@@ -188,7 +188,8 @@
         "nixpkgs": "nixpkgs",
         "nixpkgs-gcloud-fix": "nixpkgs-gcloud-fix",
         "nixpkgs-gemini-cli-fix": "nixpkgs-gemini-cli-fix",
-        "nixpkgs-unstable": "nixpkgs-unstable"
+        "nixpkgs-unstable": "nixpkgs-unstable",
+        "xdg-desktop-portal-cosmic-src": "xdg-desktop-portal-cosmic-src"
       }
     },
     "rust": {
@@ -209,6 +210,23 @@
       "original": {
         "owner": "oxalica",
         "repo": "rust-overlay",
+        "type": "github"
+      }
+    },
+    "xdg-desktop-portal-cosmic-src": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1772940774,
+        "narHash": "sha256-sXNWpuVe3tVaowEfjelN7kPBECNc2iZ7wEB/cKOJOj8=",
+        "owner": "sincorchetes",
+        "repo": "xdg-desktop-portal-cosmic",
+        "rev": "a0f14b8d5e83187fc483d70143add2715f016256",
+        "type": "github"
+      },
+      "original": {
+        "owner": "sincorchetes",
+        "ref": "fix/screenshot-output-race",
+        "repo": "xdg-desktop-portal-cosmic",
         "type": "github"
       }
     }

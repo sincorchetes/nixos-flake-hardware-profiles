@@ -10,6 +10,10 @@
       url = "github:sincorchetes/cosmic-comp";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
+    xdg-desktop-portal-cosmic-src = {
+      url = "github:sincorchetes/xdg-desktop-portal-cosmic/fix/screenshot-output-race";
+      flake = false;
+    };
     home-manager = {
       url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -27,6 +31,7 @@
       nixpkgs-gemini-cli-fix,
       nixpkgs-unstable,
       cosmic-comp,
+      xdg-desktop-portal-cosmic-src,
       home-manager,
       disko,
       ...
@@ -43,9 +48,26 @@
           nixpkgs.overlays = [
             overlays.gcloud-overlay
             overlays.gemini-cli-overlay
-            overlays.unstable-overlay
-            # Patched cosmic-comp with NVIDIA hotplug fixes
-            cosmic-comp.overlays.default
+            overlays.unstable-overlay 
+            # Patched cosmic-comp binary (NVIDIA hotplug) + data files from nixpkgs
+            (final: prev: {
+              cosmic-comp = final.symlinkJoin {
+                name = "cosmic-comp-patched";
+                paths = [
+                  # Patched binary goes first → wins over prev.cosmic-comp binary
+                  cosmic-comp.packages.${final.system}.default
+                  # Data files (keybindings.ron, tiling-exceptions.ron) come from nixpkgs
+                  prev.cosmic-comp
+                ];
+              };
+            })
+            # Patched xdg-desktop-portal-cosmic (fix interactive screenshot race condition)
+            (final: prev: {
+              xdg-desktop-portal-cosmic = prev.xdg-desktop-portal-cosmic.overrideAttrs (old: {
+                src = xdg-desktop-portal-cosmic-src;
+                cargoHash = "sha256-99MGWfZrDOav77SRI7c5V21JTfkq7ejC7x+ZiQ5J0Yw=";
+              });
+            })
           ];
         }
         disko.nixosModules.disko
