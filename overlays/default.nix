@@ -1,7 +1,6 @@
 {
   nixpkgs-unstable,
   nixpkgs-gcloud-fix,
-  nixpkgs-gemini-cli-fix,
 }:
 let
   # Helper: importa un nixpkgs alternativo con allowUnfree
@@ -21,10 +20,6 @@ in
         gcloud.components.gke-gcloud-auth-plugin
       ];
     };
-
-  gemini-cli-overlay = final: prev: {
-    gemini-cli = (importPkgs nixpkgs-gemini-cli-fix prev).gemini-cli;
-  };
 
   unstable-overlay = final: prev:
     let
