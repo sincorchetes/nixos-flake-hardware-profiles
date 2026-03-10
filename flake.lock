@@ -20,6 +20,7 @@
       },
       "original": {
         "owner": "sincorchetes",
+        "ref": "master",
         "repo": "cosmic-comp",
         "type": "github"
       }

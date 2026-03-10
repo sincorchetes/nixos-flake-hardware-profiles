@@ -18,6 +18,6 @@
     isNormalUser = true;
     home = "/home/sincorchetes";
     shell = pkgs.zsh;
-    extraGroups = [ "wheel" "networkmanager" "libvirtd" "docker" ];
+    extraGroups = [ "wheel" "networkmanager" "libvirtd" "docker" "render" "video" "audio" "input" "kvm" ];
   };
 }

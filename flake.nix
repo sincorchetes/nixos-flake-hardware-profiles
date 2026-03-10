@@ -7,7 +7,7 @@
     nixpkgs-gcloud-fix.url = "github:NixOS/nixpkgs/pull/496533/head";
     nixpkgs-gemini-cli-fix.url = "github:NixOS/nixpkgs/pull/493629/head";
     cosmic-comp = {
-      url = "github:sincorchetes/cosmic-comp";
+      url = "github:sincorchetes/cosmic-comp/master";
       inputs.nixpkgs.follows = "nixpkgs-unstable";
     };
     xdg-desktop-portal-cosmic-src = {
@@ -48,17 +48,13 @@
           nixpkgs.overlays = [
             overlays.gcloud-overlay
             overlays.gemini-cli-overlay
-            overlays.unstable-overlay 
-            # Patched cosmic-comp binary (NVIDIA hotplug) + data files from nixpkgs
-            # NOTE: To use patched libcosmic in cosmic-comp, update its Cargo.toml/Cargo.lock
-            #   in the cosmic-comp repo to point to sincorchetes/libcosmic (refactor/code-quality-alignment)
+            overlays.unstable-overlay
+            # Patched cosmic-comp (NVIDIA hotplug, PNG fast compression, SPDX headers)
             (final: prev: {
               cosmic-comp = final.symlinkJoin {
                 name = "cosmic-comp-patched";
                 paths = [
-                  # Patched binary goes first → wins over prev.cosmic-comp binary
                   cosmic-comp.packages.${final.system}.default
-                  # Data files (keybindings.ron, tiling-exceptions.ron) come from nixpkgs
                   prev.cosmic-comp
                 ];
               };
