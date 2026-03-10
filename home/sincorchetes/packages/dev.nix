@@ -8,8 +8,6 @@
     direnv
     vscode
     github-copilot-cli
-    jetbrains.pycharm
-    jetbrains.webstorm
     antigravity
     pre-commit
     jetbrains.datagrip

@@ -28,17 +28,14 @@
     inputs@{
       nixpkgs,
       nixpkgs-gcloud-fix,
-      nixpkgs-gemini-cli-fix,
       nixpkgs-unstable,
-      cosmic-comp,
-      xdg-desktop-portal-cosmic-src,
       home-manager,
       disko,
       ...
     }:
     let
       overlays = import ./overlays {
-        inherit nixpkgs-unstable nixpkgs-gcloud-fix nixpkgs-gemini-cli-fix;
+        inherit nixpkgs-unstable nixpkgs-gcloud-fix;
       };
 
       specialArgs = { inherit inputs; };
@@ -47,29 +44,8 @@
         {
           nixpkgs.overlays = [
             overlays.gcloud-overlay
-            overlays.gemini-cli-overlay
             overlays.unstable-overlay
-            # Patched cosmic-comp (NVIDIA hotplug, PNG fast compression, SPDX headers)
-            (final: prev: {
-              cosmic-comp = final.symlinkJoin {
-                name = "cosmic-comp-patched";
-                paths = [
-                  cosmic-comp.packages.${final.system}.default
-                  prev.cosmic-comp
-                ];
-              };
-            })
-            # Patched xdg-desktop-portal-cosmic (fix interactive screenshot race condition)
-            (final: prev: {
-              xdg-desktop-portal-cosmic = prev.xdg-desktop-portal-cosmic.overrideAttrs (old: {
-                src = xdg-desktop-portal-cosmic-src;
-                cargoDeps = final.rustPlatform.fetchCargoVendor {
-                  src = xdg-desktop-portal-cosmic-src;
-                  name = "xdg-desktop-portal-cosmic-vendor";
-                  hash = "sha256-99MGWfZrDOav77SRI7c5V21JTfkq7ejC7x+ZiQ5J0Yw=";
-                };
-              });
-            })
+            
           ];
         }
         disko.nixosModules.disko
