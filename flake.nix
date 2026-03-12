@@ -5,15 +5,6 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-gcloud-fix.url = "github:NixOS/nixpkgs/pull/496533/head";
-    nixpkgs-gemini-cli-fix.url = "github:NixOS/nixpkgs/pull/493629/head";
-    cosmic-comp = {
-      url = "github:sincorchetes/cosmic-comp/master";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
-    };
-    xdg-desktop-portal-cosmic-src = {
-      url = "github:sincorchetes/xdg-desktop-portal-cosmic/fix/screenshot-output-race";
-      flake = false;
-    };
     home-manager = {
       url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -21,6 +12,10 @@
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+    cosmic-comp-src = {
+      url = "git+file:///home/sincorchetes/Documents/system/cosmic-comp?ref=fix/fullscreen-positioning-and-perf";
+      flake = false;
     };
   };
 
@@ -34,8 +29,9 @@
       ...
     }:
     let
+      cosmic-comp-src = inputs.cosmic-comp-src;
       overlays = import ./overlays {
-        inherit nixpkgs-unstable nixpkgs-gcloud-fix;
+        inherit nixpkgs-unstable nixpkgs-gcloud-fix cosmic-comp-src;
       };
 
       specialArgs = { inherit inputs; };
@@ -45,7 +41,7 @@
           nixpkgs.overlays = [
             overlays.gcloud-overlay
             overlays.unstable-overlay
-            
+            overlays.cosmic-comp-overlay
           ];
         }
         disko.nixosModules.disko

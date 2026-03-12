@@ -1,6 +1,7 @@
 {
   nixpkgs-unstable,
   nixpkgs-gcloud-fix,
+  cosmic-comp-src,
 }:
 let
   # Helper: importa un nixpkgs alternativo con allowUnfree
@@ -42,7 +43,7 @@ in
       "cosmic-applets"
       "cosmic-applibrary"
       "cosmic-bg"
-      "cosmic-comp"
+      # cosmic-comp is overridden separately via cosmic-comp-overlay
       "cosmic-edit"
       "cosmic-ext-applet-minimon"
       "cosmic-ext-applet-privacy-indicator"
@@ -77,4 +78,24 @@ in
       "tasks"
       "xdg-desktop-portal-cosmic"
     ];
+
+  # Overlay for cosmic-comp with hotplug fix and NVIDIA improvements
+  # from sincorchetes/cosmic-comp fork
+  cosmic-comp-overlay = final: prev:
+    let
+      unstable = importPkgs nixpkgs-unstable prev;
+    in
+    {
+      cosmic-comp = unstable.cosmic-comp.overrideAttrs (old: {
+        src = cosmic-comp-src;
+        # Override cargoDeps to use our fork's Cargo.lock dependencies.
+        # cargoHash (a buildRustPackage argument) can't be changed via overrideAttrs,
+        # so we explicitly set cargoDeps with the vendored deps from our source.
+        # Use lib.fakeHash first, then replace with the real hash from the error.
+        cargoDeps = unstable.rustPlatform.fetchCargoVendor {
+          src = cosmic-comp-src;
+          hash = "sha256-MI8cJzjZd2UeWBESu8xEDYQv0Oa4PRhc4pOCN0zDNO4=";
+        };
+      });
+    };
 }
