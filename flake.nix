@@ -14,7 +14,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     cosmic-comp-src = {
-      url = "git+file:///home/sincorchetes/Documents/system/cosmic-comp?ref=fix/fullscreen-positioning-and-perf";
+      url = "git+file:///home/sincorchetes/Documents/system/cosmic-comp?ref=master";
       flake = false;
     };
   };
