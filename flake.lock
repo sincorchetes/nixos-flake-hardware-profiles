@@ -3,11 +3,11 @@
     "cosmic-comp-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1773192299,
-        "narHash": "sha256-yVVXcP05DCreSXEadgwKj1UFCcZZFpaEPmCcARWJt5s=",
+        "lastModified": 1773411908,
+        "narHash": "sha256-OK6Ut2AUZLeKsVkqIsQZtemV0z/EX5qdfrboEsHgHuI=",
         "owner": "sincorchetes",
         "repo": "cosmic-comp",
-        "rev": "e78d085515ac37fd1a159a7b0d0c12947b2b0d4c",
+        "rev": "0fb48d1b8ebe678df98a0b23bb6249ae94078769",
         "type": "github"
       },
       "original": {
