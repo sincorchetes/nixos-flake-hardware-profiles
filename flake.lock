@@ -3,18 +3,17 @@
     "cosmic-comp-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1773300775,
-        "narHash": "sha256-2VEAJzYCUISwbg5tjOoOuxHVdqHGO+O+507Q1vQ5C1U=",
-        "ref": "master",
-        "rev": "b9df1f3908852aaa87e1814fa619a8bf40618689",
-        "revCount": 1967,
-        "type": "git",
-        "url": "file:///home/sincorchetes/Documents/system/cosmic-comp"
+        "lastModified": 1773192299,
+        "narHash": "sha256-yVVXcP05DCreSXEadgwKj1UFCcZZFpaEPmCcARWJt5s=",
+        "owner": "sincorchetes",
+        "repo": "cosmic-comp",
+        "rev": "e78d085515ac37fd1a159a7b0d0c12947b2b0d4c",
+        "type": "github"
       },
       "original": {
-        "ref": "master",
-        "type": "git",
-        "url": "file:///home/sincorchetes/Documents/system/cosmic-comp"
+        "owner": "sincorchetes",
+        "repo": "cosmic-comp",
+        "type": "github"
       }
     },
     "disko": {

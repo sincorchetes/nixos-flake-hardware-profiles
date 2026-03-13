@@ -14,7 +14,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     cosmic-comp-src = {
-      url = "git+file:///home/sincorchetes/Documents/system/cosmic-comp?ref=master";
+      url = "github:sincorchetes/cosmic-comp";
       flake = false;
     };
   };
