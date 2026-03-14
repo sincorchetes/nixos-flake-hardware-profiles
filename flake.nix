@@ -13,10 +13,6 @@
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    cosmic-comp-src = {
-      url = "github:sincorchetes/cosmic-comp/fix/resize-throttle-smoothness";
-      flake = false;
-    };
   };
 
   outputs =
@@ -29,9 +25,8 @@
       ...
     }:
     let
-      cosmic-comp-src = inputs.cosmic-comp-src;
       overlays = import ./overlays {
-        inherit nixpkgs-unstable nixpkgs-gcloud-fix cosmic-comp-src;
+        inherit nixpkgs-unstable nixpkgs-gcloud-fix;
       };
 
       specialArgs = { inherit inputs; };
@@ -41,8 +36,6 @@
           nixpkgs.overlays = [
             overlays.gcloud-overlay
             overlays.unstable-overlay
-            overlays.cosmic-comp-overlay
-            overlays.libcosmic-overlay
           ];
         }
         disko.nixosModules.disko

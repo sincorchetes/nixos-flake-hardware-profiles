@@ -7,13 +7,8 @@
     extraPortals = [
       pkgs.xdg-desktop-portal-gnome
       pkgs.xdg-desktop-portal-gtk
-      pkgs.xdg-desktop-portal-cosmic
     ];
     config = {
-      cosmic.default = [
-        "cosmic"
-        "gtk"
-      ];
       gnome.default = [
         "gnome"
         "gtk"
@@ -54,7 +49,6 @@
         enable = true;
         wayland = true;
       };
-      #cosmic-greeter.enable = true;
     };
 
     desktopManager = {
@@ -65,8 +59,6 @@
           experimental-features=['scale-monitor-framebuffer']
         '';
       };
-      cosmic.enable = true;
-
     };
 
     pipewire = {
