@@ -33,6 +33,7 @@
     uutils-coreutils-noprefix
     fwupd
     fwupd-efi
+    psmisc
   ];
 
   programs = {

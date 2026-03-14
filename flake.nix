@@ -3,8 +3,8 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
-    nixpkgs-gcloud-fix.url = "github:NixOS/nixpkgs/pull/492139/head";
-    nixpkgs-gemini-cli-fix.url = "github:NixOS/nixpkgs/pull/493629/head";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs-gcloud-fix.url = "github:NixOS/nixpkgs/pull/496533/head";
     home-manager = {
       url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -19,44 +19,38 @@
     inputs@{
       nixpkgs,
       nixpkgs-gcloud-fix,
-      nixpkgs-gemini-cli-fix,
+      nixpkgs-unstable,
       home-manager,
       disko,
       ...
     }:
     let
-      gcloud-overlay = final: prev: {
-        google-cloud-sdk = (
-          nixpkgs-gcloud-fix.legacyPackages.${prev.system}.google-cloud-sdk.withExtraComponents [
-            nixpkgs-gcloud-fix.legacyPackages.${prev.system}.google-cloud-sdk.components.gke-gcloud-auth-plugin
-          ]
-        );
+      overlays = import ./overlays {
+        inherit nixpkgs-unstable nixpkgs-gcloud-fix;
       };
 
-      gemini-cli-overlay = final: prev: {
-        gemini-cli = nixpkgs-gemini-cli-fix.legacyPackages.${prev.system}.gemini-cli;
-      };
       specialArgs = { inherit inputs; };
+
+      commonModules = [
+        {
+          nixpkgs.overlays = [
+            overlays.gcloud-overlay
+            overlays.unstable-overlay
+          ];
+        }
+        disko.nixosModules.disko
+        home-manager.nixosModules.home-manager
+      ];
     in
     {
       nixosConfigurations = {
         tank0 = nixpkgs.lib.nixosSystem {
           inherit specialArgs;
-          modules = [
-            { nixpkgs.overlays = [ gcloud-overlay ]; }
-            ./profiles/tank/default.nix
-            disko.nixosModules.disko
-            home-manager.nixosModules.home-manager
-          ];
+          modules = commonModules ++ [ ./profiles/tank/default.nix ];
         };
         probook0 = nixpkgs.lib.nixosSystem {
           inherit specialArgs;
-          modules = [
-            { nixpkgs.overlays = [ gcloud-overlay ]; }
-            ./profiles/probook/default.nix
-            disko.nixosModules.disko
-            home-manager.nixosModules.home-manager
-          ];
+          modules = commonModules ++ [ ./profiles/probook/default.nix ];
         };
       };
     };

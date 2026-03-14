@@ -6,10 +6,10 @@
     ./packages/apps.nix
     ./packages/cli.nix
     ./packages/dev.nix
+    ./packages/easyeffects.nix
     ./packages/fonts.nix
     ./packages/gnome.nix
-    #    ./desktop/hyprland.nix
-    #    ./desktop/foot.nix
+    ./packages/mpv.nix
   ];
 
   home = {
@@ -27,8 +27,6 @@
 
   services = {
     copyq.enable = true;
-    blueman-applet.enable = true;
-    network-manager-applet.enable = true;
   };
 
   programs.home-manager.enable = true;
@@ -37,6 +35,10 @@
     enableDefaultConfig = false;
     matchBlocks = {
       "*" = {
+        extraOptions = {
+          "KexAlgorithms" =
+            "curve25519-sha256,curve25519-sha256@libssh.org,diffie-hellman-group-exchange-sha256";
+        };
         identityAgent = "~/.1password/agent.sock";
       };
     };

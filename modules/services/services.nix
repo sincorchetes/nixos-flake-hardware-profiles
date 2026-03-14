@@ -8,10 +8,15 @@
       pkgs.xdg-desktop-portal-gnome
       pkgs.xdg-desktop-portal-gtk
     ];
-    config.common.default = [
-      "gnome"
-      "gtk"
-    ];
+    config = {
+      gnome.default = [
+        "gnome"
+        "gtk"
+      ];
+      common.default = [
+        "gtk"
+      ];
+    };
   };
 
   services = {
@@ -39,17 +44,21 @@
       touchpad.tapping = true;
     };
 
-    displayManager.gdm = {
-      enable = true;
-      wayland = true;
+    displayManager = {
+      gdm = {
+        enable = true;
+        wayland = true;
+      };
     };
 
-    desktopManager.gnome = {
-      enable = true;
-      extraGSettingsOverrides = ''
-        [org.gnome.mutter]
-        experimental-features=['scale-monitor-framebuffer']
-      '';
+    desktopManager = {
+      gnome = {
+        enable = true;
+        extraGSettingsOverrides = ''
+          [org.gnome.mutter]
+          experimental-features=['scale-monitor-framebuffer']
+        '';
+      };
     };
 
     pipewire = {
