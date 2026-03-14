@@ -3,15 +3,16 @@
     "cosmic-comp-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1773411908,
-        "narHash": "sha256-OK6Ut2AUZLeKsVkqIsQZtemV0z/EX5qdfrboEsHgHuI=",
+        "lastModified": 1773491927,
+        "narHash": "sha256-VdBZjGkGy560SDXuMhzsCg05gqtuwKmX6au3DUDjpG8=",
         "owner": "sincorchetes",
         "repo": "cosmic-comp",
-        "rev": "0fb48d1b8ebe678df98a0b23bb6249ae94078769",
+        "rev": "cbb9206b6ad0b26108724fcc94dfcb8ccc798e6d",
         "type": "github"
       },
       "original": {
         "owner": "sincorchetes",
+        "ref": "fix/resize-throttle-smoothness",
         "repo": "cosmic-comp",
         "type": "github"
       }
