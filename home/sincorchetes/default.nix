@@ -9,6 +9,7 @@
     ./packages/easyeffects.nix
     ./packages/fonts.nix
     ./packages/gnome.nix
+    ./packages/mpv.nix
   ];
 
   home = {
