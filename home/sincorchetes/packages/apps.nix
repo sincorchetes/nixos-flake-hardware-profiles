@@ -1,6 +1,5 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
-    mpv
     firefox
     obs-studio
     google-chrome

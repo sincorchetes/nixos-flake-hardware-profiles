@@ -5,6 +5,7 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     nixpkgs-gcloud-fix.url = "github:NixOS/nixpkgs/pull/496533/head";
+    nixpkgs-easyeffects-fix.url = "github:sincorchetes/nixpkgs/master";
     home-manager = {
       url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -18,6 +19,7 @@
   outputs =
     inputs@{
       nixpkgs,
+      nixpkgs-easyeffects-fix,
       nixpkgs-gcloud-fix,
       nixpkgs-unstable,
       home-manager,
@@ -26,7 +28,7 @@
     }:
     let
       overlays = import ./overlays {
-        inherit nixpkgs-unstable nixpkgs-gcloud-fix;
+        inherit nixpkgs-unstable nixpkgs-gcloud-fix nixpkgs-easyeffects-fix;
       };
 
       specialArgs = { inherit inputs; };
@@ -34,6 +36,7 @@
       commonModules = [
         {
           nixpkgs.overlays = [
+            overlays.easyeffects-overlay
             overlays.gcloud-overlay
             overlays.unstable-overlay
           ];
