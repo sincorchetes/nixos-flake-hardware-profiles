@@ -1,7 +1,6 @@
 {
   nixpkgs-unstable,
   nixpkgs-gcloud-fix,
-  nixpkgs-easyeffects-fix,
 }:
 let
   # Helper: importa un nixpkgs alternativo con allowUnfree
@@ -12,16 +11,6 @@ let
     };
 in
 {
-  easyeffects-overlay = final: prev:
-    let
-      patched = importPkgs nixpkgs-easyeffects-fix prev;
-    in
-    {
-      gnomeExtensions = prev.gnomeExtensions // {
-        easyeffects-preset-selector = patched.gnomeExtensions.easyeffects-preset-selector;
-      };
-    };
-
   gcloud-overlay = final: prev:
     let
       gcloud = (importPkgs nixpkgs-gcloud-fix prev).google-cloud-sdk;
