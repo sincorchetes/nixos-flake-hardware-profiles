@@ -1,4 +1,5 @@
-{pkgs, ...}: {
+{ pkgs, ... }:
+{
   home.packages = with pkgs; [
     devenv
     kubectl
@@ -6,9 +7,7 @@
     minikube
     direnv
     vscode
-    code-cursor
-    jetbrains.pycharm
-    jetbrains.webstorm
+    github-copilot-cli
     antigravity
     pre-commit
     jetbrains.datagrip

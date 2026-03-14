@@ -29,6 +29,7 @@
     cpu.amd.updateMicrocode = true;
     xpadneo.enable = true;
     enableAllFirmware = true;
+    enableRedistributableFirmware = true;
   };
 
   boot = {
@@ -44,6 +45,9 @@
       "preempt=full"
       "iommu=pt"
       "kvm_amd.avic=1"
+      "usbcore.autosuspend=-1"
+      "acpi_osi=\"!Windows 2020\""
+      "zfs.zfs_arc_max=17179869184"
     ];
     initrd.availableKernelModules = [
       "xhci_pci"
