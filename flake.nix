@@ -14,7 +14,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     cosmic-comp-src = {
-      url = "github:sincorchetes/cosmic-comp";
+      url = "github:sincorchetes/cosmic-comp/fix/resize-throttle-smoothness";
       flake = false;
     };
   };
@@ -42,6 +42,7 @@
             overlays.gcloud-overlay
             overlays.unstable-overlay
             overlays.cosmic-comp-overlay
+            overlays.libcosmic-overlay
           ];
         }
         disko.nixosModules.disko
