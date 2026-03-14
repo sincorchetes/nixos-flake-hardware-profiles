@@ -3,9 +3,6 @@
 {
   home = {
     file.".p10k.zsh".source = ./.p10k.zsh;
-    sessionVariables = {
-      COSMIC_TRIPLE_BUFFERING = "1";
-    };
   };
 
   programs.zsh = {
