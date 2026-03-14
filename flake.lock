@@ -57,22 +57,6 @@
         "type": "github"
       }
     },
-    "nixpkgs-easyeffects-fix": {
-      "locked": {
-        "lastModified": 1773498056,
-        "narHash": "sha256-x9zehjSAcK5JFAD0R2nQqugOnk/iodpp3HaBLNxcW0E=",
-        "owner": "sincorchetes",
-        "repo": "nixpkgs",
-        "rev": "85ebd2c139c21256b0fd3cb5a5dc959b7b3d3599",
-        "type": "github"
-      },
-      "original": {
-        "owner": "sincorchetes",
-        "ref": "master",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "nixpkgs-gcloud-fix": {
       "locked": {
         "lastModified": 1772619840,
@@ -110,7 +94,6 @@
         "disko": "disko",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
-        "nixpkgs-easyeffects-fix": "nixpkgs-easyeffects-fix",
         "nixpkgs-gcloud-fix": "nixpkgs-gcloud-fix",
         "nixpkgs-unstable": "nixpkgs-unstable"
       }
