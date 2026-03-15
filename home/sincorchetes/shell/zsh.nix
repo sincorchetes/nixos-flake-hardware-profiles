@@ -69,5 +69,11 @@
     neovim.enable = true;
     direnv.enable = true;
     direnv.nix-direnv.enable = true;
+
+    ripgrep.enable = true;
+    fd.enable = true;
+    jq.enable = true;
+    bottom.enable = true;
+    trippy.enable = true;
   };
 }
