@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   home.packages = with pkgs; [
-    firefox
+    #firefox
     obs-studio
     google-chrome
     brave
