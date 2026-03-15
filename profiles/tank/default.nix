@@ -42,12 +42,14 @@
     zfs.package = pkgs.zfs_2_4;
     kernelParams = [
       "amd_pstate=active"
+      "amd_pstate.shared_mem=1"
       "preempt=full"
       "iommu=pt"
       "kvm_amd.avic=1"
       "usbcore.autosuspend=-1"
       "acpi_osi=\"!Windows 2020\""
       "zfs.zfs_arc_max=17179869184"
+      "transparent_hugepage=madvise"
     ];
     initrd.availableKernelModules = [
       "xhci_pci"
@@ -62,6 +64,13 @@
       "amdgpu"
     ];
   };
+
+  services.udev.extraRules = ''
+    # NVMe: use none scheduler (hardware has its own queue)
+    ACTION=="add|change", KERNEL=="nvme[0-9]*", ATTR{queue/scheduler}="none"
+  '';
+
+  powerManagement.cpuFreqGovernor = "schedutil";
 
   virtualisation.docker = {
     enable = true;
