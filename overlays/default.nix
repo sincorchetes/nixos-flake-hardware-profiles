@@ -6,7 +6,7 @@ let
   # Helper: importa un nixpkgs alternativo con allowUnfree
   importPkgs = src: prev:
     import src {
-      inherit (prev) system;
+      inherit (prev.stdenv.hostPlatform) system;
       config.allowUnfree = true;
     };
 in
