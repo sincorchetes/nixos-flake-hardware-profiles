@@ -29,7 +29,6 @@
     cpu.amd.updateMicrocode = true;
     xpadneo.enable = true;
     enableAllFirmware = true;
-    enableRedistributableFirmware = true;
   };
 
   boot = {
@@ -42,6 +41,7 @@
     kernelPackages = pkgs.linuxPackages_6_18;
     zfs.package = pkgs.zfs_2_4;
     kernelParams = [
+      "amd_pstate=active"
       "preempt=full"
       "iommu=pt"
       "kvm_amd.avic=1"
