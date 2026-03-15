@@ -43,10 +43,12 @@
     zfs.package = pkgs.zfs_2_4;
 
     kernelParams = [
+      "intel_pstate=active"
       "i915.enable_psr=1"
       "intel_iommu=on"
       "zswap.enabled=1"
       "zswap.max_pool_percent=15"
+      "zswap.compressor=zstd"
       "zfs.zfs_arc_max=8589934592"
     ];
 
@@ -76,6 +78,15 @@
 
   services.thermald.enable = true;
   services.power-profiles-daemon.enable = true;
+
+  services.udev.extraRules = ''
+    # NVMe: use none scheduler (hardware has its own queue)
+    ACTION=="add|change", KERNEL=="nvme[0-9]*", ATTR{queue/scheduler}="none"
+  '';
+
+  environment.systemPackages = with pkgs; [
+    powertop
+  ];
 
   virtualisation.docker = {
     enable = true;
