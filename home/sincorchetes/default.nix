@@ -32,7 +32,7 @@
   programs.home-manager.enable = true;
   programs.ssh = {
     enable = true;
-    enableDefaultConfig = false;
+    enableDefaultConfig = true;
     matchBlocks = {
       "*" = {
         extraOptions = {

@@ -37,10 +37,4 @@
     mesa
   ];
 
-  powerManagement.powerDownCommands = ''
-    ${pkgs.kmod}/bin/modprobe -r btusb
-  '';
-  powerManagement.resumeCommands = ''
-    ${pkgs.kmod}/bin/modprobe btusb
-  '';
 }
