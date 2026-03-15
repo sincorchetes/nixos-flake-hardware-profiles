@@ -90,4 +90,24 @@
     dedicatedServer.openFirewall = true;
     localNetworkGameTransfers.openFirewall = true;
   };
+
+  services.sanoid = {
+    enable = true;
+    datasets = {
+      "rpool/safe/home" = {
+        autoprune = true;
+        autosnap = true;
+        hourly = 24;
+        daily = 7;
+        monthly = 3;
+      };
+      "rpool/local/root" = {
+        autoprune = true;
+        autosnap = true;
+        hourly = 12;
+        daily = 3;
+        monthly = 1;
+      };
+    };
+  };
 }

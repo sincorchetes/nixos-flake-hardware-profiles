@@ -37,5 +37,12 @@
     gemini-cli
     htop
     btop
+    bandwhich
+    nvtopPackages.nvidia
+    watchexec
+    ouch
+    yq-go
+    tokei
+    gping
   ];
 }
