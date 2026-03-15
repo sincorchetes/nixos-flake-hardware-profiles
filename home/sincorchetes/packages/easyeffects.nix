@@ -1,6 +1,7 @@
 {pkgs, ...}: let
   presetsDir = ./easyeffects-presets;
   presets = [
+    "Input - StreamCam"
     "Cinema - Movies"
     "Gaming - Generic"
     "Music - Commercial"

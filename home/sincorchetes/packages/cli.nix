@@ -35,5 +35,7 @@
     gnupg
     nix-search-cli
     gemini-cli
+    htop
+    btop
   ];
 }
