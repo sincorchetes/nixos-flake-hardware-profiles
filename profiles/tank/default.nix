@@ -68,6 +68,13 @@
     storageDriver = "zfs";
   };
 
+  powerManagement.powerDownCommands = ''
+    ${pkgs.kmod}/bin/modprobe -r btusb
+  '';
+  powerManagement.resumeCommands = ''
+    ${pkgs.kmod}/bin/modprobe btusb
+  '';
+
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true;
