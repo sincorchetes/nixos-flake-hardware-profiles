@@ -7,7 +7,7 @@
 ## HP ProBook 440 G8 PC/8A74
 - CPU: Intel i7-1165G7
 - GPU: Intel TigerLake-LP GT2 [Iris Xe Graphics]
-- RAM: 16GB
+- RAM: 32GB
 
 ## Custom CPU Hardware
 - CPU: AMD Ryzen 7 7800X3D
@@ -18,7 +18,8 @@
 - Motherboard: ASUS TUF GAMING X870-PLUS WIFI
 - RAM: Corsair Vengeance DDR5 6400MHz 64GB (2x32GB CL32)
 - Storage: WD Black SN850X 2TB NVMe PCIe 4.0 M.2 Gen4 16GT/s
-- Keyboard/Mouse: Logitech MK295
+- Keyboard: Keychron K3 Max
+- Mouse: Keychron M6 8K Ultra
 
 # Setup Guide
 
