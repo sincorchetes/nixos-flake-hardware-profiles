@@ -8,7 +8,6 @@
     direnv
     vscode
     github-copilot-cli
-    antigravity
     pre-commit
     jetbrains.datagrip
     dbeaver-bin
