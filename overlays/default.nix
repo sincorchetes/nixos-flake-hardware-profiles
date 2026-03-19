@@ -3,7 +3,6 @@
   nixpkgs-gcloud-fix,
 }:
 let
-  # Helper: importa un nixpkgs alternativo con allowUnfree
   importPkgs = src: prev:
     import src {
       inherit (prev.stdenv.hostPlatform) system;
@@ -34,8 +33,6 @@ in
         );
     in
     pickPkgs [
-      # IDEs y herramientas
-      "antigravity"
       "vscode"
       "github-copilot-cli"
     ];
