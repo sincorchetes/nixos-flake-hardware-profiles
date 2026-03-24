@@ -11,6 +11,7 @@
     ../../modules
     ../../modules/hardware/nvidia.nix
     ../../modules/hardware/bluetooth.nix
+    ../../modules/services/steam.nix
   ];
 
   networking = {
@@ -79,12 +80,7 @@
     ${pkgs.kmod}/bin/modprobe btusb
   '';
 
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true;
-    dedicatedServer.openFirewall = true;
-    localNetworkGameTransfers.openFirewall = true;
-  };
+
 
   systemd.targets = {
     sleep.enable = false;

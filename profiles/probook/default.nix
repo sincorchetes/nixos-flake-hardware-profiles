@@ -6,6 +6,7 @@
     ../../modules
     ../../modules/hardware/intel-gpu.nix
     ../../modules/hardware/bluetooth.nix
+    ../../modules/services/steam.nix
   ];
 
   networking = {
@@ -88,10 +89,5 @@
     storageDriver = "zfs";
   };
 
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true;
-    dedicatedServer.openFirewall = true;
-    localNetworkGameTransfers.openFirewall = true;
-  };
+
 }
