@@ -8,6 +8,55 @@
   programs.starship = {
     enable = true;
     enableZshIntegration = true;
+    settings = {
+      add_newline = false;
+      format = "$username@$hostname $directory $git_branch$git_status $kubernetes $line_break$character";
+      character = {
+        success_symbol = "[❯](bold green)";
+        error_symbol = "[❯](bold red)";
+      };
+      username = {
+        show_always = true;
+        style_user = "bold blue";
+        style_root = "bold red";
+      };
+      hostname = {
+        ssh_only = false;
+        style = "bold yellow";
+      };
+      directory = {
+        style = "bold cyan";
+        truncate_to_repo = true;
+        truncation_length = 3;
+      };
+      git_branch = {
+        symbol = "🌱 ";
+        style = "bold purple";
+      };
+      git_status = {
+        style = "bold red";
+      };
+      kubernetes = {
+        disabled = false;
+        format = "[☸ $context/$namespace]($style) ";
+        style = "bold green";
+        detect_env_vars = [ "STARSHIP_SHOW_K8S" ];
+        contexts = [
+          {
+            context_pattern = ".*prod.*";
+            style = "bold red";
+          }
+          {
+            context_pattern = ".*pre.*";
+            style = "bold yellow";
+          }
+          {
+            context_pattern = ".*dev.*";
+            style = "bold green";
+          }
+        ];
+      };
+    };
   };
   
   programs.zsh = {
