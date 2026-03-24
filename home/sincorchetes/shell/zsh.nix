@@ -5,6 +5,11 @@
     file.".p10k.zsh".source = ./.p10k.zsh;
   };
 
+  programs.starship = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+  
   programs.zsh = {
     enable = true;
     enableCompletion = true;
