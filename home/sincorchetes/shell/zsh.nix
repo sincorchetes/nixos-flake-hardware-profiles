@@ -143,12 +143,18 @@
 
       initContent = ''
         unsetopt PROMPT_CR
-        compdef k=kubectl
 
         az() {
           export STARSHIP_SHOW_AZURE=1
           command az "$@"
         }
+
+        k() {
+          export STARSHIP_SHOW_K8S=1
+          command kubecolor "$@"
+        }
+
+        compdef k=kubectl
       '';
 
       shellAliases = {
@@ -159,7 +165,6 @@
         open = "xdg-open";
         vim = "nvim";
 
-        k = "kubecolor";
         g = "git";
         t = "terraform";
         dc = "docker compose";
