@@ -10,7 +10,7 @@
     enableZshIntegration = true;
     settings = {
       add_newline = false;
-      format = "$username@$hostname $directory $git_branch$git_status $kubernetes $nix_shell$direnv$python$nodejs$golang$rust$terraform$docker_context$aws$cmd_duration\${custom.azure}\${custom.terragrunt}\${custom.ansible}$line_break$character";
+      format = "$username$hostname$directory $git_branch$git_status $kubernetes $nix_shell$direnv$python$nodejs$golang$rust$terraform$docker_context$aws$cmd_duration\${custom.azure}\${custom.terragrunt}\${custom.ansible}$line_break$character";
       character = {
         success_symbol = "[❯](bold green)";
         error_symbol = "[❯](bold red)";
@@ -86,12 +86,14 @@
         style = "bold white";
       };
       username = {
-        show_always = true;
+        show_always = false;
+        format = "[$user@]($style)";
         style_user = "bold blue";
         style_root = "bold red";
       };
       hostname = {
-        ssh_only = false;
+        ssh_only = true;
+        format = "[$hostname ]($style)";
         style = "bold yellow";
       };
       directory = {
