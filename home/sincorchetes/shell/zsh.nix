@@ -1,4 +1,4 @@
-{ ... }:
+{ lib, ... }:
 
 {
 
@@ -166,35 +166,11 @@
     };
   };
 
-  programs = {
-    navi.enable = true;
-    navi.enableZshIntegration = true;
-
-    lazygit.enable = true;
-
-    broot.enable = true;
-    broot.enableZshIntegration = true;
-
-    yazi.enable = true;
-    yazi.enableZshIntegration = true;
-
-    fzf.enable = true;
-    fzf.enableZshIntegration = true;
-
-    zoxide.enable = true;
-    zoxide.enableZshIntegration = true;
-
-    atuin.enable = true;
-    atuin.enableZshIntegration = true;
-
-    neovim.enable = true;
-    direnv.enable = true;
-    direnv.nix-direnv.enable = true;
-
-    ripgrep.enable = true;
-    fd.enable = true;
-    jq.enable = true;
-    bottom.enable = true;
-    trippy.enable = true;
-  };
+  programs =
+    (lib.genAttrs [ "lazygit" "neovim" "ripgrep" "fd" "jq" "bottom" "trippy" ] (_: { enable = true; }))
+    // (lib.genAttrs [ "navi" "broot" "yazi" "fzf" "zoxide" "atuin" ] (_: { enable = true; enableZshIntegration = true; }))
+    // {
+      direnv.enable = true;
+      direnv.nix-direnv.enable = true;
+    };
 }
