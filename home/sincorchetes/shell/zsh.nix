@@ -10,10 +10,75 @@
     enableZshIntegration = true;
     settings = {
       add_newline = false;
-      format = "$username@$hostname $directory $git_branch$git_status $kubernetes $line_break$character";
+      format = "$username@$hostname $directory $git_branch$git_status $kubernetes $nix_shell$direnv$python$nodejs$golang$rust$terraform$docker_context$aws$azure$cmd_duration\${custom.terragrunt}\${custom.ansible}$line_break$character";
       character = {
         success_symbol = "[❯](bold green)";
         error_symbol = "[❯](bold red)";
+      };
+      nix_shell = {
+        disabled = false;
+        symbol = "❄️ ";
+        format = "[$symbol$state( \\($name\\))]($style) ";
+        style = "bold blue";
+      };
+      direnv = {
+        disabled = false;
+        format = "[$symbol$loaded/$allowed]($style) ";
+        symbol = "📂 ";
+        style = "bold orange";
+      };
+      cmd_duration = {
+        min_time = 3000;
+        format = "[⏱ $duration]($style) ";
+        style = "bold yellow";
+      };
+      python = {
+        format = "[🐍 $version( \\($virtualenv\\))]($style) ";
+        style = "bold yellow";
+      };
+      nodejs = {
+        format = "[⬢ $version]($style) ";
+        style = "bold green";
+      };
+      golang = {
+        format = "[🐹 $version]($style) ";
+        style = "bold cyan";
+      };
+      rust = {
+        format = "[🦀 $version]($style) ";
+        style = "bold red";
+      };
+      terraform = {
+        disabled = false;
+        format = "[💠 $version( $workspace)]($style) ";
+        style = "bold 105";
+      };
+      docker_context = {
+        format = "[🐳 $context]($style) ";
+        style = "bold blue";
+      };
+      aws = {
+        disabled = false;
+        format = "[☁️ $profile(/$region)]($style) ";
+        style = "bold yellow";
+      };
+      azure = {
+        disabled = false;
+        format = "[🔷 $subscription]($style) ";
+        style = "bold blue";
+      };
+      custom.terragrunt = {
+        description = "Terragrunt workspace";
+        command = "basename $(terragrunt output-module-groups 2>/dev/null | head -1) 2>/dev/null || echo tg";
+        when = "test -f terragrunt.hcl";
+        format = "[🏗️ terragrunt]($style) ";
+        style = "bold 105";
+      };
+      custom.ansible = {
+        description = "Ansible indicator";
+        when = "test -f ansible.cfg || test -f playbook.yml || test -f site.yml || test -d roles";
+        format = "[🅰️ ansible]($style) ";
+        style = "bold white";
       };
       username = {
         show_always = true;
@@ -76,6 +141,7 @@
     initContent = ''
       [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
       unsetopt PROMPT_CR
+      compdef k=kubectl
     '';
 
     shellAliases = {
