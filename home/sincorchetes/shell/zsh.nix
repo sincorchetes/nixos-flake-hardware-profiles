@@ -143,12 +143,24 @@
 
       initContent = ''
         unsetopt PROMPT_CR
-        compdef k=kubectl
 
         az() {
           export STARSHIP_SHOW_AZURE=1
           command az "$@"
         }
+
+        preexec() {
+          case "$1" in
+            k\ *|kubectl\ *) export STARSHIP_SHOW_K8S=1 ;;
+          esac
+        }
+
+        # Load kubectl completions and bind to k alias
+        if command -v kubectl &>/dev/null; then
+          source <(kubectl completion zsh)
+          compdef _kubectl k
+          compdef _kubectl kubecolor
+        fi
       '';
 
       shellAliases = {
