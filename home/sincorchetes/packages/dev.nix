@@ -5,7 +5,6 @@
     kubectl
     kubernetes-helm
     minikube
-    direnv
     vscode
     github-copilot-cli
     pre-commit

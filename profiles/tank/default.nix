@@ -8,14 +8,10 @@
 {
   imports = [
     ./disko.nix
+    ../../modules
     ../../modules/hardware/nvidia.nix
     ../../modules/hardware/bluetooth.nix
-    ../../modules/system/network.nix
-    ../../modules/system/vpn.nix
-    ../../modules/system/security.nix
-    ../../modules/system/users.nix
-    ../../modules/system/core.nix
-    ../../modules/services/default.nix
+    ../../modules/services/steam.nix
   ];
 
   networking = {
@@ -84,12 +80,7 @@
     ${pkgs.kmod}/bin/modprobe btusb
   '';
 
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true;
-    dedicatedServer.openFirewall = true;
-    localNetworkGameTransfers.openFirewall = true;
-  };
+
 
   systemd.targets = {
     sleep.enable = false;
