@@ -9,7 +9,6 @@
     "Music - Electro"
     "Music - Hip Hop RNB"
     "Music - House"
-    "Input - StreamCam"
   ];
 in {
   services.easyeffects = {
