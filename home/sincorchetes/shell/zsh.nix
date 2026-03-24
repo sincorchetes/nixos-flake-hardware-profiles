@@ -10,7 +10,7 @@
     enableZshIntegration = true;
     settings = {
       add_newline = false;
-      format = "$username@$hostname $directory $git_branch$git_status $kubernetes $nix_shell$direnv$python$nodejs$golang$rust$terraform$docker_context$aws$azure$cmd_duration\${custom.terragrunt}\${custom.ansible}$line_break$character";
+      format = "$username@$hostname $directory $git_branch$git_status $kubernetes $nix_shell$direnv$python$nodejs$golang$rust$terraform$docker_context$aws$cmd_duration\${custom.azure}\${custom.terragrunt}\${custom.ansible}$line_break$character";
       character = {
         success_symbol = "[❯](bold green)";
         error_symbol = "[❯](bold red)";
@@ -63,9 +63,7 @@
         style = "bold yellow";
       };
       azure = {
-        disabled = false;
-        format = "[🔷 $subscription]($style) ";
-        style = "bold blue";
+        disabled = true;
       };
       custom.terragrunt = {
         description = "Terragrunt workspace";
@@ -73,6 +71,13 @@
         when = "test -f terragrunt.hcl";
         format = "[🏗️ terragrunt]($style) ";
         style = "bold 105";
+      };
+      custom.azure = {
+        description = "Azure subscription (on-demand)";
+        command = "az account show --query name -o tsv 2>/dev/null";
+        when = "test -n \"$STARSHIP_SHOW_AZURE\"";
+        format = "[🔷 $output]($style) ";
+        style = "bold blue";
       };
       custom.ansible = {
         description = "Ansible indicator";
@@ -142,6 +147,11 @@
       [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
       unsetopt PROMPT_CR
       compdef k=kubectl
+
+      az() {
+        export STARSHIP_SHOW_AZURE=1
+        command az "$@"
+      }
     '';
 
     shellAliases = {
