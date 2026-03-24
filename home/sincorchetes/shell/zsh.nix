@@ -149,12 +149,18 @@
           command az "$@"
         }
 
-        k() {
-          export STARSHIP_SHOW_K8S=1
-          command kubecolor "$@"
+        preexec() {
+          case "$1" in
+            k\ *|kubectl\ *) export STARSHIP_SHOW_K8S=1 ;;
+          esac
         }
 
-        compdef k=kubectl
+        # Load kubectl completions and bind to k alias
+        if command -v kubectl &>/dev/null; then
+          source <(kubectl completion zsh)
+          compdef _kubectl k
+          compdef _kubectl kubecolor
+        fi
       '';
 
       shellAliases = {
