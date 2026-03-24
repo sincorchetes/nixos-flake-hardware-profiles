@@ -13,7 +13,6 @@
   environment.systemPackages = with pkgs; [
     inetutils
     bridge-utils
-    pciutils
     ethtool
     dig
   ];
