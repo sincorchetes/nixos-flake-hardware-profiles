@@ -177,6 +177,7 @@
         open = "xdg-open";
         vim = "nvim";
 
+        k = "kubecolor";
         g = "git";
         t = "terraform";
         dc = "docker compose";
