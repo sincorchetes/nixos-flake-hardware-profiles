@@ -1,6 +1,5 @@
 {
   nixpkgs-unstable,
-  nixpkgs-gcloud-fix,
 }:
 let
   importPkgs = src: prev:
@@ -10,16 +9,6 @@ let
     };
 in
 {
-  gcloud-overlay = final: prev:
-    let
-      gcloud = (importPkgs nixpkgs-gcloud-fix prev).google-cloud-sdk;
-    in
-    {
-      google-cloud-sdk = gcloud.withExtraComponents [
-        gcloud.components.gke-gcloud-auth-plugin
-      ];
-    };
-
   unstable-overlay = final: prev:
     let
       unstable = importPkgs nixpkgs-unstable prev;
@@ -34,6 +23,7 @@ in
     in
     pickPkgs [
       "vscode"
+      "google-cloud-sdk"
       "github-copilot-cli"
     ];
 
