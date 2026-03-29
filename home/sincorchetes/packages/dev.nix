@@ -11,5 +11,6 @@
     jetbrains.datagrip
     dbeaver-bin
     google-cloud-sdk
+    antigravity
   ];
 }
