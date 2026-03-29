@@ -25,6 +25,7 @@ in
       "vscode"
       "google-cloud-sdk"
       "github-copilot-cli"
+      "antigravity"
     ];
 
 }
