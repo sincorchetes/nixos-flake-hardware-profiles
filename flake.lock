@@ -57,22 +57,6 @@
         "type": "github"
       }
     },
-    "nixpkgs-gcloud-fix": {
-      "locked": {
-        "lastModified": 1772619840,
-        "narHash": "sha256-EGvYAVOiP75zLvtrQPX9PmBuETP4VTuPqFRJI7Lg7eI=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "667cd1065ddfcacd605d2b268db7ad036b9eb0c7",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "pull/496533/head",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "nixpkgs-unstable": {
       "locked": {
         "lastModified": 1774386573,
@@ -94,7 +78,6 @@
         "disko": "disko",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
-        "nixpkgs-gcloud-fix": "nixpkgs-gcloud-fix",
         "nixpkgs-unstable": "nixpkgs-unstable"
       }
     }
