@@ -149,11 +149,17 @@
           command az "$@"
         }
 
-        preexec() {
-          case "$1" in
-            k\ *|kubectl\ *) export STARSHIP_SHOW_K8S=1 ;;
+        autoload -Uz add-zle-hook-widget
+
+        _toggle_starship_k8s() {
+          case "$BUFFER" in
+            k\ *|kubectl\ *|kubecolor\ *) export STARSHIP_SHOW_K8S=1 ;;
+            *) unset STARSHIP_SHOW_K8S ;;
           esac
         }
+
+        add-zle-hook-widget line-init _toggle_starship_k8s
+        add-zle-hook-widget line-pre-redraw _toggle_starship_k8s
 
         # Load kubectl completions and bind to k alias
         if command -v kubectl &>/dev/null; then
@@ -171,6 +177,7 @@
         open = "xdg-open";
         vim = "nvim";
 
+        k = "kubecolor";
         g = "git";
         t = "terraform";
         dc = "docker compose";
