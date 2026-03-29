@@ -1,7 +1,7 @@
 { lib, ... }:
 
 {
-  services.acpid.enable = false;
+  services.acpid.enable = true;
   services.hardware.bolt.enable = false;
 
   systemd.services = {

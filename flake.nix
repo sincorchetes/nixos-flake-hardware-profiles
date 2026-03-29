@@ -32,7 +32,6 @@
       commonModules = [
         {
           nixpkgs.overlays = [
-            overlays.gcloud-overlay
             overlays.unstable-overlay
           ];
         }
