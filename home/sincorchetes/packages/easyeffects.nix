@@ -11,12 +11,17 @@
     "Music - House"
   ];
 in {
+
   services.easyeffects = {
-    enable = true;
+    enable = false;
     preset = "Music - Commercial";
     extraPresets = builtins.listToAttrs (map (name: {
       inherit name;
       value = builtins.fromJSON (builtins.readFile "${presetsDir}/${name}.json");
     }) presets);
   };
+
+  home.packages = with pkgs; [
+    easyeffects
+  ];
 }
