@@ -20,6 +20,10 @@
 
   nixpkgs.hostPlatform = "x86_64-linux";
 
+  nixpkgs.config = {
+    allowBroken = true;
+  };
+
   hardware = {
     cpu.intel.updateMicrocode = true;
     xpadneo.enable = true;
