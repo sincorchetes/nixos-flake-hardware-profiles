@@ -22,6 +22,7 @@
 
   nixpkgs.config = {
     allowBroken = true;
+    cudaSupport = false;
   };
 
   hardware = {
