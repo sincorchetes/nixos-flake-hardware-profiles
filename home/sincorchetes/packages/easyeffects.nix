@@ -12,14 +12,10 @@
   ];
 in {
 
-  services.easyeffects = {
-    enable = false;
-    preset = "Music - Commercial";
-    extraPresets = builtins.listToAttrs (map (name: {
-      inherit name;
-      value = builtins.fromJSON (builtins.readFile "${presetsDir}/${name}.json");
-    }) presets);
-  };
+  home.file = builtins.listToAttrs (map (name: {
+    name = ".config/easyeffects/output/${name}.json";
+    value = {source = "${presetsDir}/${name}.json";};
+  }) presets);
 
   home.packages = with pkgs; [
     easyeffects
