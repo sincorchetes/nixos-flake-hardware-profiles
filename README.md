@@ -3,6 +3,8 @@
 - CPU: Intel i5-6300U
 - GPU: Intel Skylake GT2 [HD Graphics 520]
 - RAM: 32GB
+- Desktop Environment: XFCE (lightweight)
+- Wireless Driver: rtl8812au (included)
 
 ## HP ProBook 440 G8 PC/8A74
 - CPU: Intel i7-1165G7
@@ -142,4 +144,55 @@ This method is for installing NixOS alongside an existing Windows installation. 
     zpool get bootfs tank
     sudo zpool set bootfs=tank/root tank
     ```
+8.  After the installation is complete, set a password for the `root` user and reboot.
+
+### Method C: `thinkpad-x270` - Encrypted ext4 Installation for ThinkPad X270
+
+This method is for installing NixOS on the ThinkPad X270 with the SSSTC CL1-4D256 SSD using a lightweight ext4 + LUKS setup without swap.
+
+1.  **Partition the Disk:**
+    *   Use `fdisk` or `parted` to create partitions on `/dev/sda` (or your SSD device).
+    *   Create an EFI partition: `/dev/sda1` (512MB)
+    *   Create a partition for root: `/dev/sda2` (remaining space)
+    
+    Example with `fdisk`:
+    ```shell
+    fdisk /dev/sda
+    # Create EFI partition: n, p, 1, default, +512M, t, 1, 1 (EFI System), w
+    # Create root partition: n, p, 2, default, default, w
+    ```
+
+2.  **Format the EFI Partition:**
+    ```shell
+    mkfs.vfat /dev/sda1
+    ```
+
+3.  **Create LUKS Encrypted Volume:**
+    ```shell
+    cryptsetup luksFormat --type luks2 /dev/sda2
+    cryptsetup luksOpen /dev/sda2 root-crypt
+    ```
+
+4.  **Format the Root Filesystem:**
+    ```shell
+    mkfs.ext4 /dev/mapper/root-crypt
+    ```
+
+5.  **Mount Filesystems:**
+    ```shell
+    mount /dev/mapper/root-crypt /mnt
+    mkdir -p /mnt/boot
+    mount /dev/sda1 /mnt/boot
+    ```
+
+6.  **Clone the repository:**
+    ```shell
+    git clone https://github.com/sincorchetes/nixos-flake-hardware-profiles /mnt/etc/nixos
+    ```
+
+7.  **Run the installation:**
+    ```shell
+    nixos-install --flake /mnt/etc/nixos#thinkpad-x270
+    ```
+
 8.  After the installation is complete, set a password for the `root` user and reboot.
