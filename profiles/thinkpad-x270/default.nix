@@ -42,8 +42,8 @@
       grub.enable = false;
     };
 
-    kernelPackages = pkgs.linuxPackages_6_18;
-    extraModulePackages = with pkgs.linuxPackages_6_18; [
+    kernelPackages = pkgs.linuxPackages_6_1;
+    extraModulePackages = with pkgs.linuxPackages_6_1; [
       rtl8812au
     ];
 
