@@ -57,16 +57,32 @@ This method uses `disko` to automatically partition and format an entire disk wi
 
 **WARNING:** This will destroy all data on the specified disk (`/dev/nvme0n1`).
 
-1.  **Clone the repository:**
+1.  **Clone the repository to /tmp (which has more space in the ISO):**
     ```shell
-    git clone https://github.com/sincorchetes/nixos-flake-hardware-profiles /mnt/etc/nixos
+    cd /tmp
+    git clone https://github.com/sincorchetes/nixos-flake-hardware-profiles nixos
+    cd nixos
     ```
-2.  **Run the installation (this will execute the Disko configuration):**
+
+2.  **Partition and mount the disk with Disko:**
     ```shell
-    nixos-install --flake /mnt/etc/nixos#tank0
+    sudo nix run github:nix-community/disko --extra-experimental-features "nix-command flakes" -- --mode disko ./profiles/tank/disko.nix
     ```
-3.  You will be prompted to enter a passphrase to encrypt the ZFS pool.
-4.  After the installation is complete, set a password for the `root` user and reboot.
+
+3.  **Create a temporary directory on the mounted disk (to avoid ISO tmpfs limits):**
+    ```shell
+    sudo mkdir -p /mnt/tmp
+    sudo chmod 1777 /mnt/tmp
+    ```
+
+4.  **Run the installation with TMPDIR pointing to the mounted disk:**
+    ```shell
+    sudo TMPDIR=/mnt/tmp nixos-install --flake /tmp/nixos#tank0
+    ```
+
+5.  You will be prompted to enter a passphrase to encrypt the ZFS pool.
+
+6.  After the installation is complete, set a password for the `root` user and reboot.
 
 ### Method B: `probook` - Manual ZFS for Dual Boot with Windows
 
@@ -152,16 +168,29 @@ This method uses `disko` to automatically partition and format the disk with an 
 
 **WARNING:** This will destroy all data on the specified disk (`/dev/sda`).
 
-1.  **Clone the repository:**
+1.  **Clone the repository to /tmp (which has more space in the ISO):**
     ```shell
-    git clone https://github.com/sincorchetes/nixos-flake-hardware-profiles /mnt/etc/nixos
+    cd /tmp
+    git clone https://github.com/sincorchetes/nixos-flake-hardware-profiles nixos
+    cd nixos
     ```
 
-2.  **Run the installation (this will execute the Disko configuration):**
+2.  **Partition and mount the disk with Disko:**
     ```shell
-    nixos-install --flake /mnt/etc/nixos#thinkpad-x270
+    sudo nix run github:nix-community/disko --extra-experimental-features "nix-command flakes" -- --mode disko ./profiles/thinkpad-x270/disko.nix
     ```
 
-3.  You will be prompted to enter a passphrase to encrypt the root partition.
+3.  **Create a temporary directory on the mounted disk (to avoid ISO tmpfs limits):**
+    ```shell
+    sudo mkdir -p /mnt/tmp
+    sudo chmod 1777 /mnt/tmp
+    ```
 
-4.  After the installation is complete, set a password for the `root` user and reboot.
+4.  **Run the installation with TMPDIR pointing to the mounted disk:**
+    ```shell
+    sudo TMPDIR=/mnt/tmp nixos-install --flake /tmp/nixos#thinkpad-x270
+    ```
+
+5.  You will be prompted to enter a passphrase to encrypt the root partition.
+
+6.  After the installation is complete, set a password for the `root` user and reboot.
