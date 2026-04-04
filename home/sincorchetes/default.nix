@@ -10,6 +10,7 @@
     ./packages/fonts.nix
     ./packages/gnome.nix
     ./packages/mpv.nix
+    ./packages/xfce.nix
   ];
 
   home = {

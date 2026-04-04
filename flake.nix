@@ -49,6 +49,10 @@
           inherit specialArgs;
           modules = commonModules ++ [ ./profiles/probook/default.nix ];
         };
+        thinkpad-x270 = nixpkgs.lib.nixosSystem {
+          inherit specialArgs;
+          modules = commonModules ++ [ ./profiles/thinkpad-x270/default.nix ];
+        };
       };
     };
 }
