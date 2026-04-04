@@ -21,7 +21,15 @@
         layout = "es";
         variant = "";
       };
+      desktopManager = {
+        xfce = {
+            enable = true;
+            enableWaylandSession = true;
+            enableXfwm = false;
+        };
+      };
     };
+
     speechd.enable = false;
     orca.enable = false;
     dbus = {
@@ -40,16 +48,9 @@
     };
 
     displayManager = {
-      lightdm = {
+      sddm = {
         enable = true;
-      };
-    };
-
-    desktopManager = {
-      xfce = {
-        enable = true;
-        noDesktop = false;
-        enableXfwm = true;
+        wayland.enable = true;
       };
     };
 
@@ -61,5 +62,11 @@
       wireplumber.enable = true;
     };
     pulseaudio.enable = false;
+  };
+
+  environment.sessionVariables = {
+    GDK_BACKEND = "wayland";
+    QT_QPA_PLATFORM = "wayland";
+    MOZ_ENABLE_WAYLAND = "1";
   };
 }
