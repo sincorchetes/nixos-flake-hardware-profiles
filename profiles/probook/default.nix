@@ -17,6 +17,10 @@
 
   nixpkgs.hostPlatform = "x86_64-linux";
 
+  nixpkgs.config = {
+    cudaSupport = false;
+  };
+
   hardware = {
     cpu.intel.updateMicrocode = true;
     xpadneo.enable = true;
