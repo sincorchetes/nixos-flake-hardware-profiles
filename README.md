@@ -146,53 +146,22 @@ This method is for installing NixOS alongside an existing Windows installation. 
     ```
 8.  After the installation is complete, set a password for the `root` user and reboot.
 
-### Method C: `thinkpad-x270` - Encrypted ext4 Installation for ThinkPad X270
+### Method C: `thinkpad-x270` - Automated Installation with Disko (ext4 + LUKS)
 
-This method is for installing NixOS on the ThinkPad X270 with the SSSTC CL1-4D256 SSD using a lightweight ext4 + LUKS setup without swap.
+This method uses `disko` to automatically partition and format the disk with an encrypted ext4 filesystem, optimized for the ThinkPad X270 with the SSSTC CL1-4D256 SSD.
 
-1.  **Partition the Disk:**
-    *   Use `fdisk` or `parted` to create partitions on `/dev/sda` (or your SSD device).
-    *   Create an EFI partition: `/dev/sda1` (512MB)
-    *   Create a partition for root: `/dev/sda2` (remaining space)
-    
-    Example with `fdisk`:
-    ```shell
-    fdisk /dev/sda
-    # Create EFI partition: n, p, 1, default, +512M, t, 1, 1 (EFI System), w
-    # Create root partition: n, p, 2, default, default, w
-    ```
+**WARNING:** This will destroy all data on the specified disk (`/dev/sda`).
 
-2.  **Format the EFI Partition:**
-    ```shell
-    mkfs.vfat /dev/sda1
-    ```
-
-3.  **Create LUKS Encrypted Volume:**
-    ```shell
-    cryptsetup luksFormat --type luks2 /dev/sda2
-    cryptsetup luksOpen /dev/sda2 root-crypt
-    ```
-
-4.  **Format the Root Filesystem:**
-    ```shell
-    mkfs.ext4 /dev/mapper/root-crypt
-    ```
-
-5.  **Mount Filesystems:**
-    ```shell
-    mount /dev/mapper/root-crypt /mnt
-    mkdir -p /mnt/boot
-    mount /dev/sda1 /mnt/boot
-    ```
-
-6.  **Clone the repository:**
+1.  **Clone the repository:**
     ```shell
     git clone https://github.com/sincorchetes/nixos-flake-hardware-profiles /mnt/etc/nixos
     ```
 
-7.  **Run the installation:**
+2.  **Run the installation (this will execute the Disko configuration):**
     ```shell
     nixos-install --flake /mnt/etc/nixos#thinkpad-x270
     ```
 
-8.  After the installation is complete, set a password for the `root` user and reboot.
+3.  You will be prompted to enter a passphrase to encrypt the root partition.
+
+4.  After the installation is complete, set a password for the `root` user and reboot.
