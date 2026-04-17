@@ -4,7 +4,6 @@
 - GPU: Intel Skylake GT2 [HD Graphics 520]
 - RAM: 32GB
 - Desktop Environment: XFCE (lightweight)
-- 
 
 ## HP ProBook 440 G8 PC/8A74
 - CPU: Intel i7-1165G7
