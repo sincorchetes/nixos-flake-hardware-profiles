@@ -183,8 +183,8 @@
         dc = "docker compose";
         gg = "google-cloud-sdk";
 
-        nxupdate = "sudo nixos-rebuild switch --refresh --flake .#$(hostname) --impure";
-        nxcboot = "sudo nixos-rebuild boot --flake .#$(hostname) --impure";
+        nxupdate = "sudo nixos-rebuild switch --refresh --flake .#$(hostname)";
+        nxcboot = "sudo nixos-rebuild boot --flake .#$(hostname)";
         nxcsys = "nix-collect-garbage -d && sudo nix-collect-garbage -d";
         nxfull = "nxupdate && nxcsys && nxcboot";
       };

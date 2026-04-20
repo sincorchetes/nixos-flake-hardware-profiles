@@ -1,4 +1,4 @@
-{pkgs, ...}: let
+{pkgs, lib, ...}: let
   presetsDir = ./easyeffects-presets;
   presets = [
     "Input - StreamCam"
@@ -12,10 +12,14 @@
   ];
 in {
 
-  home.file = builtins.listToAttrs (map (name: {
-    name = ".config/easyeffects/output/${name}.json";
-    value = {source = "${presetsDir}/${name}.json";};
-  }) presets);
+  home.file = builtins.listToAttrs (map (name:
+    let
+      type = if lib.hasPrefix "Input - " name then "input" else "output";
+    in {
+      name = ".local/share/easyeffects/${type}/${name}.json";
+      value = {source = "${presetsDir}/${name}.json";};
+    }
+  ) presets);
 
   home.packages = with pkgs; [
     easyeffects
