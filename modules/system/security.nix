@@ -11,8 +11,13 @@
       ];
     };
 
-    sudo.enable = true;
+    sudo.enable = false;
+    polkit.enable = true;
     rtkit.enable = true;
+  };
+
+  environment.shellAliases = {
+    sudo = "run0";
   };
 
   boot = {
