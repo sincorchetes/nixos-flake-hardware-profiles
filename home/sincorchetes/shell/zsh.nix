@@ -182,7 +182,8 @@
         t = "terraform";
         dc = "docker compose";
         gg = "google-cloud-sdk";
-
+        sudo = "run0";
+        
         nxupdate = "sudo nixos-rebuild switch --refresh --flake .#$(hostname)";
         nxcboot = "sudo nixos-rebuild boot --flake .#$(hostname)";
         nxcsys = "nix-collect-garbage -d && sudo nix-collect-garbage -d";
