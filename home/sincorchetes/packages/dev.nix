@@ -2,11 +2,11 @@
 {
   home.packages = with pkgs; [
     devenv
+    aider-chat-with-playwright
     kubectl
     kubernetes-helm
     minikube
     vscode
-    github-copilot-cli
     pre-commit
     jetbrains.datagrip
     dbeaver-bin

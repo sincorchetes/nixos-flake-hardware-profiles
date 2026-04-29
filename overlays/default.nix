@@ -24,7 +24,9 @@ in
     pickPkgs [
       "vscode"
       "google-cloud-sdk"
-      "github-copilot-cli"
+      "claude-code"
+      "claude-agent-acp"
+      "claude-monitor"
       "antigravity"
     ];
 
