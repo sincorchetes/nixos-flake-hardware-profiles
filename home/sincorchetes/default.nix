@@ -10,7 +10,6 @@
     ./packages/fonts.nix
     ./packages/gnome.nix
     ./packages/mpv.nix
-    ./packages/xfce.nix
   ];
 
   home = {
@@ -21,6 +20,7 @@
     sessionVariables = {
       EDITOR = "nvim";
       XDG_CONFIG_HOME = "/home/sincorchetes/.config";
+      OLLAMA_API_BASE = "http://127.0.0.1:11434";
       LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath [ pkgs.stdenv.cc.cc ];
     };
 

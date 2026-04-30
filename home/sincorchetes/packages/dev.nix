@@ -11,7 +11,12 @@
     jetbrains.datagrip
     dbeaver-bin
     ghostty
-    (google-cloud-sdk.withExtraComponents [google-cloud-sdk.components.gke-gcloud-auth-plugin])
     antigravity
+    claude-code
+    claude-agent-acp
+    claude-monitor
+    (google-cloud-sdk.withExtraComponents [
+      google-cloud-sdk.components.gke-gcloud-auth-plugin
+    ])
   ];
 }

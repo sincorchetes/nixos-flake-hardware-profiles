@@ -168,7 +168,7 @@
           compdef _kubectl kubecolor
         fi
       '';
-
+      
       shellAliases = {
         cat = "bat --paging=never -p";
         c = "clear";
@@ -176,7 +176,7 @@
         ll = "eza -l";
         open = "xdg-open";
         vim = "nvim";
-
+        gssh = "ghostty +ssh-terminfo";
         k = "kubecolor";
         g = "git";
         t = "terraform";

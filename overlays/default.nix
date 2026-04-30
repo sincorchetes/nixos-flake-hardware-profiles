@@ -28,6 +28,8 @@ in
       "claude-agent-acp"
       "claude-monitor"
       "antigravity"
+      "ollama-cuda"
+      "litellm"
     ];
 
 }
