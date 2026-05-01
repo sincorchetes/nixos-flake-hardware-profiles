@@ -1,31 +1,9 @@
-{
-  nixpkgs-unstable,
-}:
+{ nixpkgs-unstable }:
 let
-  importPkgs = src: prev:
-    import src {
-      inherit (prev.stdenv.hostPlatform) system;
-      config.allowUnfree = true;
-    };
+  unstablePkgs = import ./nixpkgs-unstable.nix { inherit nixpkgs-unstable; };
+  llmPkgs = import ./llm.nix { inherit nixpkgs-unstable; };
 in
 {
   unstable-overlay = final: prev:
-    let
-      unstable = importPkgs nixpkgs-unstable prev;
-      pickPkgs =
-        names:
-        builtins.listToAttrs (
-          map (name: {
-            inherit name;
-            value = unstable.${name};
-          }) names
-        );
-    in
-    pickPkgs [
-      "vscode"
-      "google-cloud-sdk"
-      "github-copilot-cli"
-      "antigravity"
-    ];
-
+    (unstablePkgs final prev) // (llmPkgs final prev);
 }

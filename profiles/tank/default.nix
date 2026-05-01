@@ -12,6 +12,7 @@
     ../../modules/hardware/nvidia.nix
     ../../modules/hardware/bluetooth.nix
     ../../modules/services/steam.nix
+    ../../modules/system/llm.nix
   ];
 
   networking = {
