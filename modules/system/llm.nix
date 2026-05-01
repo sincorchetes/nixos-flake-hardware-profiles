@@ -10,8 +10,4 @@
         openFirewall = false;
         package = pkgs.ollama-cuda;
     };
-
-    environment.systemPackages = with pkgs; [
-        litellm
-    ];
 }
