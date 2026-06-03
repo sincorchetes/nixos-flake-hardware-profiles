@@ -1,0 +1,47 @@
+{pkgs, ...}: {
+  home.packages = with pkgs; [
+    fastfetch
+    git
+    bat
+    k9s
+    nixfmt
+    kubecolor
+    eza
+    tree
+    ncdu
+    xh
+    procs
+    dust
+    duf
+    tldr
+    sd
+    glow
+    hyperfine
+    navi
+    doggo
+    just
+    chezmoi
+    asciinema
+    borgbackup
+    wl-clipboard
+    desktop-file-utils
+    playerctl
+    tcpdump
+    nmap
+    p0f
+    wireshark
+    rustscan
+    openssl
+    gnupg
+    nix-search-cli
+    gemini-cli
+    htop
+    btop
+    bandwhich
+    watchexec
+    ouch
+    yq-go
+    tokei
+    gping
+  ];
+}

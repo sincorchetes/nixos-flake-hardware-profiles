@@ -1,0 +1,47 @@
+name: Auto-update flake.lock in main
+
+on:
+  schedule:
+    - cron: '0 3 */3 * *'
+  push:
+    branches:
+      - main
+
+jobs:
+  update-flake-lock:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Configure Git
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+
+      - name: Install Nix
+        uses: cachix/install-nix-action@v25
+
+      - name: Set up SOPS key
+        run: |
+          mkdir -p ~/.config/sops/age
+          echo "$SOPS_AGE_KEY" > ~/.config/sops/age/keys.txt
+        env:
+          SOPS_AGE_KEY: ${{ secrets.SOPS_AGE_KEY }}
+
+      - name: Run flake update
+        run: nix flake update && nix flake update --update-input nixpkgs-unstable
+
+      - name: Commit and push updated flake.lock
+        run: |
+          if [[ -n "$(git status --porcelain flake.lock)" ]]; then
+            git add flake.lock
+            git commit -m "auto: update flake.lock"
+            git push
+          else
+            echo "flake.lock is up to date"
+          fi
