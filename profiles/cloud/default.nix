@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 
 {
   imports = [
@@ -47,7 +47,7 @@
 
     initrd = {
       systemd.enable = true;
-      luks.devices."cryptroot" = {
+      luks.devices."cryptroot" = lib.mkForce {
         device = "/dev/disk/by-partlabel/cryptdisk";
         allowDiscards = true;
         bypassWorkqueues = true;
