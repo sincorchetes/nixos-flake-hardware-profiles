@@ -1,67 +1,63 @@
 {
   disko.devices = {
-    zpool.rpool = {
-      type = "zpool";
-      options = {
-        ashift = "12";
-        autotrim = "on";
-      };
-      rootFsOptions = {
-        encryption = "aes-256-gcm";
-        keyformat = "passphrase";
-        keylocation = "prompt";
-        compression = "lz4";
-        xattr = "sa";
-        atime = "off";
-        acltype = "posixacl";
-      };
-      datasets = {
-        "local/root" = {
-          type = "zfs_fs";
-          mountpoint = "/";
-          options.mountpoint = "legacy";
-        };
-        "local/nix" = {
-          type = "zfs_fs";
-          mountpoint = "/nix";
-          options = {
-            atime = "off";
-            mountpoint = "legacy";
+    disk.nvme = {
+      type = "disk";
+      device = "/dev/nvme0n1";
+      content = {
+        type = "gpt";
+        partitions = {
+          ESP = {
+            size = "4G";
+            type = "EF00";
+            content = {
+              type = "filesystem";
+              format = "vfat";
+              mountpoint = "/boot/EFI";
+              mountOptions = [
+                "fmask=0077"
+                "dmask=0077"
+                "defaults"
+              ];
+            };
           };
-        };
-        "local/docker" = {
-          type = "zfs_fs";
-          mountpoint = "/var/lib/docker";
-          options = {
-            mountpoint = "legacy";
-            recordsize = "128K";
-          };
-        };
-        "safe/home" = {
-          type = "zfs_fs";
-          mountpoint = "/home";
-          options.mountpoint = "legacy";
-        };
-        "safe/home/sincorchetes/.cache" = {
-          type = "zfs_fs";
-          mountpoint = "/home/sincorchetes/.cache";
-          options = {
-            mountpoint = "legacy";
-            atime = "off";
-            "com.sun:auto-snapshot" = "false";
+          cryptdisk = {
+            size = "100%";
+            content = {
+              type = "luks";
+              name = "cryptroot";
+              settings.allowDiscards = true;
+              content = {
+                type = "lvm_pv";
+                vg = "vg0";
+              };
+            };
           };
         };
       };
     };
-  };
-
-  fileSystems."/boot" = {
-    device = "/dev/disk/by-uuid/A21B-C51C";
-    fsType = "vfat";
-    options = [
-      "fmask=0077"
-      "dmask=0077"
-      "defaults"
-    ];
+    lvm_vg.vg0 = {
+      type = "lvm_vg";
+      lvs = {
+        swap = {
+          size = "32G";
+          content = {
+            type = "swap";
+          };
+        };
+        root = {
+          size = "100%FREE";
+          content = {
+            type = "filesystem";
+            format = "ext4";
+            mountpoint = "/";
+            mountOptions = [
+              "defaults"
+              "noatime"
+              "lazytime"
+            ];
+          };
+        };
+      };
+    };
   };
 }

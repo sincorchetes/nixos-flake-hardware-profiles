@@ -11,7 +11,6 @@
 
   networking = {
     hostName = "cloud0";
-    hostId = "26c607d9";
     networkmanager.wifi.powersave = true;
   };
 
@@ -27,27 +26,32 @@
       systemd-boot.enable = true;
       systemd-boot.configurationLimit = 5;
       efi.canTouchEfiVariables = true;
+      efi.efiSysMountPoint = "/boot/EFI";
       grub.enable = false;
     };
 
-    kernelPackages = pkgs.linuxPackages_6_18;
-    zfs.package = pkgs.zfs_2_4;
-    zfs.forceImportRoot = true;
-    zfs.devNodes = "/dev/disk/by-partlabel";
-    zfs.requestEncryptionCredentials = true;
+    kernelPackages = pkgs.linuxPackages_latest;
 
     kernelParams = [
       "intel_pstate=active"
       "i915.enable_psr=0"
+      "i915.enable_fbc=1"
       "intel_iommu=on"
       "zswap.enabled=1"
       "zswap.max_pool_percent=15"
       "zswap.compressor=zstd"
-      "zfs.zfs_arc_max=4294967296"
+      "zswap.zpool=z3fold"
+      "mem_sleep_default=deep"
+      "nmi_watchdog=0"
     ];
 
     initrd = {
-      supportedFilesystems = [ "zfs" ];
+      systemd.enable = true;
+      luks.devices."cryptroot" = {
+        device = "/dev/disk/by-partlabel/cryptdisk";
+        allowDiscards = true;
+        bypassWorkqueues = true;
+      };
       availableKernelModules = [
         "vmd"
         "nvme"
@@ -57,43 +61,49 @@
         "sd_mod"
         "thunderbolt"
         "intel_lpss_pci"
+        "dm_mod"
+        "dm_crypt"
       ];
       includeDefaultModules = true;
     };
 
-    supportedFilesystems = [ "zfs" "ntfs" ];
+    supportedFilesystems = [ "ntfs" ];
     kernelModules = [ "kvm-intel" ];
   };
 
+  boot.kernel.sysctl = {
+    "vm.swappiness" = 10;
+    "vm.dirty_background_ratio" = 5;
+    "vm.dirty_ratio" = 15;
+    "vm.vfs_cache_pressure" = 50;
+    "net.core.rmem_max" = 134217728;
+    "net.core.wmem_max" = 134217728;
+    "net.ipv4.tcp_rmem" = "4096 87380 134217728";
+    "net.ipv4.tcp_wmem" = "4096 65536 134217728";
+    "net.ipv4.tcp_congestion_control" = "bbr";
+    "net.core.default_qdisc" = "fq";
+  };
+
+  services.fstrim = {
+    enable = true;
+    interval = "weekly";
+  };
+
+  services.irqbalance.enable = true;
   services.thermald.enable = true;
   services.power-profiles-daemon.enable = true;
+  powerManagement.powertop.enable = true;
 
   services.udev.extraRules = ''
     ACTION=="add|change", KERNEL=="nvme[0-9]*", ATTR{queue/scheduler}="none"
   '';
 
+  environment.systemPackages = with pkgs; [
+    powertop
+  ];
+
   virtualisation.docker = {
     enable = true;
-    storageDriver = "zfs";
-  };
-
-  services.sanoid = {
-    enable = true;
-    datasets = {
-      "rpool/safe/home" = {
-        autoprune = true;
-        autosnap = true;
-        hourly = 24;
-        daily = 7;
-        monthly = 3;
-      };
-      "rpool/local/root" = {
-        autoprune = true;
-        autosnap = true;
-        hourly = 12;
-        daily = 3;
-        monthly = 1;
-      };
-    };
+    storageDriver = "overlay2";
   };
 }
