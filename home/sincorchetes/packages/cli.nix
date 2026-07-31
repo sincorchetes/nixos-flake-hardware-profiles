@@ -43,5 +43,6 @@
     yq-go
     tokei
     gping
+    cloudflare-warp
   ];
 }
