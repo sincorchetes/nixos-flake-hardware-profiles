@@ -24,7 +24,7 @@
 
 ## ASUS Vivobook
 - Target Profile: `cloud0`
-- Feature: Shared EFI with Windows, ZFS, Lanzaboote Secure Boot
+- Feature: Full-disk LUKS encryption, LVM (ext4 root + swap), Lanzaboote Secure Boot
 
 # Setup Guide
 
@@ -198,65 +198,120 @@ This method uses `disko` to automatically partition and format the disk with an 
 
 6.  After the installation is complete, set a password for the `root` user and reboot.
 
-### Method D: `cloud0` - ASUS Vivobook (Manual ZFS + Secure Boot)
+### Method D: `cloud0` - ASUS Vivobook (LUKS + LVM + ext4 + Secure Boot)
 
-This method covers the installation for the `cloud0` profile. It involves manual ZFS partitioning (to share a drive safely with Windows) and configuring Secure Boot using Lanzaboote with Microsoft keys included.
+This method uses `disko` to automatically partition `/dev/nvme0n1` with a LUKS-encrypted LVM layout (ext4 root, 32 GB swap) and configures Secure Boot via Lanzaboote.
 
-1.  **Create the ZFS Pool manually:**
-    *   Identify your target partition (e.g., using `partlabel`).
+**Partition layout that disko creates:**
+
+| Partition | Label | Size | Content |
+|-----------|-------|------|---------|
+| `/dev/nvme0n1p1` | ESP | 4 GB | vfat → `/boot/EFI` |
+| `/dev/nvme0n1p2` | `cryptdisk` | Remaining | LUKS → LVM vg0 → swap (32 GB) + ext4 root |
+
+> **Why the system hangs on boot if you skip disko:** The initrd looks for
+> `/dev/disk/by-partlabel/cryptdisk` to open LUKS. If that GPT label does not
+> exist the boot process will stall indefinitely. Always use disko (or create
+> the partition with exactly that label manually) so the label is correct.
+
+**WARNING:** This wipes the entire `/dev/nvme0n1` disk.
+
+#### Phase 1 – Live environment
+
+1.  **Boot from the NixOS minimal ISO** and open a root shell:
     ```shell
-    sudo zpool create -f -O encryption=aes-256-gcm -O keyformat=passphrase -O keylocation=prompt -O compression=lz4 -O xattr=sa -O atime=off -O acltype=posixacl rpool /dev/disk/by-partlabel/zfs
+    sudo -i
     ```
 
-2.  **Create ZFS Datasets:**
+2.  **Connect to the internet** (`nmtui` for Wi-Fi or automatic DHCP for Ethernet).
+
+3.  **Enter a temporary Nix shell** with git:
     ```shell
-    sudo zfs create -p -o mountpoint=legacy rpool/local/root
-    sudo zfs create -p -o mountpoint=legacy -o atime=off rpool/local/nix
-    sudo zfs create -p -o mountpoint=legacy -o recordsize=128K rpool/local/docker
-    sudo zfs create -p -o mountpoint=legacy rpool/safe/home
-    sudo zfs create -p -o mountpoint=legacy -o atime=off -o com.sun:auto-snapshot=false rpool/safe/home/sincorchetes/.cache
+    nix-shell -p git
     ```
 
-3.  **Mount Filesystems:**
+4.  **Clone the repository to `/tmp`** (more space than the ISO's tmpfs):
     ```shell
-    sudo mount -t zfs rpool/local/root /mnt
-    sudo mkdir -p /mnt/{nix,home,var/lib/docker,boot}
-    sudo mount -t zfs rpool/local/nix /mnt/nix
-    sudo mount -t zfs rpool/safe/home /mnt/home
-    sudo mount -t zfs rpool/local/docker /mnt/var/lib/docker
-    
-    # Mount the shared Windows EFI partition
-    sudo mount /dev/disk/by-partlabel/disk-main-ESP /mnt/boot
+    cd /tmp
+    git clone https://github.com/sincorchetes/nixos-flake-hardware-profiles nixos
+    cd nixos
     ```
 
-4.  **Run the installation:**
+#### Phase 2 – Partition, format and mount
+
+5.  **Run disko** — this partitions the disk, formats both the ESP and the LUKS container, activates LVM and mounts everything under `/mnt`. You will be prompted to enter and confirm the LUKS passphrase:
     ```shell
-    sudo nixos-install --flake .#cloud0
+    sudo nix run github:nix-community/disko \
+      --extra-experimental-features "nix-command flakes" \
+      -- --mode disko ./profiles/cloud/disko.nix
     ```
 
-5.  **Reboot and Configure Secure Boot (Post-Install):**
-    *   Reboot into the newly installed system (Secure Boot should be disabled in BIOS at this point).
-    *   Generate your Secure Boot keys and place them where Lanzaboote expects them:
+    After disko finishes, verify the mounts:
     ```shell
-    sudo sbctl create-keys --export /etc/secureboot
-    sudo mkdir -p /etc/secureboot/keys
-    sudo mv /etc/secureboot/{db,KEK,PK} /etc/secureboot/keys/
+    mount | grep /mnt
+    # Expected: /mnt (ext4), /mnt/boot/EFI (vfat)
+    lsblk -o NAME,LABEL,MOUNTPOINT /dev/nvme0n1
     ```
-    *   Apply the configuration so Lanzaboote builds and signs your Unified Kernel Image (UKI):
+
+#### Phase 3 – Installation
+
+6.  **Create a TMPDIR on the mounted disk** to avoid running out of space in the ISO's tmpfs during the build:
     ```shell
+    sudo mkdir -p /mnt/tmp
+    sudo chmod 1777 /mnt/tmp
+    ```
+
+7.  **Install NixOS:**
+    ```shell
+    sudo TMPDIR=/mnt/tmp nixos-install --flake /tmp/nixos#cloud0
+    ```
+
+    You will be asked to set a root password at the end of the installation.
+
+8.  **Reboot** into the newly installed system.  
+    Secure Boot must be **disabled** in the UEFI firmware at this point (you will enable it later):
+    ```shell
+    reboot
+    ```
+
+#### Phase 4 – First boot: generate Secure Boot keys
+
+Log in as root (or `sudo -i`) once NixOS has booted.
+
+9.  **Generate your Secure Boot key bundle** where Lanzaboote expects it:
+    ```shell
+    sudo sbctl create-keys
+    ```
+
+    `sbctl` stores the keys in `/etc/secureboot/` by default, which matches `pkiBundle = "/etc/secureboot"` in the profile.
+
+10. **Rebuild the system** so Lanzaboote signs the Unified Kernel Image (UKI) with the new keys:
+    ```shell
+    cd /etc/nixos   # or wherever you cloned the flake
     sudo nixos-rebuild switch --flake .#cloud0
     ```
 
-6.  **Enroll Keys into the Motherboard:**
-    *   Reboot your laptop and enter the UEFI/BIOS.
-    *   Go to the Secure Boot section and select **"Reset to Setup Mode"** (or "Clear Secure Boot Keys").
-    *   Save changes and boot NixOS again.
-    *   Enroll your new custom keys, **ensuring you include Microsoft's keys** (`-m`) so Windows continues to boot:
+11. **Verify that the UKI is signed correctly:**
+    ```shell
+    sudo sbctl verify
+    ```
+    Every entry listed should show `OK`.
+
+#### Phase 5 – Enroll keys into the UEFI firmware
+
+12. **Reboot into the UEFI/BIOS** setup screen.
+
+13. Navigate to the **Secure Boot** section and choose **"Reset to Setup Mode"** (also called "Clear Secure Boot Keys" on some firmware). Save and exit — the laptop will boot NixOS again.
+
+14. **Enroll your keys**, including Microsoft's UEFI CA so that any Microsoft-signed firmware (e.g. BIOS updates, Option ROMs) continues to work:
     ```shell
     sudo sbctl enroll-keys -m
     ```
 
-7.  **Finalize:**
-    *   Reboot into BIOS one last time.
-    *   Enable Secure Boot (it should now display "User Mode").
-    *   Save and exit. Your dual-boot system is now fully secured.
+15. **Reboot into the UEFI/BIOS** one final time and **enable Secure Boot**. The firmware should now show **"User Mode"** (not "Setup Mode"). Save and exit.
+
+16. NixOS will boot normally with Secure Boot active. Confirm with:
+    ```shell
+    bootctl status | grep "Secure Boot"
+    # Should show: Secure Boot: enabled (user)
+    ```

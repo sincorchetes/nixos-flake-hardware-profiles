@@ -52,17 +52,19 @@
         allowDiscards = true;
         bypassWorkqueues = true;
       };
-      availableKernelModules = [
+      kernelModules = [
         "vmd"
         "nvme"
+        "dm_mod"
+        "dm_crypt"
+      ];
+      availableKernelModules = [
         "xhci_pci"
         "ahci"
         "usb_storage"
         "sd_mod"
         "thunderbolt"
         "intel_lpss_pci"
-        "dm_mod"
-        "dm_crypt"
       ];
       includeDefaultModules = true;
     };
