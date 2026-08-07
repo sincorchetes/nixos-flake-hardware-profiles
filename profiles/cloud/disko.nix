@@ -54,6 +54,7 @@
               "defaults"
               "noatime"
               "lazytime"
+              "commit=60"
             ];
           };
         };

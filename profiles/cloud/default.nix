@@ -7,6 +7,7 @@
     ../../modules/system/secureboot.nix
     ../../modules/hardware/intel-gpu.nix
     ../../modules/hardware/bluetooth.nix
+    ../../modules/services/steam.nix
   ];
 
   networking = {
@@ -43,6 +44,7 @@
       "zswap.zpool=z3fold"
       "mem_sleep_default=deep"
       "nmi_watchdog=0"
+      "nvme_core.default_ps_max_latency_us=0"
     ];
 
     initrd = {
@@ -78,6 +80,8 @@
     "vm.dirty_background_ratio" = 5;
     "vm.dirty_ratio" = 15;
     "vm.vfs_cache_pressure" = 50;
+    "vm.dirty_writeback_centisecs" = 1500;
+    "vm.dirty_expire_centisecs" = 3000;
     "net.core.rmem_max" = 134217728;
     "net.core.wmem_max" = 134217728;
     "net.ipv4.tcp_rmem" = "4096 87380 134217728";
@@ -98,6 +102,7 @@
 
   services.udev.extraRules = ''
     ACTION=="add|change", KERNEL=="nvme[0-9]*", ATTR{queue/scheduler}="none"
+    ACTION=="add|change", KERNEL=="dm-[0-9]*", ATTR{bdi/read_ahead_kb}="2048"
   '';
 
   environment.systemPackages = with pkgs; [
