@@ -26,6 +26,6 @@
       cmp_luasnip
     ];
 
-    extraLuaConfig = builtins.readFile ./neovim/init.lua;
+    initLua = builtins.readFile ./neovim/init.lua;
   };
 }

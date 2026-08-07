@@ -11,7 +11,7 @@
     jetbrains.datagrip
     dbeaver-bin
     ghostty
-    antigravity-ide
+    antigravity
     claude-code
     claude-agent-acp
     claude-monitor
