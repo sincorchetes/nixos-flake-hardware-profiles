@@ -3,6 +3,7 @@
   imports = [
     ./shell/zsh.nix
     ./shell/tmux.nix
+    ./shell/neovim.nix
     ./packages/apps.nix
     ./packages/cli.nix
     ./packages/dev.nix

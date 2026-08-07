@@ -21,5 +21,6 @@
     postman
     discord
     transmission_4-gtk
+    onlyoffice-desktopeditors
   ];
 }

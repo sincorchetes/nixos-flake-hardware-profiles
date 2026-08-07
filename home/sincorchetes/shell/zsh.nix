@@ -2,7 +2,7 @@
 
 {
   programs =
-    (lib.genAttrs [ "lazygit" "neovim" "ripgrep" "fd" "jq" "bottom" "trippy" ] (_: { enable = true; }))
+    (lib.genAttrs [ "lazygit" "ripgrep" "fd" "jq" "bottom" "trippy" ] (_: { enable = true; }))
     // (lib.genAttrs [ "navi" "broot" "yazi" "fzf" "zoxide" "atuin" ] (_: { enable = true; enableZshIntegration = true; }))
     // {
 
