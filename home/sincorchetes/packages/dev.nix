@@ -11,10 +11,10 @@
     jetbrains.datagrip
     dbeaver-bin
     ghostty
-    antigravity
+    antigravity-ide
     claude-code
-    claude-agent-acp
-    claude-monitor
+    #claude-agent-acp
+    #claude-monitor
     vscode-extensions.anthropic.claude-code
     (google-cloud-sdk.withExtraComponents [
       google-cloud-sdk.components.gke-gcloud-auth-plugin

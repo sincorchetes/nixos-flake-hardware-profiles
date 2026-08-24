@@ -81,7 +81,7 @@
 
   services.udev.extraRules = ''
     # NVMe: use none scheduler (hardware has its own queue)
-    ACTION=="add|change", KERNEL=="nvme[0-9]*", ATTR{queue/scheduler}="none"
+    ACTION=="add|change", SUBSYSTEM=="block", KERNEL=="nvme[0-9]*n[0-9]*", ATTR{queue/scheduler}="none"
   '';
 
   environment.systemPackages = with pkgs; [

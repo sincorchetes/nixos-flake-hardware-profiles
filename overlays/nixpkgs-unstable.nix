@@ -9,6 +9,6 @@ in
       "claude-code"
       "claude-agent-acp"
       "claude-monitor"
-      "antigravity"
+      "antigravity-ide"
       "ollama-cuda"
     ]

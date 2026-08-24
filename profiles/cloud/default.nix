@@ -44,9 +44,6 @@
       "zswap.zpool=zsmalloc"
       "mem_sleep_default=deep"
       "nmi_watchdog=0"
-      "nvme_core.default_ps_max_latency_us=0"
-      "pcie_aspm=off"
-      "pcie_port_pm=off"
     ];
 
     initrd = {
@@ -57,7 +54,6 @@
         bypassWorkqueues = true;
       };
       kernelModules = [
-        "vmd"
         "nvme"
         "dm_mod"
         "dm_crypt"
@@ -75,6 +71,11 @@
 
     supportedFilesystems = [ "ntfs" ];
     kernelModules = [ "kvm-intel" ];
+
+    tmp = {
+      useTmpfs = true;
+      tmpfsSize = "50%";
+    };
   };
 
   boot.kernel.sysctl = {
@@ -84,6 +85,10 @@
     "vm.vfs_cache_pressure" = 50;
     "vm.dirty_writeback_centisecs" = 1500;
     "vm.dirty_expire_centisecs" = 3000;
+    "vm.page-cluster" = 0;
+    "fs.inotify.max_user_watches" = 524288;
+    "fs.inotify.max_user_instances" = 1024;
+    "fs.file-max" = 2097152;
     "net.core.rmem_max" = 134217728;
     "net.core.wmem_max" = 134217728;
     "net.ipv4.tcp_rmem" = "4096 87380 134217728";
@@ -107,8 +112,8 @@
   powerManagement.powertop.enable = false;
 
   services.udev.extraRules = ''
-    ACTION=="add|change", KERNEL=="nvme[0-9]*", ATTR{queue/scheduler}="none"
-    ACTION=="add|change", KERNEL=="dm-[0-9]*", ATTR{bdi/read_ahead_kb}="2048"
+    ACTION=="add|change", SUBSYSTEM=="block", KERNEL=="nvme[0-9]*n[0-9]*", ATTR{queue/scheduler}="none"
+    ACTION=="add|change", SUBSYSTEM=="block", KERNEL=="dm-[0-9]*", ATTR{bdi/read_ahead_kb}="2048"
   '';
 
   environment.systemPackages = with pkgs; [
