@@ -41,10 +41,12 @@
       "zswap.enabled=1"
       "zswap.max_pool_percent=15"
       "zswap.compressor=zstd"
-      "zswap.zpool=z3fold"
+      "zswap.zpool=zsmalloc"
       "mem_sleep_default=deep"
       "nmi_watchdog=0"
       "nvme_core.default_ps_max_latency_us=0"
+      "pcie_aspm=off"
+      "pcie_port_pm=off"
     ];
 
     initrd = {
@@ -98,7 +100,11 @@
   services.irqbalance.enable = true;
   services.thermald.enable = true;
   services.power-profiles-daemon.enable = true;
-  powerManagement.powertop.enable = true;
+  # Disabled: powertop --auto-tune forces aggressive PCIe/NVMe runtime PM,
+  # which was causing "nvme0: I/O tag ... timeout, completion polled" every
+  # ~30s during boot (the controller couldn't wake from the deeper power
+  # state in time), adding minutes to boot.
+  powerManagement.powertop.enable = false;
 
   services.udev.extraRules = ''
     ACTION=="add|change", KERNEL=="nvme[0-9]*", ATTR{queue/scheduler}="none"
