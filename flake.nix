@@ -51,14 +51,6 @@
           inherit specialArgs;
           modules = commonModules ++ [ ./profiles/tank/default.nix ];
         };
-        probook0 = nixpkgs.lib.nixosSystem {
-          inherit specialArgs;
-          modules = commonModules ++ [ ./profiles/probook/default.nix ];
-        };
-        thinkpad-x270 = nixpkgs.lib.nixosSystem {
-          inherit specialArgs;
-          modules = commonModules ++ [ ./profiles/thinkpad-x270/default.nix ];
-        };
         cloud0 = nixpkgs.lib.nixosSystem {
           inherit specialArgs;
           modules = commonModules ++ [ ./profiles/cloud/default.nix ];
