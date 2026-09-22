@@ -2,7 +2,7 @@
 
 {
   services = {
-    avahi.enable = false;
+    avahi.enable = true;
     gnome = {
       gnome-remote-desktop.enable = false;
       gnome-browser-connector.enable = false;

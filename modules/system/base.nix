@@ -46,7 +46,7 @@
     };
   };
 
-  time.timeZone = "Atlantic/Canary";
+  time.timeZone = "Europe/Madrid";
 
   console.keyMap = "es";
 
