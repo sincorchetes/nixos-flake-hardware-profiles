@@ -2,6 +2,7 @@
   home.packages = with pkgs; [
     fastfetch
     git
+    gh
     bat
     k9s
     nixfmt
