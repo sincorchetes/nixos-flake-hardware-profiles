@@ -5,14 +5,14 @@
     openvpn
     networkmanager-openvpn
     openfortivpn
-    networkmanager-fortisslvpn
+    #networkmanager-fortisslvpn
   ];
 
   networking.networkmanager = {
     enable = true;
     plugins = with pkgs; [
       networkmanager-openvpn
-      networkmanager-fortisslvpn
+      #networkmanager-fortisslvpn
     ];
   };
 

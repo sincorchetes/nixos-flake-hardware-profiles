@@ -44,6 +44,8 @@
       "zswap.zpool=zsmalloc"
       "mem_sleep_default=deep"
       "nmi_watchdog=0"
+      "fsck.mode=force"
+      "fsck.repair=yes"
     ];
 
     initrd = {

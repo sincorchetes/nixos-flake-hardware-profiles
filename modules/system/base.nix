@@ -5,7 +5,7 @@
 }:
 
 {
-  system.stateVersion = "25.11";
+  system.stateVersion = "26.05";
 
   nix = {
     settings = {
@@ -46,7 +46,7 @@
     };
   };
 
-  time.timeZone = "Atlantic/Canary";
+  time.timeZone = "Europe/Madrid";
 
   console.keyMap = "es";
 
