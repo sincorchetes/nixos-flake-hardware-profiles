@@ -13,6 +13,7 @@
     ../../modules/hardware/bluetooth.nix
     ../../modules/services/steam.nix
     ../../modules/services/tailscale.nix
+    ../../modules/services/sshd.nix
     #../../modules/system/llm.nix
   ];
 

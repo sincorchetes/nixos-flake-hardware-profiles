@@ -1,9 +1,11 @@
 {
   services.openssh = {
     enable = true;
+    openFirewall = false;
     settings = {
       PermitRootLogin = "no";
       PasswordAuthentication = false;
+      KbdInteractiveAuthentication = false;
     };
     ports = [
       22
@@ -11,7 +13,8 @@
     ];
   };
 
-  networking.firewall.allowedTCPPorts = [
+  # Solo accesible desde la tailnet, ni LAN ni internet
+  networking.firewall.interfaces.tailscale0.allowedTCPPorts = [
     22
     2222
   ];

@@ -17,8 +17,4 @@
   };
 
   boot.kernelModules = [ "ppp_generic" ];
-  networking.firewall.allowedTCPPorts = [
-    443
-    10443
-  ];
 }

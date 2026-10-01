@@ -8,6 +8,7 @@
     ../../modules/hardware/intel-gpu.nix
     ../../modules/hardware/bluetooth.nix
     ../../modules/services/steam.nix
+    ../../modules/services/tailscale.nix
   ];
 
   networking = {
