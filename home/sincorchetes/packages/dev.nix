@@ -2,7 +2,7 @@
 {
   home.packages = with pkgs; [
     devenv
-    aider-chat-with-playwright
+    #aider-chat-with-playwright
     kubectl
     kubernetes-helm
     minikube

@@ -10,5 +10,5 @@ in
       "claude-agent-acp"
       "claude-monitor"
       "antigravity-ide"
-      "ollama-cuda"
+      #"ollama-cuda"
     ]
